@@ -20,6 +20,7 @@ export default function (props) {
       items={items}
       onItemClick={(item) => openLink(`/article?id=${item.id}`)}
       itemTemplate={ArticleListItemWrapper}
+      backgroundColor="transparent"
     />
   );
 }

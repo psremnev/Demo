@@ -5,4 +5,5 @@ export interface ICarousel {
   items?: object[];
   source?: Service;
   itemTemplate?: VFC;
+  backgroundColor?: string;
 }

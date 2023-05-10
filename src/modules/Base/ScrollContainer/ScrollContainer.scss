@@ -26,6 +26,8 @@
     z-index: 2;
     align-items: center;
     justify-content: center;
+    border-radius: 6px;
+    font-weight: bold;
 }
 
 .scrollContainer__base {
@@ -48,18 +50,14 @@
 
     &__previouslyBtn {
         @include navBtns();
-        background: linear-gradient(to right, #ffffffde, #dfdfdf30);
+        background: linear-gradient(to right, #87878754, #ffffff00);
         left: 0;
-        border-top-right-radius: 2px;
-        border-bottom-right-radius: 2px;
     }
 
     &__nextBtn {
         @include navBtns();
-        background: linear-gradient(to left, #ffffffde, #dfdfdf30);
+        background: linear-gradient(to left, #87878754, #ffffff00);
         right: 0;
-        border-top-left-radius: 2px;
-        border-bottom-left-radius: 2px;
     }
 
     &__previouslyBtn:hover {

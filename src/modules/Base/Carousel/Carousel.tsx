@@ -7,7 +7,7 @@ import { ORIENTATION_TYPE } from 'scrollContainer';
  * @description Горизонтальный список с навигацией
  * @param ICarousel
  */
-export default function Carousel({ items, source, itemTemplate }: ICarousel) {
+export default function Carousel({ items, source, itemTemplate, backgroundColor }: ICarousel) {
   return (
     <List
       className="carousel"
@@ -18,6 +18,7 @@ export default function Carousel({ items, source, itemTemplate }: ICarousel) {
       showNavBtns={true}
       showShadow={false}
       showScrollBar={false}
+      backgroundColor={backgroundColor}
     />
   );
 }

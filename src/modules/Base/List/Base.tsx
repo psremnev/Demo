@@ -42,6 +42,7 @@ export default function ({
               key={index}
               className="itemTemplate"
               style={{
+                cursor: onItemClick  ? 'pointer' : 'default',
                 padding: `${thisItemPadding.current.top}px ${thisItemPadding.current.right}px
                  ${thisItemPadding.current.bottom}px ${thisItemPadding.current.left}px`,
               }}

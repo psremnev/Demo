@@ -185,7 +185,7 @@ export default function ScrollContainer({
     >
       {showNavBtns && (
         <div
-          className="scrollContainer__previouslyBtn ti-angle-double-left"
+          className="scrollContainer__previouslyBtn ti-angle-left"
           onClick={() => navBtnsClick(false)}
         />
       )}
@@ -221,7 +221,7 @@ export default function ScrollContainer({
       )}
       {showNavBtns && (
         <div
-          className="scrollContainer__nextBtn ti-angle-double-right"
+          className="scrollContainer__nextBtn ti-angle-right"
           onClick={() => navBtnsClick()}
         />
       )}

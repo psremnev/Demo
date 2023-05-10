@@ -81,6 +81,7 @@ export default function ({ preloadData }) {
         items={preloadData.list}
         source={new Service({ endpoint: 'List' })}
         itemTemplate={carouselItemTemplate}
+        backgroundColor="transparent"
       />
       <br />
       <Header title="LOAD BUTTON" />
