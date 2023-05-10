@@ -20,19 +20,9 @@
         animation: forward .3s;
         animation-fill-mode: forwards
     }
-
-    &__circle_backward {
-        animation: backward .3s;
-        animation-fill-mode: forwards
-    }
 }
 
 @keyframes forward {
   from { transform: translateX(0);}
   to{ transform: translateX(15px) }
-}
-
-@keyframes backward {
-  from { transform: translateX(15px);}
-  to{ transform: translateX(0) }
 }

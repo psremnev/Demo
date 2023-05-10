@@ -25,7 +25,7 @@ export default function ToggleButton({ clickCallback }: IToggleButton) {
         className={`toggleButton__circle ${
           state
             ? 'toggleButton__circle_forward'
-            : 'toggleButton__circle_backward'
+            : ''
         }`}
       />
     </section>
