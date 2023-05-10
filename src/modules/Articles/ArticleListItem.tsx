@@ -3,13 +3,13 @@ import { HEADER_BASE_COLOR } from 'Articles/constants';
 import 'Articles/ArticleListItem.scss'
 
 export default function ArticleListItem({
-  item = {},
   title = 'Title',
   additionalText = 'Additional Text',
   imageSrc = '',
   backgroundColor = HEADER_BASE_COLOR,
   previewText = 'Preview Text',
 }) {
+
   return (
     <section
       className="articleListItem"
@@ -17,7 +17,7 @@ export default function ArticleListItem({
     >
       <header
         className=" articleListItem__header"
-        style={{ background: backgroundColor }}
+        style={ { background: backgroundColor} }
       >
         <span className="articleListItem__title">{title}</span>
         <span className="articleListItem__additionalText">

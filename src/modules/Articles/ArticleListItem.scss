@@ -17,6 +17,7 @@
     &__previewContent {
         @include previewContent();
         max-height: 100px;
+        overflow: hidden;
         position: relative;
         padding: 6px;
 

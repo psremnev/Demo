@@ -11,6 +11,7 @@ import { Header } from 'header';
 import { FileLoader, FileLoaderType } from 'fileLoader';
 import { Carousel } from 'carousel';
 import { ToggleButton } from 'toggleButton';
+import Search from 'Search/Search';
 import 'Demo/Demo';
 
 export default function ({ preloadData }) {
@@ -71,6 +72,12 @@ export default function ({ preloadData }) {
         boxSizing: 'border-box',
       }}
     >
+      <Header title="Search" />
+      <br />
+      <Search />
+      <br />
+      <Search expandable={true}/>
+      <br />
       <Header title="ToggleButton" />
       <br />
       <ToggleButton />
