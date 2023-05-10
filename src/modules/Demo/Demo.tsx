@@ -51,7 +51,7 @@ export default function ({ preloadData }) {
             height: '200px',
             width: '200px',
             borderRadius: 10,
-            marginRight: 4,
+            marginRight: 4
           }}
         />
         {item.title}
