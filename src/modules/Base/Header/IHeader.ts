@@ -1,5 +1,5 @@
 export interface IHeader {
-    title: string;
-    size?: number;
-    color?: string;
+  title: string;
+  size?: number;
+  color?: string;
 }

@@ -1,5 +1,5 @@
 export interface IContactsOptions {
-    className?: string;
-    vk?: string;
-    telegram?: string;
+  className?: string;
+  vk?: string;
+  telegram?: string;
 }

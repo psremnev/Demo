@@ -1,3 +1,3 @@
-export default function(props) {
-    return <span>Auth</span>;
+export default function (props) {
+  return <span>Auth</span>;
 }

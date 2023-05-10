@@ -1,4 +1,4 @@
 export const POSITION = {
-    BEFORE: 'before',
-    AFTER: 'after'
-}
+  BEFORE: 'before',
+  AFTER: 'after',
+};

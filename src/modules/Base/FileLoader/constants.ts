@@ -1,4 +1,4 @@
 export const FileLoaderType = {
-    BUTTON: 'button',
-    DROP_AREA: 'dropArea'
-}
+  BUTTON: 'button',
+  DROP_AREA: 'dropArea',
+};

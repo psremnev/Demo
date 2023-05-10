@@ -1,4 +1,4 @@
-import {default as devConfig} from './webpack.dev.js';
+import { default as devConfig } from './webpack.dev.js';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
 const [server, client] = devConfig;
@@ -6,23 +6,21 @@ const [server, client] = devConfig;
 const config = {
   mode: 'production',
   externals: {
-      express: 'express'
+    express: 'express',
   },
   optimization: {
     minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-    ],
-  }
+    minimizer: [new CssMinimizerPlugin()],
+  },
 };
 
 export default [
   {
     ...config,
-    ...server
+    ...server,
   },
   {
     ...config,
-    ...client
-  }
+    ...client,
+  },
 ];

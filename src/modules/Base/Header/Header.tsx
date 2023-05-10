@@ -1,4 +1,4 @@
-import {IHeader} from 'Header/IHeader';
+import { IHeader } from 'Header/IHeader';
 
 /**
  * @link Header/Header
@@ -6,11 +6,20 @@ import {IHeader} from 'Header/IHeader';
  */
 
 export default function Header({
-    title,
-    size = 20,
-    color = 'var(--header_color)'
+  title,
+  size = 20,
+  color = 'var(--header_color)',
 }: IHeader) {
-    return (
-        <span style={ {fontSize: size, color, fontFamily: 'monospace', fontWeight: 'bold'} }>{title}</span>
-    );
+  return (
+    <span
+      style={{
+        fontSize: size,
+        color,
+        fontFamily: 'monospace',
+        fontWeight: 'bold',
+      }}
+    >
+      {title}
+    </span>
+  );
 }

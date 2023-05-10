@@ -1,2 +1,2 @@
 /* Библиотека Marker*/
-export {default as Marker} from 'Marker/Marker';
+export { default as Marker } from 'Marker/Marker';

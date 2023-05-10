@@ -1,6 +1,6 @@
 export const DIRECTION = {
-    START: 'start',
-    END: 'end'
+  START: 'start',
+  END: 'end',
 };
 
-export const DEFAULT_NAVIGATION = {limit: 20};
+export const DEFAULT_NAVIGATION = { limit: 20 };

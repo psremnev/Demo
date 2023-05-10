@@ -1,9 +1,9 @@
-import {VFC} from "react";
-import {IListItem} from "List/IListItem";
+import { VFC } from 'react';
+import { IListItem } from 'List/IListItem';
 
 export interface IItemTemplate {
-    item: IListItem;
-    idProperty: string;
-    displayProperty: string;
-    itemTemplate: VFC
+  item: IListItem;
+  idProperty: string;
+  displayProperty: string;
+  itemTemplate: VFC;
 }

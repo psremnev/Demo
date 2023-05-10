@@ -1,6 +1,6 @@
 export interface IListItem {
-    id?: TId;
-    title?: string;
+  id?: TId;
+  title?: string;
 }
 
-export type TId = string|number;
+export type TId = string | number;
