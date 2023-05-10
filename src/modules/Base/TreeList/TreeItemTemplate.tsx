@@ -55,44 +55,54 @@ export default function TreeItemTemplate({
 
 
     return (
-    <section className="treeItemTemplate">
+      <section className="treeItemTemplate">
         <div className="treeItemTemplate-header">
-            { item.hasChildren && <Expander expanded={isExpanded} onClick={onExpanderClick} /> }
-            <div>{ ItemTemplate ? <ItemTemplate item={item} /> : <span>{item[displayProperty]}</span> }</div>
+          {item.hasChildren && (
+            <Expander expanded={isExpanded} onClick={onExpanderClick} />
+          )}
+          <div>
+            {ItemTemplate ? (
+              <ItemTemplate item={item} />
+            ) : (
+              <span>{item[displayProperty]}</span>
+            )}
+          </div>
         </div>
-        { item.hasChildren && isExpanded ?
-            <BaseList items={thisItems}
-                      displayProperty={displayProperty}
-                      onItemClick={onItemClick}
-                      itemsContainerPadding={ {top: 0, left: 0, right: 0, bottom: 0} }
-                      canDrag={canDrag}
-                      itemTemplate={ (props) => 
-                        <TreeItemTemplate { 
-                                    ...{
-                                        ...props,
-                                        displayProperty,
-                                        source,
-                                        filter,
-                                        items,
-                                        itemTemplate,
-                                        expandedCallback,
-                                        expandedItems,
-                                        dataLoadCallback
-                                    } 
-                                }
-                            />
-                       } 
+        <div style={{ marginLeft: 30 }}>
+          {item.hasChildren && isExpanded && (
+            <BaseList
+              items={thisItems}
+              displayProperty={displayProperty}
+              onItemClick={onItemClick}
+              itemsContainerPadding={{ top: 0, left: 0, right: 0, bottom: 0 }}
+              canDrag={canDrag}
+              itemTemplate={(props) => (
+                <TreeItemTemplate
+                  {...{
+                    ...props,
+                    displayProperty,
+                    source,
+                    filter,
+                    items,
+                    itemTemplate,
+                    expandedCallback,
+                    expandedItems,
+                    dataLoadCallback,
+                  }}
+                />
+              )}
             />
-            :
-            null
-        }
-        { isExpanded && item.hasChildren && showLoadMore && 
-            <Button className="treeItemTemplate-load"
-                    type={BUTTONS_TYPE.LINK}
-                    onClick={loadData}
-                    title="More"
-                    backgroundColor='var(--transparent_background_color)' />
-        }
-    </section>
+          )}
+          {isExpanded && item.hasChildren && showLoadMore && (
+            <Button
+              className="treeItemTemplate-load"
+              type={BUTTONS_TYPE.LINK}
+              onClick={loadData}
+              title="More"
+              backgroundColor="var(--transparent_background_color)"
+            />
+          )}
+        </div>
+      </section>
     );
 }
