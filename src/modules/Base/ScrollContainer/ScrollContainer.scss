@@ -19,7 +19,7 @@
 
 @mixin navBtns {
     height: 100%;
-    background: linear-gradient(to right, #ffffffde, #dfdfdfbf);
+    background: linear-gradient(to right, #ffffffde, #dfdfdf30);
     width: 20px;
     position: absolute;
     display: flex;
@@ -63,7 +63,7 @@
 
     &__previouslyBtn:hover,
     &__nextBtn:hover {
-        background:  linear-gradient(to right, #ffffffde, #939191bf);
+        background:  linear-gradient(to right, #e2e0e0de, #9c9c9c00);
     }
 
     &__scrollTopBtn {
