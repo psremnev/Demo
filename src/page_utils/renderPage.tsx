@@ -34,7 +34,7 @@ export async function renderPage(req, res) {
         module,
         urlInfo,
         cookies,
-        options: { ...options, preloadData },
+        options: { ...options, preloadData, urlParams: urlInfo.urlParams },
       }}
     />,
     {

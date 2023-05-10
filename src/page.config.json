@@ -6,6 +6,10 @@
     "module": "Articles/Articles",
     "options": {}
   },
+  "/article": {
+    "module": "Articles/Article",
+    "options": {}
+  },
   "/admin": {
     "module": "Admin/Admin",
     "options": {}

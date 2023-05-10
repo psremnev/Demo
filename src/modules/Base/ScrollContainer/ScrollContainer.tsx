@@ -133,31 +133,31 @@ export default function ScrollContainer({
   const shadowStyle = {
     vertical: {
       top: {
-        height: 1,
+        height: 8,
         width: '100%',
         top: 0,
-        boxShadow: '0px 6px 6px #adadad',
+        background: 'linear-gradient(to bottom, #e0dcdc, transparent)'
       },
       bottom: {
-        height: 1,
+        height: 8,
         position: 'absolute',
         width: '100%',
         bottom: 0,
-        boxShadow: '0px -6px 6px #adadad',
+        background: 'linear-gradient(to top, #e0dcdc, transparent)'
       },
     },
     horizontal: {
       left: {
-        width: 1,
+        width: 8,
         height: '100%',
         left: 0,
-        boxShadow: '0px 6px 6px #adadad',
+        background: 'linear-gradient(to right, #e0dcdc, transparent)'
       },
       right: {
-        width: 1,
+        width: 8,
         height: '100%',
         right: 0,
-        boxShadow: '0px 6px 6px #adadad',
+        background: 'linear-gradient(to left, #e0dcdc, transparent)'
       },
     },
   };

@@ -16,6 +16,7 @@ export interface IListBase {
   expandedCallback?: Function;
   dataLoadCallback?: Function;
   itemsContainerPadding?: IPadding;
+  itemPadding?: IPadding;
   canDrag?: boolean;
   orientation?: ORIENTATION;
 }

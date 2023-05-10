@@ -17,6 +17,7 @@ export default function List({
   onItemClick,
   dataLoadCallback,
   itemsContainerPadding,
+  itemPadding,
   canDrag,
   backgroundColor = 'var(--default_background_color)',
   borderRadius = true,
@@ -44,6 +45,7 @@ export default function List({
         onItemClick={onItemClick}
         itemTemplate={itemTemplate}
         itemsContainerPadding={itemsContainerPadding}
+        itemPadding={itemPadding}
         canDrag={canDrag}
         orientation={orientation}
       />
