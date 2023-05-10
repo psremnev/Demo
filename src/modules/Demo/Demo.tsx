@@ -1,5 +1,5 @@
 import Service from 'Service/Service';
-import { POPUP_TYPE, CONFIRMATION_TYPE, Popup, IPopupOptions } from 'popup';
+import { POPUP_TYPE, CONFIRMATION_TYPE, Popup, IPopup } from 'popup';
 import { Button, BUTTONS_TYPE } from 'button';
 import { List } from 'list';
 import { TreeList } from 'treeList';
@@ -16,7 +16,7 @@ export default function ({ preloadData }) {
   const channel = useMemo(() => new Channel(), []);
   const [isSubscribe, setIsSubscribe] = useState(false);
 
-  const openPopup = (type: string, options?: Partial<IPopupOptions>) => {
+  const openPopup = (type: string, options?: Partial<IPopup>) => {
     const dialog = new Popup();
     dialog.open({
       ...{
