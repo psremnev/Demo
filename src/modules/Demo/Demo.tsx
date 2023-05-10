@@ -46,7 +46,7 @@ export default function ({ preloadData }) {
     return (
       <div>
         <img
-          src="https://cdnn21.img.ria.ru/images/148839/96/1488399659_0:0:960:960_600x0_80_0_1_e38b72053fffa5d3d7e82d2fe116f0b3.jpg"
+          src={item.link}
           style={{
             height: '200px',
             width: '200px',
@@ -70,8 +70,6 @@ export default function ({ preloadData }) {
         boxSizing: 'border-box',
       }}
     >
-      <Header title="LoADER IN USEEFFECT CUSTOM I CAROUSEL WITH BASELIST RISIZELINE NEEEED i button type image and news element" />
-      <br />
       <Header title="Carousel" />
       <br />
       <Carousel
@@ -79,12 +77,6 @@ export default function ({ preloadData }) {
         source={new Service({ endpoint: 'List' })}
         itemTemplate={carouselItemTemplate}
       />
-      <br />
-      <Header title="Audio" />
-      <br />
-      <audio controls>
-        <source src="./public/1.mp3" type="audio/mpeg" />
-      </audio>
       <br />
       <Header title="LOAD BUTTON" />
       <br />
