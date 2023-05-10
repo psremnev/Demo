@@ -19,7 +19,6 @@
 
 @mixin navBtns {
     height: 100%;
-    background: linear-gradient(to right, #ffffffde, #dfdfdf30);
     width: 20px;
     position: absolute;
     display: flex;
@@ -49,6 +48,7 @@
 
     &__previouslyBtn {
         @include navBtns();
+        background: linear-gradient(to right, #ffffffde, #dfdfdf30);
         left: 0;
         border-top-right-radius: 2px;
         border-bottom-right-radius: 2px;
@@ -56,14 +56,18 @@
 
     &__nextBtn {
         @include navBtns();
+        background: linear-gradient(to left, #ffffffde, #dfdfdf30);
         right: 0;
         border-top-left-radius: 2px;
         border-bottom-left-radius: 2px;
     }
 
-    &__previouslyBtn:hover,
-    &__nextBtn:hover {
+    &__previouslyBtn:hover {
         background:  linear-gradient(to right, #e2e0e0de, #9c9c9c00);
+    }
+
+    &__nextBtn:hover {
+        background:  linear-gradient(to left, #e2e0e0de, #9c9c9c00);
     }
 
     &__scrollTopBtn {

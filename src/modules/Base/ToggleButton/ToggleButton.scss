@@ -1,0 +1,38 @@
+.toggleButton {
+    height: 10px;
+    width: 30px;
+    display: flex;
+    padding: 6px;
+    border-radius: 15px;
+    border: 1px solid #f48f6d;
+    flex-shrink: 0;
+    align-items: center;
+    cursor: pointer;
+
+    &__circle {
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        background: #f48f6d;
+    }
+
+    &__circle_forward {
+        animation: forward .3s;
+        animation-fill-mode: forwards
+    }
+
+    &__circle_backward {
+        animation: backward .3s;
+        animation-fill-mode: forwards
+    }
+}
+
+@keyframes forward {
+  from { transform: translateX(0);}
+  to{ transform: translateX(15px) }
+}
+
+@keyframes backward {
+  from { transform: translateX(15px);}
+  to{ transform: translateX(0) }
+}

@@ -10,6 +10,7 @@ import { HintTemplate } from 'hintTemplate';
 import { Header } from 'header';
 import { FileLoader, FileLoaderType } from 'fileLoader';
 import { Carousel } from 'carousel';
+import { ToggleButton } from 'toggleButton';
 import 'Demo/Demo';
 
 export default function ({ preloadData }) {
@@ -70,6 +71,10 @@ export default function ({ preloadData }) {
         boxSizing: 'border-box',
       }}
     >
+      <Header title="ToggleButton" />
+      <br />
+      <ToggleButton />
+      <br />
       <Header title="Carousel" />
       <br />
       <Carousel
