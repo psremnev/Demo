@@ -1,0 +1,86 @@
+@mixin shadow {
+    position: absolute;
+    flex-shrink: 0;
+}
+
+@mixin base {
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+@mixin arrow {
+    content: '';
+    width: 2px;
+    height: 20px;
+    background: #1c6db4;
+}
+
+@mixin navBtns {
+    height: 100%;
+    background: linear-gradient(to right, #ffffffde, #dfdfdfbf);
+    width: 20px;
+    position: absolute;
+    display: flex;
+    cursor: pointer;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollContainer__base {
+    @include base();
+}
+
+.scrollContainer {
+    // FireFox
+    scrollbar-width: thin;
+    scrollbar-color: #dadada;
+
+    &__hideScrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__startShadow,
+    &__endShadow {
+        @include shadow;
+    }
+
+    &__previouslyBtn {
+        @include navBtns();
+        left: 0;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    &__nextBtn {
+        @include navBtns();
+        right: 0;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+
+    &__previouslyBtn:hover,
+    &__nextBtn:hover {
+        background:  linear-gradient(to right, #ffffffde, #939191bf);
+    }
+
+    &__scrollTopBtn {
+        position: absolute;
+        bottom: 0px;
+        right: 0;
+    }
+}
+
+// Chrome, Edge и Safari
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #dadada;
+    border-radius: 20px;
+}

@@ -1,0 +1,14 @@
+.hintTemplate__ {
+    &image {
+        border-radius: 6px;
+    }
+
+    &title {
+        font-size: x-large;
+    }
+
+    &additionalText {
+        font-size: large;
+        color: var(--unaccented_color)
+    }
+}

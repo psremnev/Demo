@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "jsx": "react-jsx",
+      "target": "es6",
+      "module": "es2022",
+      "moduleResolution": "node",
+      "sourceMap": false,
+      "pretty": true,
+      "resolveJsonModule": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "baseUrl": ".",
+      "paths": {
+        "*": [
+          "*",
+          "src/*",
+          "src/modules/*",
+          "src/modules/Base/*",
+          "src/server_modules/*"
+        ]
+      }
+    },
+    "exclude": [
+      "build",
+      "node_modules",
+      "webpack.dev.js",
+      "webpack.prod.js",
+      "webpackRules.js"
+    ]
+  }

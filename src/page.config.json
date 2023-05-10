@@ -1,0 +1,22 @@
+{
+  "/": {
+    "module": "Articles/Articles"
+  },
+  "/articles": {
+    "module": "Articles/Articles",
+    "options": {}
+  },
+  "/admin": {
+    "module": "Admin/Admin",
+    "options": {}
+  },
+  "/auth": {
+    "module": "Auth/Auth",
+    "preloaderPath": "",
+    "options": {}
+  },
+  "/demo": {
+    "module": "Demo/Demo",
+    "preloaderPath": "Demo/Loader"
+  }
+}

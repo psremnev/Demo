@@ -1,0 +1,13 @@
+.selectorList__ItemTemplate {
+    display: flex;
+    align-items: center;
+
+    &MarkWrapper {
+        display: flex;
+        margin-right: 6px;
+    }
+
+    &Title {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,28 @@
+html {
+    // margin
+    --offset_xs: 2px;
+    --offset_s: 4px;
+    --offset_pre_m: 6px;
+    --offset_m: 8px;
+    --offset_l: 10px;
+    --offset_xl: 12px;
+
+    //color
+    --danger_color: rgb(185, 62, 62);
+    --success_color: rgb(129 227 92);
+    --mark_color: #ff6e07;
+    --unaccented_color: #c4c4c4;
+    --header_color: #d6b183;
+    --link_color: #6c6cd6;
+    --dark_grey: #b1acac;
+
+    //background
+    --transparent_background_color: #ffffff00;
+    --default_background_color: #ffffff;
+    --light_grey_background_color: #bebebe70;
+
+    //theme
+    --dark_theme: #1a1a1a;
+    --first_color: rgb(255, 255, 255);
+    --second_color: #ede7fa;
+}

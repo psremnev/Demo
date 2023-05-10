@@ -1,0 +1,26 @@
+.popup {
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #dfdfdf;
+        padding-bottom: var(--offset_s);
+
+        &__title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+    }
+
+    &-content {
+        padding: var(--offset_s) 0;
+    }
+
+    &-footer {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #dfdfdf;
+        padding-top: var(--offset_s);
+        align-items: baseline;
+    }
+}
+

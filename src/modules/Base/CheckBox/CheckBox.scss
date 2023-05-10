@@ -1,0 +1,30 @@
+@mixin checked {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-color: var(--success_color);
+    transform-origin: left bottom;
+}
+
+.checkBox {
+    position: relative;
+    border: 2px solid var(--unaccented_color);
+    border-radius: 4px;
+    cursor: pointer;
+
+    &__checked::before {
+        @include checked;
+        height: 50%;
+        top: 50%;
+        width: 2px;
+        transform: translateX(4px) rotate(-45deg);
+    }
+
+    &__checked::after {
+        @include checked;
+        bottom: 1px;
+        height: 2px;
+        width: 80%;
+        transform: translateX(6px) rotate(-55deg);
+    }
+}

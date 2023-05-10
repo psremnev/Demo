@@ -1,0 +1,10 @@
+{
+  "title": "DevelopHelper",
+  "rightSide": false,
+  "leftSide": true,
+  "host": "localhost",
+  "port": "3000",
+  "protocol": "http",
+  "service_address": "/service",
+  "websocket_port": 9000
+}

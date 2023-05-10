@@ -1,0 +1,18 @@
+.treeItemTemplate {
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+        display: flex;
+    }
+
+    &-expander {
+        cursor: pointer;
+        margin-right: 4px;
+    }
+
+    &-list,
+    &-load {
+        padding-left: 30px;
+    }
+}

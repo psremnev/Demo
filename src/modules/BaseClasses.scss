@@ -1,0 +1,68 @@
+// общие классы
+
+// display
+.flexbox {
+    display: flex;
+}
+
+.displayNone {
+    display: none;
+}
+
+.flexDirectionColumn {
+    flex-direction: column;
+}
+
+// отступы
+.marginRight-xs {
+    margin-right: var(--offset_xs);
+}
+
+.marginRight-s {
+    margin-right: var(--offset_s);
+}
+
+.marginRight-pre-m {
+    margin-right: var(--offset_pre_m);
+}
+
+.marginRight-m {
+    margin-right: var(--offset_m);
+}
+
+.marginRight-l {
+    margin-right: var(--offset_l);
+}
+
+.marginRight-xl {
+    margin-right: var(--offset_xl);
+}
+
+.marginLeft-xs {
+    margin-left: var(--offset_xs);
+}
+
+.marginLeft-s {
+    margin-left: var(--offset_s);
+}
+
+.marginLeft-pre-m {
+    margin-left: var(--offset_pre_m);
+}
+
+.marginLeft-m {
+    margin-left: var(--offset_m);
+}
+
+.marginLeft-l {
+    margin-left: var(--offset_l);
+}
+
+.marginLeft-xl {
+    margin-left: var(--offset_xl);
+}
+
+// другое
+.cursorPointer {
+    cursor: pointer;
+}

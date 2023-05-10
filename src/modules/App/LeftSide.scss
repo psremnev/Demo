@@ -1,0 +1,13 @@
+.app-leftSide {
+    display: flex;
+    flex-direction: column;
+    padding: var(--offset_m) var(--offset_s) var(--offset_m) 0;
+    position: sticky;
+    top: 0;
+    padding: 4px 10px 4px 2px;
+    border-radius: 15px;
+
+    &__btn {
+        margin-bottom: 4px;
+    }
+}
