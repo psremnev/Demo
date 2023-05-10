@@ -23,25 +23,36 @@
         "anyOption": 'anyValue'
      }
 ## Базовые котролы папкa - Base
+
 Buttons
+
 ![Buttons](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/button.png)
+
 dropDownButton
 ![dropDown-button](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/dropDown-button.png)
+
 Hint
 ![Hint](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/hint.png)
+
 Lists
 ![Lists](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/lists.png)
+
 Popup Confirmation
 ![Popup Confirmation](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/popup-confirmation.png)
+
 Popup Dialog
 ![Popup Dialog](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/popup-dialog.png)
+
 Popup Confirmation
 ![Popup Stack](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/popup-stack.png)
+
 Selector List
 ![Popup Stack](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/selector-list.png)
+
 Tree List
 ![Popup Stack](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/tree-list.png)
+
 Carousel
 ![Popup Stack](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/carousel.png)
 
-Все базовые модули можно посомтреть тут https://github.com/psremnev/express_react_ts_project/tree/main/src/modules/Base
+Все базовые модули можно посмотреть тут https://github.com/psremnev/express_react_ts_project/tree/main/src/modules/Base
