@@ -48,7 +48,8 @@ Popup Dialog
 
 ![Popup Dialog](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/popup-dialog.png)
 
-Popup Confirmation
+Popup Stack
+
 ![Popup Stack](https://github.com/psremnev/express_react_ts_project/blob/main/demo-image/popup-stack.png)
 
 Selector List
