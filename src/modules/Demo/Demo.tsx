@@ -8,7 +8,7 @@ import { useState, useMemo } from 'react';
 import { SelectorList } from 'selectorList';
 import { HintTemplate } from 'hintTemplate';
 import { Header } from 'header';
-import { FileLoader, FileLoaderType } from 'fileLoader';
+import { LoadButton, LoadButtonType } from 'loadButton';
 import { Carousel } from 'carousel';
 import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
@@ -76,7 +76,7 @@ export default function ({ preloadData }) {
       <br />
       <Search />
       <br />
-      <Search expandable={true}/>
+      <Search expandable={true} />
       <br />
       <Header title="ToggleButton" />
       <br />
@@ -93,9 +93,9 @@ export default function ({ preloadData }) {
       <br />
       <Header title="LOAD BUTTON" />
       <br />
-      <FileLoader />
+      <LoadButton />
       <br />
-      <FileLoader type={FileLoaderType.DROP_AREA} />
+      <LoadButton type={LoadButtonType.DROP_AREA} />
       <br />
       <Header title="DIALOGS" />
       <br />

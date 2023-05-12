@@ -1,4 +1,3 @@
-import { openLink } from 'utils/openLink';
 import { HEADER_BASE_COLOR } from 'Articles/constants';
 import 'Articles/ArticleListItem.scss'
 
@@ -11,10 +10,7 @@ export default function ArticleListItem({
 }) {
 
   return (
-    <section
-      className="articleListItem"
-      onClick={() => openLink(`/article?id`)}
-    >
+    <section className="articleListItem">
       <header
         className=" articleListItem__header"
         style={ { background: backgroundColor} }

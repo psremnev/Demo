@@ -1,10 +1,13 @@
-import { FileLoaderType } from 'FileLoader/constants';
+import { LoadButtonType } from 'LoadButton/constants';
 import type { TId } from 'list';
 
-export interface IFileLoader {
-  type?: (typeof FileLoaderType)[keyof typeof FileLoaderType];
+type TLoadButtonType = typeof LoadButtonType;
+
+export interface ILoadButton {
+  type?: TLoadButtonType[keyof TLoadButtonType];
   loadCallback?: (IFileResult) => void;
   progressCallback?: (IFileResult) => void;
+  extensions?: string[];
   multiSelect?: boolean;
 }
 

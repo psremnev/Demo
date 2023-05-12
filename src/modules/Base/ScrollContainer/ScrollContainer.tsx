@@ -90,8 +90,9 @@ export default function ScrollContainer({
       canScrollStart
     ) {
       scrollStartCallback && scrollStartCallback();
-      // чтобы была возвможность дальше скролить вверх после подгрузки данных
-      container.scrollTop = callbackOffset;
+      // чтобы была возможность дальше скролить вверх после подгрузки данных
+      const offsetBreakScroll = 1;
+      container.scrollTop = callbackOffset + offsetBreakScroll;
     }
   };
 

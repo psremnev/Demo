@@ -1,6 +1,7 @@
 import 'Search/Search.scss';
 import { useState, useRef } from 'react';
 import {ISearch} from 'Search/ISearch';
+import { translate } from 'utils/translate';
 
 /**
  * @link Search/Search
@@ -8,7 +9,7 @@ import {ISearch} from 'Search/ISearch';
  */
 export default function Search({
   value = '',
-  placeholder = 'Найти...',
+  placeholder = `${translate('Найти')}...`,
   changeCallback,
   expandable = false,
 }: ISearch) {

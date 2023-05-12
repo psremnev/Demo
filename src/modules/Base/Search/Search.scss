@@ -1,3 +1,8 @@
+@mixin inverseColor {
+    color: white;
+    mix-blend-mode: difference;
+}
+
 .search {
     display: flex;
     border: 1px solid #dedede;
@@ -5,23 +10,28 @@
     padding: 4px 8px;
 
     &__input {
+        @include inverseColor();
         outline: none;
         border: none;
+        background: transparent;
     }
 
     &__clear {
+        @include inverseColor();
         margin-left: 4px;
         cursor: pointer;
         font-size: 12px;
     }
 
     &__expandBtn_true {
+        @include inverseColor();
         cursor: pointer;
         margin-right: 6px;
 
     }
 
     &__expandBtn_false {
+        @include inverseColor();
         cursor: pointer;
         margin-left: 6px;
     }
@@ -32,6 +42,7 @@
     }
 
     &__expandAnim {
+        @include inverseColor();
         animation: opacity 1s forwards;
     }
 }
