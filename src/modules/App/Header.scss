@@ -2,17 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: baseline;
-    border-radius: 8px;
     padding: 6px;
     box-sizing: border-box;
     justify-content: space-between;
-    border-bottom: var(--offset_xs) solid var(--second_color);
     width: 100%;
     font-family: monospace;
 
     &__firstRow {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
 
         &Title {
@@ -29,6 +28,11 @@
                 height: 30px;
                 margin-left: 8px;
             }
+        }
+
+        &Search {
+            width: 100%;
+            margin: 0 6px;
         }
 
         &Right {

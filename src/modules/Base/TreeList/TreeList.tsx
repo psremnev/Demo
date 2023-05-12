@@ -1,13 +1,11 @@
-import {useState, useEffect} from 'react';
-import {Loader} from 'loader';
-import {ScrollContainer} from 'scrollContainer';
+import {useState} from 'react';
 import {ITreeListOptions} from './ITreeListOptions';
 import {BaseList} from 'list';
 import TreeItemTemplate from './TreeItemTemplate';
 import {ListLoader} from 'listLoader';
 
 const getFilter = (filter) => {
-    const filter_ = filter || {};
+    const filter_ = {...filter} || {};
     // parent - ид записей по которым нужно вернуть подзаписи
     return filter_?.parent ? filter_ : {...filter_, parent: []};
 }
@@ -82,7 +80,7 @@ export default function TreeList({
                                     displayProperty,
                                     items: thisItems,
                                     source,
-                                    filter,
+                                    filter: thisFilter,
                                     expandedCallback: treeItemExpandedCallback,
                                     expandedItems: thisFilter.parent,
                                     dataLoadCallback: treeItemDataLoadCallback
@@ -103,7 +101,7 @@ export default function TreeList({
     return (
         <section className='treeList' style={style}>
             <ListLoader source={source}
-                        filter={thisFilter}
+                        filter={filter}
                         navigation={navigation}
                         items={items}
                         dataLoadCallback={dataLoadCallback}

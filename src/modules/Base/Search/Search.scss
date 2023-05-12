@@ -8,9 +8,11 @@
     border: 1px solid #dedede;
     border-radius: 10px;
     padding: 4px 8px;
+    width: 100%;
 
     &__input {
         @include inverseColor();
+        width: 100%;
         outline: none;
         border: none;
         background: transparent;
@@ -52,6 +54,7 @@
     align-items: center;
     height: 28px;
     flex-shrink: 0;
+    width: 100%;
 }
 
 @keyframes opacity {

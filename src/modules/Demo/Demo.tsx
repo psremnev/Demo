@@ -12,6 +12,7 @@ import { LoadButton, LoadButtonType } from 'loadButton';
 import { Carousel } from 'carousel';
 import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
+import {default as DemoItem} from 'Demo/DemoItem';
 import 'Demo/Demo';
 
 export default function ({ preloadData }) {
@@ -43,6 +44,7 @@ export default function ({ preloadData }) {
   };
 
   const itemsContainerPadding = { top: 6, left: 6, right: 6, bottom: 6 };
+  const listService = new Service({ endpoint: 'List' });
 
   const carouselItemTemplate = ({ item }) => {
     return (
@@ -72,136 +74,175 @@ export default function ({ preloadData }) {
         boxSizing: 'border-box',
       }}
     >
-      <Header title="Search" />
-      <br />
-      <Search />
-      <br />
-      <Search expandable={true} />
-      <br />
-      <Header title="ToggleButton" />
-      <br />
-      <ToggleButton />
-      <br />
-      <Header title="Carousel" />
-      <br />
-      <Carousel
-        items={preloadData.list}
-        source={new Service({ endpoint: 'List' })}
-        itemTemplate={carouselItemTemplate}
-        backgroundColor="transparent"
-      />
-      <br />
-      <Header title="LOAD BUTTON" />
-      <br />
-      <LoadButton />
-      <br />
-      <LoadButton type={LoadButtonType.DROP_AREA} />
-      <br />
-      <Header title="DIALOGS" />
-      <br />
-      <Button onClick={() => openPopup(POPUP_TYPE.DIALOG)} title="OpenDialog" />
-      <br />
-      <Button onClick={() => openPopup(POPUP_TYPE.STACK)} title="OpenStack" />
-      <br />
-      <Button
-        onClick={() =>
-          openPopup(POPUP_TYPE.DIALOG, {
-            confirmationCfg: {
-              type: CONFIRMATION_TYPE.YES_NO_CANCEL,
-              callback: (res) => alert(`You confirmation result ${res}`),
-            },
-          })
+      <DemoItem
+        title="Search"
+        content={
+          <>
+            <Search />
+            <br />
+            <Search expandable={true} />
+          </>
         }
-        title="OpenConfirmationDialog"
       />
-      <br />
-      <Header title="BUTTONS" />
-      <br />
-      <Button onClick={btnClick} title="Base" />
-      <br />
-      <Button
-        onClick={btnClick}
-        title="Base with background"
-        backgroundColor="rgb(229 218 254)"
+      <DemoItem title="ToggleButton" content={<ToggleButton />} />
+      <DemoItem
+        title="Carousel"
+        content={
+          <Carousel
+            items={preloadData.list}
+            source={listService}
+            itemTemplate={carouselItemTemplate}
+            backgroundColor="transparent"
+          />
+        }
       />
-      <br />
-      <Button onClick={btnClick} title="Base with icon" icon="ti-cup" />
-      <br />
-      <Button onClick={btnClick} type={BUTTONS_TYPE.LINK} title="Link" />
-      <br />
-      <Button onClick={btnClick} icon="ti-close" type={BUTTONS_TYPE.ICON} />
-      <br />
-      <Header title="LISTS" />
-      <br />
-      <Header title="Base" size={15} />
-      <div className="demoList">
-        <List
-          items={preloadData.list}
-          itemsContainerPadding={itemsContainerPadding}
-          source={new Service({ endpoint: 'List' })}
-        />
-      </div>
-      <br />
-      <Header title="WithCustomTemplate" size={15} />
-      <div className="demoList">
-        <List
-          items={preloadData.list}
-          itemsContainerPadding={itemsContainerPadding}
-          source={new Service({ endpoint: 'List' })}
-          itemTemplate={({ item }) => <span>Custom {item.title}</span>}
-        />
-      </div>
-      <br />
-      <Header title="TreeList" />
-      <br />
-      <div className="demoList">
-        <TreeList
-          items={preloadData.tree}
-          itemsContainerPadding={itemsContainerPadding}
-          source={new Service({ endpoint: 'TreeList' })}
-        />
-      </div>
-      <br />
-      <Header title="ServerChannel" />
-      <br />
-      <Button
-        onClick={channelSubscribe}
-        title={isSubscribe ? 'Unsubscribe' : 'Subscribe'}
+      <DemoItem
+        title="Load button"
+        content={
+          <>
+            <LoadButton />
+            <br />
+            <LoadButton type={LoadButtonType.DROP_AREA} />
+          </>
+        }
       />
-      <br />
-      <Header title="SelectorList" />
-      <br />
-      <SelectorList items={preloadData.list} />
-      <br />
-      <SelectorList
-        items={preloadData.list}
-        multiSelect={false}
-        selectedKeys={[1]}
+      <DemoItem
+        title="Dialogs"
+        content={
+          <>
+            <Button
+              onClick={() => openPopup(POPUP_TYPE.DIALOG)}
+              title="OpenDialog"
+            />
+            <br />
+            <Button
+              onClick={() => openPopup(POPUP_TYPE.STACK)}
+              title="OpenStack"
+            />
+            <br />
+            <Button
+              onClick={() =>
+                openPopup(POPUP_TYPE.DIALOG, {
+                  confirmationCfg: {
+                    type: CONFIRMATION_TYPE.YES_NO_CANCEL,
+                    callback: (res) => alert(`You confirmation result ${res}`),
+                  },
+                })
+              }
+              title="OpenConfirmationDialog"
+            />
+          </>
+        }
       />
-      <br />
-      <Header title="HintTEmplate" />
-      <br />
-      <HintTemplate
-        imageSrc="public/header.gif"
-        title="HEADER"
-        additionalText="add text"
+      <DemoItem
+        title="Buttons"
+        content={
+          <>
+            <Button onClick={btnClick} title="Base" />
+            <br />
+            <Button
+              onClick={btnClick}
+              title="Base with background"
+              backgroundColor="rgb(229 218 254)"
+            />
+            <br />
+            <Button onClick={btnClick} title="Base with icon" icon="ti-cup" />
+            <br />
+            <Button onClick={btnClick} type={BUTTONS_TYPE.LINK} title="Link" />
+            <br />
+            <Button
+              onClick={btnClick}
+              icon="ti-close"
+              type={BUTTONS_TYPE.ICON}
+            />
+          </>
+        }
       />
-      <br />
-      <HintTemplate
-        orientation="horizontal"
-        imageSrc="public/header.gif"
-        title="HEADER"
-        additionalText="add text"
+      <DemoItem
+        title="Lists"
+        content={
+          <>
+            <Header title="Base" size={15} />
+            <div className="demoList">
+              <List
+                items={preloadData.list}
+                itemsContainerPadding={itemsContainerPadding}
+                source={listService}
+              />
+            </div>
+            <br />
+            <Header title="With custom template" size={15} />
+            <div className="demoList">
+              <List
+                items={preloadData.list}
+                itemsContainerPadding={itemsContainerPadding}
+                source={listService}
+                itemTemplate={({ item }) => <span>Custom {item.title}</span>}
+              />
+            </div>
+            <br />
+            <Header title="Tree list" />
+            <br />
+            <div className="demoList">
+              <TreeList
+                items={preloadData.tree}
+                itemsContainerPadding={itemsContainerPadding}
+                source={new Service({ endpoint: 'TreeList' })}
+              />
+            </div>
+          </>
+        }
       />
-      <br />
-      <HintTemplate
-        orientation="horizontal"
-        imagePosition="end"
-        imageSrc="public/header.gif"
-        title="HEADER"
-        additionalText="add text"
+      <DemoItem
+        title="Server channel"
+        content={
+          <Button
+            onClick={channelSubscribe}
+            title={isSubscribe ? 'Unsubscribe' : 'Subscribe'}
+          />
+        }
       />
-      <br />
+      <DemoItem
+        title="Selector list"
+        content={
+          <>
+            <SelectorList items={preloadData.list} />
+            <br />
+            <SelectorList
+              items={preloadData.list}
+              multiSelect={false}
+              selectedKeys={[1]}
+            />
+          </>
+        }
+      />
+      <DemoItem
+        title="Hint template"
+        content={
+          <>
+            <HintTemplate
+              imageSrc="public/header.gif"
+              title="HEADER"
+              additionalText="add text"
+            />
+            <br />
+            <HintTemplate
+              orientation="horizontal"
+              imageSrc="public/header.gif"
+              title="HEADER"
+              additionalText="add text"
+            />
+            <br />
+            <HintTemplate
+              orientation="horizontal"
+              imagePosition="end"
+              imageSrc="public/header.gif"
+              title="HEADER"
+              additionalText="add text"
+            />
+          </>
+        }
+      />
     </div>
   );
 }

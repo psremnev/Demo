@@ -7,6 +7,7 @@ import { Contacts } from 'contacts';
 import { Settings } from 'settings';
 import { openLink } from 'utils/openLink';
 import { translate } from 'utils/translate';
+import { Search } from 'search';
 import 'App/Header.scss';
 
 export default function Header() {
@@ -64,6 +65,9 @@ export default function Header() {
         <section className="app-header__firstRowTitle">
           <a href="/">{app.title}</a>
           <img src="public/header.gif" />
+        </section>
+        <section className="app-header__firstRowSearch">
+          <Search />
         </section>
         <section className="app-header__firstRowRight">
           <Contacts
