@@ -20,7 +20,7 @@ export async function renderPage(req, res) {
     res.redirect(AUTH_URL);
   }
 
-  const { options, module, preloaderPath } = getPageConfig(path);
+  const { options, module, preloaderPath, hasSearch } = getPageConfig(path);
   const preloadData = await getPreloadData(
     preloaderPath,
     options,
@@ -35,6 +35,7 @@ export async function renderPage(req, res) {
         urlInfo,
         cookies,
         options: { ...options, preloadData, urlParams: urlInfo.urlParams },
+        hasSearch
       }}
     />,
     {

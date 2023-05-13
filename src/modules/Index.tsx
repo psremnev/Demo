@@ -13,7 +13,7 @@ export default function Index({ contentData }) {
     console.error(e);
   }
 
-  const { module, options, urlInfo, cookies } = contentData;
+  const { module, options, urlInfo, cookies, hasSearch } = contentData;
 
   const changeAppParams = async (params) => {
     const newParams = { ...appParams, ...params };
@@ -62,7 +62,7 @@ export default function Index({ contentData }) {
         }}
       >
         <AppContext.Provider value={appParams}>
-          <App contentData={{ options, module }} />
+          <App contentData={{ options, module, hasSearch }} />
         </AppContext.Provider>
       </body>
     </html>

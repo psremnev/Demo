@@ -123,9 +123,9 @@ export default function ListLoader({
         showShadow={showShadow}
         showNavBtns={showNavBtns}
       >
-        {isDataLoad && loadDirection === DIRECTION.START && <Loader />}
+        {isDataLoad && loadDirection.current === DIRECTION.START && <Loader />}
         <List items={thisItems} />
-        {isDataLoad && loadDirection === DIRECTION.END && <Loader />}
+        {isDataLoad && loadDirection.current === DIRECTION.END && <Loader />}
       </ScrollContainer>
     </section>
   );

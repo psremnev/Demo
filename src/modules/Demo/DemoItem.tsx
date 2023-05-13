@@ -2,7 +2,7 @@ import { Header } from 'header';
 
 export default function DemoItem({
   title = '',
-  content = 'Content'
+  content
 }) {
   return (
     <section className="demoItem" style={{ marginBottom: 4, width: '100%' }}>

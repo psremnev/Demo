@@ -10,7 +10,7 @@ import { translate } from 'utils/translate';
 import { Search } from 'search';
 import 'App/Header.scss';
 
-export default function Header() {
+export default function Header({ hasSearch = false }) {
   const { theme, lang, changeAppContext } = getAppContext();
   const langItems = useMemo(
     () => [
@@ -66,9 +66,11 @@ export default function Header() {
           <a href="/">{app.title}</a>
           <img src="public/header.gif" />
         </section>
-        <section className="app-header__firstRowSearch">
-          <Search />
-        </section>
+        {hasSearch && (
+          <section className="app-header__firstRowSearch">
+            <Search />
+          </section>
+        )}
         <section className="app-header__firstRowRight">
           <Contacts
             vk="https://vk.com/p.remnev"

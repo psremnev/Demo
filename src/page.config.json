@@ -4,7 +4,8 @@
   },
   "/articles": {
     "module": "Articles/Articles",
-    "options": {}
+    "options": {},
+    "hasSearch": true
   },
   "/article": {
     "module": "Articles/Article",
