@@ -1,11 +1,11 @@
-import { VFC } from 'react';
+import { ReactNode } from 'react';
 import { POPUP_TYPE, CONFIRMATION_TYPE } from 'Popup/constants';
 
 export interface IPopup {
   type: (typeof POPUP_TYPE)[keyof typeof POPUP_TYPE];
   title?: string;
   width?: number | string;
-  content: VFC;
+  content: ReactNode;
   target?: HTMLElement;
   targetOffset?: ITargetOffset;
   closeOnOutsideClick?: boolean;

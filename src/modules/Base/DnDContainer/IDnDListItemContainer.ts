@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { ReactNode } from 'react';
 import type { TId } from 'list';
 
 export interface IDnDListItemContainer {
@@ -13,7 +13,7 @@ export interface IDnDListItemContainer {
   dragMoveCallback?: (id: TId) => boolean;
   // функция опциоанльно может вренуть false если не нужно переносить элемент(в случае ошибки или других обстоятельств)
   dragEndCallback?: (id: TId, positionResult: IPositionResult) => boolean;
-  children?: VFC;
+  children?: ReactNode;
 }
 
 export interface IPositionResult {

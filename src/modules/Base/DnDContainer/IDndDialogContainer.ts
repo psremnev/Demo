@@ -1,7 +1,7 @@
-import { VFC, CSSProperties } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 
 export interface IDndDialogContainer {
   canDrag?: boolean;
-  children?: VFC;
+  children?: ReactNode;
   style?: CSSProperties;
 }

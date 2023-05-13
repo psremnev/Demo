@@ -1,4 +1,4 @@
-import { VFC } from 'react';
+import { ReactNode } from 'react';
 import { IScrollContainer } from 'scrollContainer';
 import { DIRECTION } from 'ListLoader/constants';
 
@@ -7,7 +7,7 @@ export interface IListLoader extends IScrollContainer {
   items?: object[];
   filter?: IFilter;
   navigation?: INavigation;
-  children?: VFC;
+  children?: ReactNode;
   dataLoadCallback?: Function;
 }
 

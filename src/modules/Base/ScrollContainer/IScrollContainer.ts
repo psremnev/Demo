@@ -1,5 +1,5 @@
 import { ORIENTATION_TYPE, DIRECTION } from 'ScrollContainer/constants';
-import { VFC } from 'react';
+import { ReactNode } from 'react';
 
 export type ORIENTATION =
   (typeof ORIENTATION_TYPE)[keyof typeof ORIENTATION_TYPE];
@@ -9,7 +9,7 @@ export interface IScrollContainer {
   scrollStartCallback?: Function;
   scrollEndCallback?: Function;
   orientation?: ORIENTATION;
-  children?: VFC;
+  children?: ReactNode;
   showUpBtn?: boolean;
   showScrollBar?: boolean;
   showShadow?: boolean;
