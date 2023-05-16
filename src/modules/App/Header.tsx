@@ -64,13 +64,13 @@ export default function Header({ hasSearch = false }) {
       <section className="app-header__firstRow">
         <section className="app-header__firstRowTitle">
           <a href="/">{app.title}</a>
-          <img src="public/header.gif" />
+          <img src="public/code.png" />
         </section>
-        {hasSearch && (
+        {hasSearch && 
           <section className="app-header__firstRowSearch">
             <Search />
           </section>
-        )}
+        }
         <section className="app-header__firstRowRight">
           <Contacts
             vk="https://vk.com/p.remnev"
@@ -86,8 +86,9 @@ export default function Header({ hasSearch = false }) {
             className="app-header__accordionBtn marginRight-pre-m"
           >
             <Button
-              backgroundColor="var(--second_color)"
+              backgroundColor="transparent"
               title={item.title}
+              mixBlendMode='difference'
               onClick={() => openLink(item.link)}
             />
           </div>

@@ -109,7 +109,7 @@ export default function ({ preloadData }) {
       <DemoItem
         title="Dialogs"
         content={
-          <>
+          <div className="flexbox justify-spaceBetween align-center">
             <Button
               onClick={() => openPopup(POPUP_TYPE.DIALOG)}
               title="OpenDialog"
@@ -131,13 +131,13 @@ export default function ({ preloadData }) {
               }
               title="OpenConfirmationDialog"
             />
-          </>
+          </div>
         }
       />
       <DemoItem
         title="Buttons"
         content={
-          <>
+          <div className="flexbox justify-spaceBetween align-center">
             <Button onClick={btnClick} title="Base" />
             <br />
             <Button
@@ -155,7 +155,7 @@ export default function ({ preloadData }) {
               icon="ti-close"
               type={BUTTONS_TYPE.ICON}
             />
-          </>
+          </div>
         }
       />
       <DemoItem
@@ -219,7 +219,7 @@ export default function ({ preloadData }) {
       <DemoItem
         title="Hint template"
         content={
-          <>
+          <div className="flexbox justify-spaceBetween align-center">
             <HintTemplate
               imageSrc="public/header.gif"
               title="HEADER"
@@ -240,7 +240,7 @@ export default function ({ preloadData }) {
               title="HEADER"
               additionalText="add text"
             />
-          </>
+          </div>
         }
       />
     </div>

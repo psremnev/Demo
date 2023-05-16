@@ -1,5 +1,5 @@
 import { BUTTONS_TYPE } from 'Button/constants';
-import { IButtonOptions } from 'Button/IButtonOptions';
+import { IButton } from 'Button/IButton';
 import 'Button/Button.scss';
 
 /**
@@ -13,9 +13,10 @@ export default function Button({
   imageSize = 20,
   backgroundColor = 'var(--default_background_color)',
   accentColor = 'var(--dark_grey)',
+  mixBlendMode = 'unset',
   title = '',
   onClick,
-}: IButtonOptions) {
+}: IButton) {
   const isOnlyIcon = !title;
   const hasIcon =
     icon && (type === BUTTONS_TYPE.BASE || type === BUTTONS_TYPE.ICON);
@@ -28,6 +29,7 @@ export default function Button({
       alignItems: 'center',
       filter: 'brightness(1)',
       cursor: 'pointer',
+      mixBlendMode,
     },
     base: {
       padding: isOnlyIcon ? 0 : 6,
@@ -55,7 +57,14 @@ export default function Button({
     },
   };
 
-  const titleMArginStyle = { marginRight: title ? 6 : 0, padding: 4 };
+  const titleStyle =
+    type === BUTTONS_TYPE.LINK
+      ? {
+          color: 'var(--link_color)',
+        }
+      : {};
+
+  const titleMarginStyle = { marginRight: title ? 6 : 0, padding: 4 };
 
   return (
     <div
@@ -64,8 +73,8 @@ export default function Button({
       onClick={() => onClick && onClick()}
     >
       {hasImage && <img src={imageUrl} />}
-      {hasIcon && <div style={titleMArginStyle} className={icon}></div>}
-      {title && <div>{title}</div>}
+      {hasIcon && <div style={titleMarginStyle} className={icon}></div>}
+      {title && <span style={titleStyle}>{title}</span>}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { BUTTONS_TYPE } from 'Button/constants';
 
-export interface IButtonOptions {
+export interface IButton {
   title?: string;
   className?: string;
   type?: (typeof BUTTONS_TYPE)[keyof typeof BUTTONS_TYPE];
@@ -9,5 +9,6 @@ export interface IButtonOptions {
   imageSize?: number; // размер картинки
   backgroundColor?: string; // любой css цвет
   accentColor?: string;
+  mixBlendMode?: string; // css mixBlendMode
   onClick?: Function;
 }

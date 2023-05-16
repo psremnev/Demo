@@ -13,6 +13,14 @@
     flex-direction: column;
 }
 
+.justify-spaceBetween {
+    justify-content: space-between;
+}
+
+.align-center {
+   align-items: center;
+}
+
 // отступы
 .marginRight-xs {
     margin-right: var(--offset_xs);

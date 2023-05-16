@@ -99,7 +99,6 @@ export default function LoadButton({
   const style = {
     dropArea: {
       height: '100%',
-      width: '100%',
       display: 'flex',
       minHeight: 30,
       minWidth: 30,

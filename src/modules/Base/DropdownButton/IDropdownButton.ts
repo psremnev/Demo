@@ -1,4 +1,4 @@
-import { IButtonOptions } from 'button';
+import { IButton } from 'button';
 import { ISelectorList } from 'selectorList';
 
-export interface IDropdownButton extends IButtonOptions, ISelectorList {}
+export interface IDropdownButton extends IButton, ISelectorList {}

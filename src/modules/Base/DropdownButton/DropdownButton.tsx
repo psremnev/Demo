@@ -20,6 +20,7 @@ export default function DropdownButton({
   selectedKeys = [],
   selectedKeysChanged,
   multiSelect,
+  mixBlendMode
 }: IDropdownButton) {
   const [btnEl, setBtnEl] = useState(null);
   const [thisSelectedKeys, setThisSelectedKeys] = useState(selectedKeys);
@@ -88,6 +89,7 @@ export default function DropdownButton({
         icon={icon}
         backgroundColor={backgroundColor}
         accentColor={accentColor}
+        mixBlendMode={mixBlendMode}
         onClick={openPopup}
       />
     </div>
