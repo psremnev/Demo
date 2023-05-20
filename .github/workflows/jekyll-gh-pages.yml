@@ -24,9 +24,13 @@ concurrency:
 jobs:
   # Build job
   build:
+    runs-on: windows-latest
+    steps:
+    - name: npm install
+      run: npm install
+  # Run job
+  run:
     runs-on: ubuntu-latest
     steps:
-    - name: npm install and run
-      run: |
-        npm install
-        npm run start
+    - name: npm run
+      run: npm run start
