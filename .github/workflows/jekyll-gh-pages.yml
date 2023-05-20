@@ -14,5 +14,4 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm ci
-      - run: npm run build
-      - run: npm run start:server
+      - run: npm run start_git
