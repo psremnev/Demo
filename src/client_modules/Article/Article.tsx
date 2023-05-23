@@ -1,31 +1,48 @@
-import {HEADER_BASE_COLOR} from 'Articles/constants';
+import {HEADER_BASE_COLOR} from 'Article/constants';
+import { Header } from 'header';
+import { getBackgroundColor } from 'Article/getBackgroundColor';
+import {useMemo} from 'react';
 import 'Article/Article.scss';
 
+/**
+ * @link Article/Article
+ * @description Статья
+ */
 export default function ({
-  mode = 'view',
-  title = '',
-  description = '',
-  backgroundColor = HEADER_BASE_COLOR,
-  imageSrc,
-  content = '',
-  preloadData = null
+  urlParams,
+  mode = urlParams?.mode || 'view',
+  page = urlParams?.page,
+  preloadData = null,
+  item = null
 }) {
+  const initItem = item || preloadData;
+  const backgroundColor = useMemo(() => {
+    if (initItem.image) {
+      return `url(${item.image}})`;
+    } else {
+      return initItem._id
+        ? getBackgroundColor(initItem._id)
+        : HEADER_BASE_COLOR;
+    }
+  }, []);
+
   return (
     <section className={`article mode-${mode}`}>
       <header
-        className=" article__header"
-        style={{ background: backgroundColor }}
+        className="article__header"
+        style={{
+          background: backgroundColor,
+          filter: 'contrast(0.7)',
+          backgroundSize: 'cover',
+        }}
       >
-        <span className="articleListItem__title">
-          {title || preloadData.title}
-        </span>
-        <span className="articleListItem__description">
-          {description || preloadData.description}
-        </span>
-        <img src={imageSrc} />
+        <Header title={initItem.title} />
       </header>
-      <section className="article__content">
-        <span>{content}</span>
+      <section
+        className="article__content"
+        style={{ maxHeight: page ? '100%' : '100px', minHeight: '15px' }}
+      >
+        <span>{initItem.content}</span>
       </section>
     </section>
   );

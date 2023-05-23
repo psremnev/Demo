@@ -1,22 +1,23 @@
 import Service from 'Service/Service';
 import List from 'List/List';
-import ArticleListItem from 'Articles/ArticleListItem';
 import { openLink } from 'src/base_utils/openLink';
 import { Button } from 'button';
 import { Popup, POPUP_TYPE } from 'popup';
 import { useMemo } from 'react';
 import { Header } from 'header';
+import Article from 'Article/Article';
 
-export default function (props) {
+/**
+ * @link Articles/Articles
+ * @description Список Статей
+ */
+export default function () {
   const service = new Service({ endpoint: 'articles' });
   const popup = useMemo(() => new Popup(), []);
 
-  const ArticleListItemWrapper = ({ item }) => {
-    return (
-      <ArticleListItem title={item.title} description={item.description} />
-    );
-  };
-
+  /**
+   * Контент диалога создания статьи
+   */
   const createDialogContent = () => {
     return (
       <>
@@ -34,22 +35,28 @@ export default function (props) {
             placeholder="Введите краткое описание статьи"
           />
         </div>
-        <Button title="Сохранить" onClick={() => addArticle()} />
+        <Button title="Сохранить" onClick={() => saveArticle()} />
       </>
     );
   };
 
+  /**
+   * Открыть диалог создания статьи
+   */
   const openArticleAddDialog = () => {
     popup.open({
       type: POPUP_TYPE.DIALOG,
       title: 'Новая статья',
       closeOnOutsideClick: true,
       canDrag: true,
-      content: createDialogContent
+      content: createDialogContent,
     });
   };
 
-  const addArticle = () => {
+  /**
+   * Сохранить статью на БЛ
+   */
+  const saveArticle = () => {
     const title = (
       document.querySelector('.articlesAdd__name') as HTMLInputElement
     ).value;
@@ -63,19 +70,24 @@ export default function (props) {
     } else {
       alert('Не задано имя');
     }
-    
   };
 
   return (
     <div className="flexbox flexDirectionColumn fullWidth">
-      <header className="flexbox">
-        <Button title='Добавить' icon="ti-plus" onClick={openArticleAddDialog} />
+      <header className="flexbox marginLeft-pre-m">
+        <Button icon="ti-plus" onClick={openArticleAddDialog} />
       </header>
       <List
         source={service}
-        onItemClick={(item) => openLink(`/article?id=${item._id}&&mode='view'`, true)}
-        itemTemplate={ArticleListItemWrapper}
+        onItemClick={(item) =>
+          openLink(`/article?id=${item._id}&mode=view&page=true`, true)
+        }
+        itemTemplate={Article}
         backgroundColor="transparent"
+        itemsContainerPadding={{ left: 6, right: 6 }}
+        itemPadding={{ bottom: 15 }}
+        showShadow={false}
+        showScrollBar={false}
       />
     </div>
   );
