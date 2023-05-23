@@ -1,0 +1,10 @@
+FROM node
+COPY package.json .
+COPY . .
+
+RUN docker pull mongo
+RUN docker run --name mongodb -d mongo
+
+RUN nmp install
+
+CMD ["npm", "start"]
