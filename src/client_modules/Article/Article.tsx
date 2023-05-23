@@ -4,7 +4,7 @@ import 'Article/Article.scss';
 export default function ({
   mode = 'view',
   title = '',
-  additionalText = '',
+  description = '',
   backgroundColor = HEADER_BASE_COLOR,
   imageSrc,
   content = '',
@@ -16,9 +16,11 @@ export default function ({
         className=" article__header"
         style={{ background: backgroundColor }}
       >
-        <span className="articleListItem__title">{title || preloadData.title}</span>
-        <span className="articleListItem__additionalText">
-          {additionalText}
+        <span className="articleListItem__title">
+          {title || preloadData.title}
+        </span>
+        <span className="articleListItem__description">
+          {description || preloadData.description}
         </span>
         <img src={imageSrc} />
       </header>

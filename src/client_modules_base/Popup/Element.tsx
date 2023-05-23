@@ -7,7 +7,7 @@ import {
 import { Button, BUTTONS_TYPE } from 'button';
 import { useEffect, useState } from 'react';
 import { DnDDialogContainer } from 'dndContainer';
-import { useComponentDidMount } from 'effects/isMounted';
+import { useComponentDidMount } from 'App/effects/isMounted';
 import 'Popup/Popup.scss';
 
 const getStyle = (width, target, targetOffset, type) => {

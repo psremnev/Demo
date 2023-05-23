@@ -3,7 +3,7 @@ import { LoadButtonType } from 'LoadButton/constants';
 import { useState } from 'react';
 import { selectFiles } from 'LoadButton/selectFiles';
 import { Button } from 'button';
-import { translate } from 'utils/translate';
+import { translate } from 'src/base_utils/translate';
 
 /**
  * @link LoadButton/LoadButton
@@ -111,7 +111,7 @@ export default function LoadButton({
       padding: 6,
       justifyContent: 'center',
       userSelect: 'none',
-    }
+    },
   };
 
   return (

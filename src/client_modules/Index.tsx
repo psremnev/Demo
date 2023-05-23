@@ -1,7 +1,7 @@
 import app from 'app.config.json';
 import { App } from 'app';
 import { useState, useEffect } from 'react';
-import AppContext from 'context/app';
+import AppContext from 'App/context/app';
 import { THEME, THEME_COLOR, LANG } from 'types';
 import 'Index.scss';
 

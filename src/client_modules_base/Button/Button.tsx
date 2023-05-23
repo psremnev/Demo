@@ -35,6 +35,7 @@ export default function Button({
       padding: isOnlyIcon ? 0 : 6,
       borderRadius: 12,
       boxShadow: isOnlyIcon ? 'none' : `${accentColor} 0px 0px 4px`,
+      margin: isOnlyIcon ? 0 : '4px', // на ширину тени
       background: imageUrl
         ? 'var(--transparent_background_color)'
         : backgroundColor,

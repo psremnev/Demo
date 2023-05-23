@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 import app from 'app.config.json';
 import { LANG, THEME } from 'types';
-import { getAppContext } from 'utils/getAppContext';
+import { getAppContext } from 'src/base_utils/getAppContext';
 import { Button } from 'button';
 import { Contacts } from 'contacts';
 import { Settings } from 'settings';
-import { openLink } from 'utils/openLink';
-import { translate } from 'utils/translate';
+import { openLink } from 'src/base_utils/openLink';
+import { translate } from 'src/base_utils/translate';
 import { Search } from 'search';
 import 'App/Header.scss';
 
@@ -66,11 +66,11 @@ export default function Header({ hasSearch = false }) {
           <a href="/">{app.title}</a>
           <img src="public/code.png" />
         </section>
-        {hasSearch && 
+        {hasSearch && (
           <section className="app-header__firstRowSearch">
             <Search />
           </section>
-        }
+        )}
         <section className="app-header__firstRowRight">
           <Contacts
             vk="https://vk.com/p.remnev"
@@ -88,7 +88,7 @@ export default function Header({ hasSearch = false }) {
             <Button
               backgroundColor="transparent"
               title={item.title}
-              mixBlendMode='difference'
+              mixBlendMode="difference"
               onClick={() => openLink(item.link)}
             />
           </div>

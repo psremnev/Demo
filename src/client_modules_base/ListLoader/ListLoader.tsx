@@ -4,7 +4,7 @@ import { ScrollContainer } from 'scrollContainer';
 import { IListLoader } from 'ListLoader/IListLoader';
 import { DIRECTION, DEFAULT_NAVIGATION } from 'ListLoader/constants';
 import { ORIENTATION_TYPE } from 'ScrollContainer/constants';
-import { useComponentDidMount } from 'effects/isMounted';
+import { useComponentDidMount } from 'App/effects/isMounted';
 
 /**
  * @link ListLoader/ListLoader
