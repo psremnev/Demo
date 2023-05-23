@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { IScrollContainer } from 'ScrollContainer/IScrollContainer';
 import { DIRECTION, ORIENTATION_TYPE } from 'ScrollContainer/constants';
 import { Button } from 'button';
+import 'ScrollContainer/ScrollContainer.scss';
 
 /**
  * @link ScrollContainer/ScrollContainer

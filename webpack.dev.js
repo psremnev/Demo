@@ -70,6 +70,6 @@ export default {
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
-    }),
-  ],
+    })
+  ]
 };

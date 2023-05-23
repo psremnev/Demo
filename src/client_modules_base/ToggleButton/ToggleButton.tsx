@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { IToggleButton } from 'ToggleButton/IToggleButton';
+import 'ToggleButton/ToggleButton.scss';
 
 /**
  * @link ToggleButton/ToggleButton

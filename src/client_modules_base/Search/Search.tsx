@@ -1,7 +1,7 @@
-import 'Search/Search.scss';
 import { useState, useRef } from 'react';
 import {ISearch} from 'Search/ISearch';
 import { translate } from 'utils/translate';
+import 'Search/Search.scss';
 
 /**
  * @link Search/Search

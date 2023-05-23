@@ -41,6 +41,7 @@ const appQueryProcessing = () => {
   );
 
   app.post(appConfig.service_address, async (req, res) => {
+    const { endpoint, method, params, navigation } = req.body;
     const getData = () => {
       const isList = endpoint === 'List';
       return isList
@@ -59,7 +60,7 @@ const appQueryProcessing = () => {
             .reverse();
     };
 
-    const { endpoint, method, params, navigation } = req.body;
+    
     let result;
     switch (method) {
       case METHOD_TYPE.CREATE:
@@ -69,12 +70,13 @@ const appQueryProcessing = () => {
         result = await database.read(endpoint, params);
         break;
       case METHOD_TYPE.QUERY:
-        result = await database.query(endpoint, params, navigation);
+        if (endpoint === 'List' || endpoint === 'TreeList') {
+          result = getData();
+        } else {
+          result = await database.query(endpoint, params, navigation);
+        }
         break;
-      default:
-        result = getData();
     }
-
     res.send(result);
   });
 

@@ -20,8 +20,8 @@ export class Database {
         this.db = await this.client.db(this.endpoint);
         // выполняем пинг для проверки подключения
         const result = await this.db.command({ ping: 1 });
-        console.log("Подключение с сервером успешно установлено");
-        console.log('Ping DB: ', result?.ok === 1 ? 'good' : 'bad');
+        console.log('Подключение с сервером mongodb успешно установлено');
+        console.log('Ping DataBase: ', result?.ok === 1 ? 'good' : 'bad');
     }catch(err) {
         console.log("Возникла ошибка");
         console.log(err);

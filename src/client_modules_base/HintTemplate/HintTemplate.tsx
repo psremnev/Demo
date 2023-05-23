@@ -1,6 +1,7 @@
 import {IHintTemplate} from 'HintTemplate/IHintTemplate';
 import {ORIENTATION, IMAGE_POSITION} from 'HintTemplate/constants';
 import {useMemo} from 'react';
+import 'HintTemplate/HintTemplate.scss';
 
 /**
  * @class HintTemplate

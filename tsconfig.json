@@ -15,8 +15,8 @@
       "*": [
         "*",
         "src/*",
-        "src/modules/*",
-        "src/modules/Base/*",
+        "src/client_modules/*",
+        "src/client_modules_base/*",
         "src/server_modules/*"
       ]
     }

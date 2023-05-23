@@ -3,7 +3,7 @@ import {BaseList} from 'list';
 import Expander from './Expander';
 import {ITreeItemTemplateOptions} from './ITreeItemTemplateOptions';
 import {Button, BUTTONS_TYPE} from 'button';
-import './TreeItemTemplate.scss';
+import 'TreeList/TreeItemTemplate.scss';
 
 const getItems = (items, currentItem) => {
     return items.filter((item) => item.parent === currentItem.id)
