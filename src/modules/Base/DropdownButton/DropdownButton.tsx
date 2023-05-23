@@ -59,7 +59,7 @@ export default function DropdownButton({
       target: btnEl,
       closeOnOutsideClick: true,
       canDrag: false,
-      content: Content,
+      content: Content
     });
   };
 

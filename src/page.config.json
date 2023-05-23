@@ -8,8 +8,9 @@
     "hasSearch": true
   },
   "/article": {
-    "module": "Articles/Article",
-    "options": {}
+    "module": "Article/Article",
+    "options": {},
+    "preloaderPath": "Article/ArticleLoader"
   },
   "/admin": {
     "module": "Admin/Admin",

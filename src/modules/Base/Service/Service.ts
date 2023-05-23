@@ -37,7 +37,7 @@ export default class Service {
       if (response.ok) {
         return await response.json();
       } else {
-        console.error(`Ошибка при выполнении ${method}`);
+        console.error(`Ошибка при выполнении метода ${method}`);
       }
     } catch (e) {
       console.error(e);
@@ -45,24 +45,32 @@ export default class Service {
   }
 
   /* Вызов произвольного метода на точке входа */
-  async call(method: string, params: object): Promise<any> {
+  call(method: string, params: object): Promise<any> {
     return this.getData(method, params);
   }
 
+  /* Вызов метода создания записи на точке входа */
+  create(params: object): Promise<any> {
+    return this.getData(METHOD_TYPE.CREATE, params);
+  }
+
   /* Вызов метода чтения записи на точке входа */
-  async read(params: object): Promise<any> {
+  read(params: object): Promise<any> {
     return this.getData(METHOD_TYPE.READ, params);
   }
 
-  async update(params: object): Promise<any> {
+  /* Вызов метода обновления записи на точке входа */
+  update(params: {oldData: object, newData: object}): Promise<any> {
     return this.getData(METHOD_TYPE.UPDATE, params, REQUEST_TYPE.PUT);
   }
 
-  async delete(params: object): Promise<any> {
+  /* Вызов метода удаления записи на точке входа */
+  delete(params: object): Promise<any> {
     return this.getData(METHOD_TYPE.DELETE, params, REQUEST_TYPE.DELETE);
   }
 
-  async query(params: object, navigation?: object): Promise<any> {
+  /* Вызов метода сполучения записей на точке входа */
+  query(params: object, navigation?: object): Promise<any> {
     // навигация указывает сколько записей запросить и с какой записи делать выборку
     return this.getData(METHOD_TYPE.QUERY, params, undefined, navigation);
   }

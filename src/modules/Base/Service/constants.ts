@@ -8,6 +8,7 @@ export const REQUEST_TYPE = {
 export const METHOD_TYPE = {
   QUERY: 'Query',
   READ: 'Read',
+  CREATE: 'Create',
   UPDATE: 'Update',
   DELETE: 'Delete',
 };

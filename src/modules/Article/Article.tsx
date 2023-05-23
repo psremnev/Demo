@@ -1,13 +1,14 @@
 import {HEADER_BASE_COLOR} from 'Articles/constants';
-import 'Articles/Article.scss';
+import 'Article/Article.scss';
 
 export default function ({
   mode = 'view',
-  title = 'Title',
-  additionalText = 'Additional Text',
+  title = '',
+  additionalText = '',
   backgroundColor = HEADER_BASE_COLOR,
   imageSrc,
-  content = 'Content'
+  content = '',
+  preloadData = null
 }) {
   return (
     <section className={`article mode-${mode}`}>
@@ -15,7 +16,7 @@ export default function ({
         className=" article__header"
         style={{ background: backgroundColor }}
       >
-        <span className="articleListItem__title">{title}</span>
+        <span className="articleListItem__title">{title || preloadData.title}</span>
         <span className="articleListItem__additionalText">
           {additionalText}
         </span>
