@@ -22,4 +22,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
-      - run: npm run build_prod
+      - run: tsc src\client_modules\Demo\Demo.tsx
+      - run: tsc src\client_modules\Demo\DemoItem.tsx 
