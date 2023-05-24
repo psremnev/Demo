@@ -229,3 +229,5 @@ export default function Demo({ preloadData }) {
     </div>
   );
 }
+
+export {Demo};
