@@ -13,7 +13,7 @@ import { Carousel } from 'carousel';
 import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
-import 'Demo/Demo';
+import 'Demo/Demo.scss';
 
 export default function ({ preloadData }) {
   const channel = useMemo(() => new Channel(), []);
