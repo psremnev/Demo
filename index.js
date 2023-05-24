@@ -1,4 +1,3 @@
-addEventListener('DOMContentLoaded', (event) => {});
 // <!-- Git Hub Site -->
 import Demo from './client_modules/Demo/Demo';
 
