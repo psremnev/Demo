@@ -14,7 +14,7 @@ export default {
     ignored: ['**/node_modules/', '**/build'],
   },
   entry: {
-    demo: './docs/index.ts',
+    demo: './docs/index.tsx',
   },
   output: {
     path: `${__dirname}`,
