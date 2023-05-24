@@ -12,7 +12,7 @@
     "start:server": "node ./build/server.js",
     "build_prod": "webpack --config webpack.prod.js",
     "start_prod": "run-p --parallel build_prod start:server",
-    "build_demo": "webpack --config ./gh-pages/webpack.demo.js"
+    "build_demo": "webpack --config ./docs/webpack.demo.js"
   },
   "author": "",
   "license": "ISC",

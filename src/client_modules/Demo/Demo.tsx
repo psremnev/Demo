@@ -12,7 +12,7 @@ import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
 
-export default function ({ preloadData }) {
+export default function Demo({ preloadData }) {
   const listStyle = {
     height: '200px',
     width: '100%'
