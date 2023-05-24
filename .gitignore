@@ -3,3 +3,6 @@ src/**/*.jsx
 node_modules/*
 build/*
 .vscode/*
+
+!/src/client_modules_base/**/*.js
+!/src/client_modules_base/**/*.jsx
