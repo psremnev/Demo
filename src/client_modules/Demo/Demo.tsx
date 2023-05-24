@@ -3,8 +3,6 @@ import { POPUP_TYPE, CONFIRMATION_TYPE, Popup, IPopup } from 'popup';
 import { Button, BUTTONS_TYPE } from 'button';
 import { List } from 'list';
 import { TreeList } from 'treeList';
-import Channel from 'Channel/Channel';
-import { useState, useMemo } from 'react';
 import { SelectorList } from 'selectorList';
 import { HintTemplate } from 'hintTemplate';
 import { Header } from 'header';
