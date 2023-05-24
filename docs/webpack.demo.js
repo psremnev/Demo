@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import {tsRule, scssRule} from './../webpackRules.js';
+import {tsRule, scssRule} from '../webpackRules.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
