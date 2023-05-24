@@ -36,13 +36,6 @@ export default function ({ preloadData }) {
 
   const btnClick = () => alert('You click on btn');
 
-  const channelSubscribe = () => {
-    isSubscribe
-      ? channel.unsubscribe('eventone')
-      : channel.subscribe('eventone', (msg) => console.log(msg));
-    setIsSubscribe(!isSubscribe);
-  };
-
   const itemsContainerPadding = { top: 6, left: 6, right: 6, bottom: 6 };
   const listService = new Service({ endpoint: 'List' });
 
@@ -191,15 +184,6 @@ export default function ({ preloadData }) {
               />
             </div>
           </>
-        }
-      />
-      <DemoItem
-        title="Server channel"
-        content={
-          <Button
-            onClick={channelSubscribe}
-            title={isSubscribe ? 'Unsubscribe' : 'Subscribe'}
-          />
         }
       />
       <DemoItem
