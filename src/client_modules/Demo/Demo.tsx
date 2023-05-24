@@ -13,11 +13,12 @@ import { Carousel } from 'carousel';
 import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
-import 'Demo/Demo.scss';
 
 export default function ({ preloadData }) {
-  const channel = useMemo(() => new Channel(), []);
-  const [isSubscribe, setIsSubscribe] = useState(false);
+  const listStyle = {
+    height: '200px',
+    width: '100%'
+  }
 
   const openPopup = (type: string, options?: Partial<IPopup>) => {
     const dialog = new Popup();
@@ -156,7 +157,7 @@ export default function ({ preloadData }) {
         content={
           <>
             <Header title="Base" size={15} />
-            <div className="demoList">
+            <div style={listStyle}>
               <List
                 items={preloadData.list}
                 itemsContainerPadding={itemsContainerPadding}
@@ -165,7 +166,7 @@ export default function ({ preloadData }) {
             </div>
             <br />
             <Header title="With custom template" size={15} />
-            <div className="demoList">
+            <div style={listStyle}>
               <List
                 items={preloadData.list}
                 itemsContainerPadding={itemsContainerPadding}
@@ -176,7 +177,7 @@ export default function ({ preloadData }) {
             <br />
             <Header title="Tree list" />
             <br />
-            <div className="demoList">
+            <div style={listStyle}>
               <TreeList
                 items={preloadData.tree}
                 itemsContainerPadding={itemsContainerPadding}
