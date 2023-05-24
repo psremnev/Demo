@@ -9,7 +9,6 @@
     "start": "run-p ts:watch build watch:server",
     "build": "webpack --config webpack.dev.js",
     "ts:watch": "tsc -w",
-    "tsc": "tsc",
     "watch:server": "nodemon ./build/server.js",
     "start:server": "node ./build/server.js",
     "build_prod": "webpack --config webpack.prod.js",
