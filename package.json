@@ -5,7 +5,6 @@
   "main": "build/server.js",
   "type": "module",
   "scripts": {
-    "deploy": "run-p build_prod",
     "start": "run-p ts:watch build watch:server",
     "build": "webpack --config webpack.dev.js",
     "ts:watch": "tsc -w",
