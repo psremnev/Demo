@@ -1,4 +1,4 @@
-import { openLink } from 'src/base_utils/openLink';
+import { openLink } from 'base_utils/openLink';
 import { Button, BUTTONS_TYPE } from 'button';
 import { IContactsOptions } from 'Contacts/IContacts';
 

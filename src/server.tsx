@@ -5,7 +5,7 @@ import express from 'express';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import * as bodyParser from 'body-parser';
-import { listData, treeData } from 'src/test_data/TestData';
+import { listData, treeData } from 'test_data/TestData';
 import { ServerChannel } from 'ServerChannel/ServerChannel';
 import { renderPage } from 'page_utils/renderPage';
 import * as cookieParser from 'cookie-parser';

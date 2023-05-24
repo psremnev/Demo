@@ -1,5 +1,5 @@
 import Index from 'Index';
-import { getUrlInfo } from 'src/base_utils/getUrlInfo';
+import { getUrlInfo } from 'base_utils/getUrlInfo';
 import { ADMIN_URL, AUTH_URL } from 'types';
 import { getCleanPath } from 'page_utils/getCleanPath';
 import { getPageConfig } from 'page_utils/getPageConfig';

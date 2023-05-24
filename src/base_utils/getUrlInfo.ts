@@ -1,4 +1,4 @@
-import getUrlParams from 'src/base_utils/getUrlParams';
+import getUrlParams from 'base_utils/getUrlParams';
 import appConfig from 'app.config.json';
 
 export function getUrlInfo(req?): IUrlInfo {

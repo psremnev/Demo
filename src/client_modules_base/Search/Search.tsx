@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { ISearch } from 'Search/ISearch';
-import { translate } from 'src/base_utils/translate';
+import { translate } from 'base_utils/translate';
 import 'Search/Search.scss';
 
 /**
