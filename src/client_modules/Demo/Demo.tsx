@@ -1,4 +1,3 @@
-import Service from 'Service/Service';
 import { POPUP_TYPE, CONFIRMATION_TYPE, Popup, IPopup } from 'popup';
 import { Button, BUTTONS_TYPE } from 'button';
 import { List } from 'list';
@@ -11,6 +10,7 @@ import { Carousel } from 'carousel';
 import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
+import {listData, treeData} from 'test_data/TestData';
 
 export default function({ preloadData }) {
   const listStyle = {
@@ -36,7 +36,8 @@ export default function({ preloadData }) {
   const btnClick = () => alert('You click on btn');
 
   const itemsContainerPadding = { top: 6, left: 6, right: 6, bottom: 6 };
-  const listService = new Service({ endpoint: 'List' });
+  const listItems = [...listData, ...listData, ...listData];
+  const treeItems = [...treeData, ...treeData, ...treeData];
 
   const carouselItemTemplate = ({ item }) => {
     return (
@@ -81,8 +82,7 @@ export default function({ preloadData }) {
         title="Carousel"
         content={
           <Carousel
-            items={preloadData.list}
-            source={listService}
+            items={listItems}
             itemTemplate={carouselItemTemplate}
             backgroundColor="transparent"
           />
@@ -157,18 +157,16 @@ export default function({ preloadData }) {
             <Header title="Base" size={15} />
             <div style={listStyle}>
               <List
-                items={preloadData.list}
+                items={listItems}
                 itemsContainerPadding={itemsContainerPadding}
-                source={listService}
               />
             </div>
             <br />
             <Header title="With custom template" size={15} />
             <div style={listStyle}>
               <List
-                items={preloadData.list}
+                items={listItems}
                 itemsContainerPadding={itemsContainerPadding}
-                source={listService}
                 itemTemplate={({ item }) => <span>Custom {item.title}</span>}
               />
             </div>
@@ -177,9 +175,8 @@ export default function({ preloadData }) {
             <br />
             <div style={listStyle}>
               <TreeList
-                items={preloadData.tree}
+                items={treeItems}
                 itemsContainerPadding={itemsContainerPadding}
-                source={new Service({ endpoint: 'TreeList' })}
               />
             </div>
           </>
