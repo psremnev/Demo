@@ -11,7 +11,6 @@ import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
 import {listData, treeData} from 'test_data/TestData';
-import './icons/cat.png';
 
 export default function() {
   const listStyle = {
@@ -202,14 +201,14 @@ export default function() {
         content={
           <div className="flexbox justify-spaceBetween align-center">
             <HintTemplate
-              imageSrc="icons/cat.png"
+              imageSrc="./icons/cat.png"
               title="HEADER"
               additionalText="add text"
             />
             <br />
             <HintTemplate
               orientation="horizontal"
-              imageSrc="icons/cat.png"
+              imageSrc="./icons/cat.png"
               title="HEADER"
               additionalText="add text"
             />
@@ -217,7 +216,7 @@ export default function() {
             <HintTemplate
               orientation="horizontal"
               imagePosition="end"
-              imageSrc="icons/cat.png"
+              imageSrc="./icons/cat.png"
               title="HEADER"
               additionalText="add text"
             />
