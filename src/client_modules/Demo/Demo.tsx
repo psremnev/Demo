@@ -186,10 +186,10 @@ export default function({ preloadData }) {
         title="Selector list"
         content={
           <>
-            <SelectorList items={preloadData.list} />
+            <SelectorList items={listData} />
             <br />
             <SelectorList
-              items={preloadData.list}
+              items={listData}
               multiSelect={false}
               selectedKeys={[1]}
             />
