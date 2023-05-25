@@ -146,28 +146,28 @@ export default function() {
           <>
             <span>{btnResult}</span>
             <div className="flexbox justify-spaceBetween align-center">
-              <Button onClick={btnClick} title="Базовая" />
+              <Button onClick={() => btnClick('Базовая')} title="Базовая" />
               <br />
               <Button
-                onClick={btnClick}
+                onClick={() => btnClick('С фоном')}
                 title="Прикладной фон"
                 backgroundColor="rgb(229 218 254)"
               />
               <br />
               <Button
-                onClick={btnClick}
+                onClick={() => btnClick('С иконкой')}
                 title="Базовая с иконкой"
                 icon="ti-cup"
               />
               <br />
               <Button
-                onClick={btnClick}
+                onClick={() => btnClick('Ссылка')}
                 type={BUTTONS_TYPE.LINK}
                 title="Ссылка"
               />
               <br />
               <Button
-                onClick={btnClick}
+                onClick={() => btnClick('Кнопка иконка')}
                 icon="ti-close"
                 type={BUTTONS_TYPE.ICON}
               />
