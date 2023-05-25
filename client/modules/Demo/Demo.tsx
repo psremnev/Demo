@@ -101,11 +101,12 @@ export default function() {
       <DemoItem
         title="Кнопка и DropArea для загрузки файлов"
         content={
-          <>
-            <LoadButton />
-            <br />
+          <div className="flexbox align-center">
+            <div className="marginRight-xl">
+              <LoadButton />
+            </div>
             <LoadButton type={LoadButtonType.DROP_AREA} />
-          </>
+          </div>
         }
       />
       <DemoItem
@@ -113,17 +114,19 @@ export default function() {
         content={
           <>
             <span>{dialogBtnResult}</span>
-            <div className="flexbox justify-spaceBetween align-center">
-              <Button
-                onClick={() => openPopup(POPUP_TYPE.DIALOG)}
-                title="Открыть диалог"
-              />
-              <br />
-              <Button
-                onClick={() => openPopup(POPUP_TYPE.STACK)}
-                title="Открыть стек панель"
-              />
-              <br />
+            <div className="flexbox align-center">
+              <div className="marginRight-xl">
+                <Button
+                  onClick={() => openPopup(POPUP_TYPE.DIALOG)}
+                  title="Открыть диалог"
+                />
+              </div>
+              <div className="marginRight-xl">
+                <Button
+                  onClick={() => openPopup(POPUP_TYPE.STACK)}
+                  title="Открыть стек панель"
+                />
+              </div>
               <Button
                 onClick={() =>
                   openPopup(POPUP_TYPE.DIALOG, {
@@ -145,27 +148,31 @@ export default function() {
         content={
           <>
             <span>{btnResult}</span>
-            <div className="flexbox justify-spaceBetween align-center">
-              <Button onClick={() => btnClick('Базовая')} title="Базовая" />
-              <br />
-              <Button
-                onClick={() => btnClick('С фоном')}
-                title="Прикладной фон"
-                backgroundColor="rgb(229 218 254)"
-              />
-              <br />
-              <Button
-                onClick={() => btnClick('С иконкой')}
-                title="Базовая с иконкой"
-                icon="ti-cup"
-              />
-              <br />
-              <Button
-                onClick={() => btnClick('Ссылка')}
-                type={BUTTONS_TYPE.LINK}
-                title="Ссылка"
-              />
-              <br />
+            <div className="flexbox align-center">
+              <div className="marginRight-xl">
+                <Button onClick={() => btnClick('Базовая')} title="Базовая" />
+              </div>
+              <div className="marginRight-xl">
+                <Button
+                  onClick={() => btnClick('С фоном')}
+                  title="Прикладной фон"
+                  backgroundColor="rgb(229 218 254)"
+                />
+              </div>
+              <div className="marginRight-xl">
+                <Button
+                  onClick={() => btnClick('С иконкой')}
+                  title="Базовая с иконкой"
+                  icon="ti-cup"
+                />
+              </div>
+              <div className="marginRight-xl">
+                <Button
+                  onClick={() => btnClick('Ссылка')}
+                  type={BUTTONS_TYPE.LINK}
+                  title="Ссылка"
+                />
+              </div>
               <Button
                 onClick={() => btnClick('Кнопка иконка')}
                 icon="ti-close"
@@ -179,7 +186,7 @@ export default function() {
         title="Списки"
         content={
           <div className="flexbox">
-            <div className="flexDirectionColumn marginRight-xlv">
+            <div className="flexDirectionColumn marginRight-xl">
               <Header title="Базовый" size={16} />
               <div style={listStyle}>
                 <List
@@ -219,34 +226,39 @@ export default function() {
       <DemoItem
         title="Списки с выбором значения"
         content={
-          <>
-            <SelectorList items={listData} />
-            <br />
-            <SelectorList
-              items={listData}
-              multiSelect={false}
-              selectedKeys={[1]}
-            />
-          </>
+          <div className="flexbox align-center">
+            <div className="marginRight-xl">
+              <SelectorList items={listData} />
+            </div>
+            <div>
+              <SelectorList
+                items={listData}
+                multiSelect={false}
+                selectedKeys={[1]}
+              />
+            </div>
+          </div>
         }
       />
       <DemoItem
         title="Компонент заглушка"
         content={
-          <div className="flexbox justify-spaceBetween align-center">
-            <HintTemplate
-              imageSrc={imageLink}
-              title="HEADER"
-              additionalText="add text"
-            />
-            <br />
-            <HintTemplate
-              orientation="horizontal"
-              imageSrc={imageLink}
-              title="HEADER"
-              additionalText="add text"
-            />
-            <br />
+          <div className="flexbox align-center">
+            <div className="marginRight-xl">
+              <HintTemplate
+                imageSrc={imageLink}
+                title="HEADER"
+                additionalText="add text"
+              />
+            </div>
+            <div className="marginRight-xl">
+              <HintTemplate
+                orientation="horizontal"
+                imageSrc={imageLink}
+                title="HEADER"
+                additionalText="add text"
+              />
+            </div>
             <HintTemplate
               orientation="horizontal"
               imagePosition="end"
