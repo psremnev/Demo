@@ -1,6 +1,6 @@
 src/**/*.js
 src/**/*.jsx
-src/**/*.txt
+docs/**/*.txt
 node_modules/*
 build/*
 .vscode/*
