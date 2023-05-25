@@ -1085,4 +1085,4 @@
 	content: "\e75f";
 }
 
-html,body{height:100%;width:100%;margin:0;font-family:"themify"}.root{padding:6px;background:#fff}body:-webkit-scrollbar{display:none}
+html,body{height:100%;width:100%;margin:0;font-family:"themify"}.root{padding:6px;background:#fff}body::-webkit-scrollbar{display:none}

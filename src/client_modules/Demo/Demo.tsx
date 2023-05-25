@@ -11,6 +11,7 @@ import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
 import {listData, treeData} from 'test_data/TestData';
+import * as url from './icons/cat.png';
 
 export default function() {
   const listStyle = {
