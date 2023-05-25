@@ -17,3 +17,9 @@ html, body {
 body::-webkit-scrollbar {
     display: none;
 }
+
+body span,
+body a {
+    color: white;
+    mix-blend-mode: difference;
+}

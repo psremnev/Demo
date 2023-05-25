@@ -18,6 +18,8 @@ export default function() {
     width: '100%'
   }
 
+  const imageLink = 'https://png.pngtree.com/png-clipart/20210128/ourmid/pngtree-cute-cat-cant-png-image_2819172.jpg';
+
   const openPopup = (type: string, options?: Partial<IPopup>) => {
     const dialog = new Popup();
     dialog.open({
@@ -201,14 +203,14 @@ export default function() {
         content={
           <div className="flexbox justify-spaceBetween align-center">
             <HintTemplate
-              imageSrc="./icons/cat.png"
+              imageSrc={imageLink}
               title="HEADER"
               additionalText="add text"
             />
             <br />
             <HintTemplate
               orientation="horizontal"
-              imageSrc="./icons/cat.png"
+              imageSrc={imageLink}
               title="HEADER"
               additionalText="add text"
             />
@@ -216,7 +218,7 @@ export default function() {
             <HintTemplate
               orientation="horizontal"
               imagePosition="end"
-              imageSrc="./icons/cat.png"
+              imageSrc={imageLink}
               title="HEADER"
               additionalText="add text"
             />
