@@ -11,7 +11,6 @@ import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
 import {listData, treeData} from 'test_data/TestData';
-import * as url from './icons/cat.png';
 
 export default function() {
   const listStyle = {
@@ -27,7 +26,7 @@ export default function() {
         title: `Header ${type}`,
         width: 300,
         content: () => {
-          return <div>{`Hi, i m content node from ${type}`}</div>;
+          return <div>{`Content node from ${type}`}</div>;
         },
       },
       ...options,
