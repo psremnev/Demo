@@ -10,3 +10,7 @@ html, body {
 .root {
     background: white;
 }
+
+body:-webkit-scrollbar {
+    display: none;
+}
