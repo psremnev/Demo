@@ -35,6 +35,7 @@ const getStyle = (width, target, targetOffset, type) => {
     top: 0,
     right: 0,
     height: '100%',
+    position: 'fixed',
     borderLeft: '3px solid #eaeaea',
     boxSizing: 'border-box',
   };

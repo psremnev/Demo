@@ -28,7 +28,7 @@ export default function() {
         title: `Header ${type}`,
         width: 300,
         content: () => {
-          return <div>{`Content node from ${type}`}</div>;
+          return <div>{`Content from ${type}`}</div>;
         },
       },
       ...options,

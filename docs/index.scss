@@ -23,3 +23,15 @@ body a {
     color: white;
     mix-blend-mode: difference;
 }
+
+.demo__header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: #f6f6f6e8;
+    width: 100%;
+    padding: 6px;
+}

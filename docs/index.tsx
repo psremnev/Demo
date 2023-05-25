@@ -6,9 +6,7 @@ import './index.scss';
 const DemoPage = () => {
   return (
     <>
-      <div style={ { textAlign: 'center', fontSize: 20, fontWeight: 'bold' } }>
-        Demo Page
-      </div>
+      <div className="demo__header">Demo Page</div>
       <Demo />
     </>
   );
