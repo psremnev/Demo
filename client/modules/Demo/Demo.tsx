@@ -198,7 +198,7 @@ export default function() {
                   items={listItems}
                   itemsContainerPadding={itemsContainerPadding}
                   itemTemplate={({ item }) => (
-                    <span style={{ color: 'green' }}>Прикладной шаблон</span>
+                    <span style={{ color: '#ff6590' }}>Прикладной шаблон</span>
                   )}
                 />
               </div>
