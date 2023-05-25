@@ -11,8 +11,13 @@ import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
 import {listData, treeData} from 'test_data/TestData';
+import {useState} from 'react';
 
 export default function() {
+  const [dialogBtnResult, setDialogBtnResult] = useState(
+    'Резултат выбора в диалоге'
+  );
+  const [btnResult, setBtnResult] = useState('Резултат клика по кнопке');
   const listStyle = {
     height: '200px',
     width: '100%'
@@ -35,7 +40,7 @@ export default function() {
     });
   };
 
-  const btnClick = () => alert('You click on btn');
+  const btnClick = () => setBtnResult('You click on btn');
 
   const itemsContainerPadding = { top: 6, left: 6, right: 6, bottom: 6 };
   const listItems = [...listData, ...listData, ...listData];
@@ -103,59 +108,74 @@ export default function() {
       <DemoItem
         title="Диалоги"
         content={
-          <div className="flexbox justify-spaceBetween align-center">
-            <Button
-              onClick={() => openPopup(POPUP_TYPE.DIALOG)}
-              title="Открыть диалог"
-            />
-            <br />
-            <Button
-              onClick={() => openPopup(POPUP_TYPE.STACK)}
-              title="Открыть стек панель"
-            />
-            <br />
-            <Button
-              onClick={() =>
-                openPopup(POPUP_TYPE.DIALOG, {
-                  confirmationCfg: {
-                    type: CONFIRMATION_TYPE.YES_NO_CANCEL,
-                    callback: (res) => alert(`You confirmation result ${res}`),
-                  },
-                })
-              }
-              title="Открыть диалог с подтверждением"
-            />
-          </div>
+          <>
+            <span>{dialogBtnResult}</span>
+            <div className="flexbox justify-spaceBetween align-center">
+              <Button
+                onClick={() => openPopup(POPUP_TYPE.DIALOG)}
+                title="Открыть диалог"
+              />
+              <br />
+              <Button
+                onClick={() => openPopup(POPUP_TYPE.STACK)}
+                title="Открыть стек панель"
+              />
+              <br />
+              <Button
+                onClick={() =>
+                  openPopup(POPUP_TYPE.DIALOG, {
+                    confirmationCfg: {
+                      type: CONFIRMATION_TYPE.YES_NO_CANCEL,
+                      callback: (res) =>
+                        setDialogBtnResult(`You confirmation result ${res}`),
+                    },
+                  })
+                }
+                title="Открыть диалог с подтверждением"
+              />
+            </div>
+          </>
         }
       />
       <DemoItem
         title="Кнопки"
         content={
-          <div className="flexbox justify-spaceBetween align-center">
-            <Button onClick={btnClick} title="Базовая" />
-            <br />
-            <Button
-              onClick={btnClick}
-              title="Прикладной фон"
-              backgroundColor="rgb(229 218 254)"
-            />
-            <br />
-            <Button onClick={btnClick} title="Базовая с иконкой" icon="ti-cup" />
-            <br />
-            <Button onClick={btnClick} type={BUTTONS_TYPE.LINK} title="Ссылка" />
-            <br />
-            <Button
-              onClick={btnClick}
-              icon="ti-close"
-              type={BUTTONS_TYPE.ICON}
-            />
-          </div>
+          <>
+            <span>{btnResult}</span>
+            <div className="flexbox justify-spaceBetween align-center">
+              <Button onClick={btnClick} title="Базовая" />
+              <br />
+              <Button
+                onClick={btnClick}
+                title="Прикладной фон"
+                backgroundColor="rgb(229 218 254)"
+              />
+              <br />
+              <Button
+                onClick={btnClick}
+                title="Базовая с иконкой"
+                icon="ti-cup"
+              />
+              <br />
+              <Button
+                onClick={btnClick}
+                type={BUTTONS_TYPE.LINK}
+                title="Ссылка"
+              />
+              <br />
+              <Button
+                onClick={btnClick}
+                icon="ti-close"
+                type={BUTTONS_TYPE.ICON}
+              />
+            </div>
+          </>
         }
       />
       <DemoItem
         title="Списки"
         content={
-          <div className='flexbox'>
+          <div className="flexbox">
             <Header title="Базовый" size={15} />
             <div style={listStyle}>
               <List
@@ -169,7 +189,9 @@ export default function() {
               <List
                 items={listItems}
                 itemsContainerPadding={itemsContainerPadding}
-                itemTemplate={({ item }) => <span style={ {color: 'green'} }>Прикладной шаблон</span>}
+                itemTemplate={({ item }) => (
+                  <span style={{ color: 'green' }}>Прикладной шаблон</span>
+                )}
               />
             </div>
             <br />
