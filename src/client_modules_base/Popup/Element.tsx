@@ -16,11 +16,11 @@ const getStyle = (width, target, targetOffset, type) => {
   const style = {
     display: 'flex',
     flexDirection: 'column',
-    position: 'absolute',
+    position: 'fixed',
     background: '#ffffff',
     width,
     padding: 6,
-    zIndex: 10
+    zIndex: 10,
   };
 
   const dialogStyle = {
@@ -35,7 +35,6 @@ const getStyle = (width, target, targetOffset, type) => {
     top: 0,
     right: 0,
     height: '100%',
-    position: 'fixed',
     borderLeft: '3px solid #eaeaea',
     boxSizing: 'border-box',
   };
