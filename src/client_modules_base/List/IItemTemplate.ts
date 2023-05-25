@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { IListItem } from 'List/IListItem';
+import { IListItem } from 'src/client_modules_base/List/IListItem';
 
 export interface IItemTemplate {
   item: IListItem;

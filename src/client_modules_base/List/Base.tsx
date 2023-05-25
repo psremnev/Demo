@@ -1,8 +1,11 @@
-import { IListBase } from 'List/IList';
-import { IListItem } from 'List/IListItem';
+import { IListBase } from 'src/client_modules_base/List/IList';
+import { IListItem } from 'src/client_modules_base/List/IListItem';
 import { DnDListItemContainer } from 'dndContainer';
 import { ORIENTATION_TYPE } from 'scrollContainer';
-import { DEFAULT_CONTAINER_PADDING, DEFAULT_ITEM_PADDING } from 'List/constants';
+import {
+  DEFAULT_CONTAINER_PADDING,
+  DEFAULT_ITEM_PADDING,
+} from 'src/client_modules_base/List/constants';
 import { useRef } from 'react';
 
 export default function ({
@@ -17,7 +20,10 @@ export default function ({
   orientation = ORIENTATION_TYPE.VERTICAL,
 }: IListBase) {
   const ItemTemplate = itemTemplate;
-  const containerPadding = useRef({ ...DEFAULT_CONTAINER_PADDING, ...itemsContainerPadding });
+  const containerPadding = useRef({
+    ...DEFAULT_CONTAINER_PADDING,
+    ...itemsContainerPadding,
+  });
   const thisItemPadding = useRef({ ...DEFAULT_ITEM_PADDING, ...itemPadding });
 
   /**
@@ -28,7 +34,7 @@ export default function ({
     flexDirection: orientation === ORIENTATION_TYPE.VERTICAL ? 'column' : 'row',
     padding: `${containerPadding.current.top}px ${containerPadding.current.right}px
                  ${containerPadding.current.bottom}px ${containerPadding.current.left}px`,
-    width: '100%'
+    width: '100%',
   };
 
   return (
@@ -42,7 +48,7 @@ export default function ({
               key={index}
               className="itemTemplate"
               style={{
-                cursor: onItemClick  ? 'pointer' : 'default',
+                cursor: onItemClick ? 'pointer' : 'default',
                 padding: `${thisItemPadding.current.top}px ${thisItemPadding.current.right}px
                  ${thisItemPadding.current.bottom}px ${thisItemPadding.current.left}px`,
               }}

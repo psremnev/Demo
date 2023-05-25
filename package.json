@@ -5,7 +5,7 @@
   "main": "build/server.js",
   "type": "module",
   "scripts": {
-    "start": "run-p ts:watch build watch:server",
+    "start": "run-p build watch:server",
     "build": "webpack --config webpack.dev.js",
     "ts:watch": "tsc -w",
     "watch:server": "nodemon ./build/server.js",

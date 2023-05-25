@@ -4,7 +4,3 @@ docs/**/*.txt
 node_modules/*
 build/*
 .vscode/*
-
-# for demo page on Git Hub
-!/src/client_modules_base/**/*.js
-!/src/client_modules_base/**/*.jsx
