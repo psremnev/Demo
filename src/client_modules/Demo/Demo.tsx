@@ -15,9 +15,9 @@ import {useState} from 'react';
 
 export default function() {
   const [dialogBtnResult, setDialogBtnResult] = useState(
-    'Резултат выбора в диалоге'
+    'Результат выбора в диалоге'
   );
-  const [btnResult, setBtnResult] = useState('Резултат клика по кнопке');
+  const [btnResult, setBtnResult] = useState('Результат клика по кнопке');
   const listStyle = {
     height: '200px',
     width: '100%'
