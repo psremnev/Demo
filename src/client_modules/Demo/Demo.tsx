@@ -201,14 +201,14 @@ export default function({ preloadData }) {
         content={
           <div className="flexbox justify-spaceBetween align-center">
             <HintTemplate
-              imageSrc="icon.png"
+              imageSrc="icons/cat.png"
               title="HEADER"
               additionalText="add text"
             />
             <br />
             <HintTemplate
               orientation="horizontal"
-              imageSrc="./icon.png"
+              imageSrc="icons/cat.png"
               title="HEADER"
               additionalText="add text"
             />
@@ -216,7 +216,7 @@ export default function({ preloadData }) {
             <HintTemplate
               orientation="horizontal"
               imagePosition="end"
-              imageSrc="icon.png"
+              imageSrc="icons/cat.png"
               title="HEADER"
               additionalText="add text"
             />
