@@ -1,6 +1,6 @@
 import { ListLoader } from 'listLoader';
-import { IList } from 'src/client_modules_base/List/IList';
-import BaseList from 'src/client_modules_base/List/Base';
+import { IList } from 'List/IList';
+import BaseList from 'List/Base';
 
 /**
  * @link List/List

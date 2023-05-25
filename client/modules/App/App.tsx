@@ -11,7 +11,7 @@ export default function App({ contentData }) {
   const { module, options, hasSearch } = contentData;
 
   // ВАЖНО: динамический компонент обязательно нужно обернуть в Suspense
-  const ContentNode = lazy(() => import(`client_modules/${module}`));
+  const ContentNode = lazy(() => import(`modules/${module}`));
 
   return (
     <>

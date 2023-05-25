@@ -28,8 +28,8 @@ export default {
     ignored: ['**/node_modules/', '**/build'],
   },
   entry: {
-    server: './src/server.tsx',
-    client: './src/client.tsx',
+    server: './server/server.tsx',
+    client: './client/client.tsx',
   },
   output: {
     path: `${__dirname}/build`,
@@ -52,14 +52,14 @@ export default {
       patterns: [
         {
           // копируем шрифты
-          from: 'src/fonts',
+          from: 'fonts',
           globOptions: {
             ignore: ['**/*.scss'],
           },
         },
         {
           // копируем ассеты
-          from: 'src/public',
+          from: 'public',
           to: 'public',
           globOptions: {
             ignore: ['**/*.scss'],

@@ -1,11 +1,11 @@
-import { IListBase } from 'src/client_modules_base/List/IList';
-import { IListItem } from 'src/client_modules_base/List/IListItem';
+import { IListBase } from 'List/IList';
+import { IListItem } from 'List/IListItem';
 import { DnDListItemContainer } from 'dndContainer';
 import { ORIENTATION_TYPE } from 'scrollContainer';
 import {
   DEFAULT_CONTAINER_PADDING,
   DEFAULT_ITEM_PADDING,
-} from 'src/client_modules_base/List/constants';
+} from 'List/constants';
 import { useRef } from 'react';
 
 export default function ({

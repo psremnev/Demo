@@ -1,5 +1,5 @@
 // <!-- Git Hub Site -->
-import { default as Demo } from 'client_modules/Demo/Demo';
+import { default as Demo } from 'Demo/Demo';
 import { createRoot } from 'react-dom';
 import './index.scss';
 

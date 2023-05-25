@@ -28,7 +28,7 @@ const initAsyncModules = async() => {
 }
 
 const appUse = () => {
-  app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+  //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(bodyParser.json());
   app.use(cookieParser());
   app.use(express.static('build', { extensions: ['js', 'jsx', 'css'] }));

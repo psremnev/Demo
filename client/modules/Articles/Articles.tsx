@@ -1,5 +1,5 @@
 import Service from 'Service/Service';
-import List from 'src/client_modules_base/List/List';
+import List from 'List/List';
 import { openLink } from 'base_utils/openLink';
 import { Button } from 'button';
 import { Popup, POPUP_TYPE } from 'popup';

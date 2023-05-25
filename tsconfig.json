@@ -14,10 +14,11 @@
     "paths": {
       "*": [
         "*",
-        "src/*",
-        "src/client_modules/*",
-        "src/client_modules_base/*",
-        "src/server_modules/*"
+        "client/*",
+        "client/modules/*",
+        "client/modules_base/*",
+        "server/*",
+        "server/modules/*"
       ]
     }
   },
