@@ -38,7 +38,7 @@ export default function TreeItemTemplate({
     const onExpanderClick = async() => {
         const expanded = !isExpanded;
         expandedCallback({id: item.id, expanded});
-        expanded && await loadData();
+        expanded && source && await loadData();
         setIsExpanded(expanded);
     }
 

@@ -70,7 +70,7 @@ export default function() {
       }}
     >
       <DemoItem
-        title="Search"
+        title="Поиск"
         content={
           <>
             <Search />
@@ -79,9 +79,9 @@ export default function() {
           </>
         }
       />
-      <DemoItem title="ToggleButton" content={<ToggleButton />} />
+      <DemoItem title="Кнопка-переключатель" content={<ToggleButton />} />
       <DemoItem
-        title="Carousel"
+        title="Карусель"
         content={
           <Carousel
             items={listItems}
@@ -91,7 +91,7 @@ export default function() {
         }
       />
       <DemoItem
-        title="Load button"
+        title="Кнопка и DropArea для загрузки файлов"
         content={
           <>
             <LoadButton />
@@ -101,17 +101,17 @@ export default function() {
         }
       />
       <DemoItem
-        title="Dialogs"
+        title="Диалоги"
         content={
           <div className="flexbox justify-spaceBetween align-center">
             <Button
               onClick={() => openPopup(POPUP_TYPE.DIALOG)}
-              title="OpenDialog"
+              title="Открыть диалог"
             />
             <br />
             <Button
               onClick={() => openPopup(POPUP_TYPE.STACK)}
-              title="OpenStack"
+              title="Открыть стек панель"
             />
             <br />
             <Button
@@ -123,26 +123,26 @@ export default function() {
                   },
                 })
               }
-              title="OpenConfirmationDialog"
+              title="Открыть диалог с подтверждением"
             />
           </div>
         }
       />
       <DemoItem
-        title="Buttons"
+        title="Кнопки"
         content={
           <div className="flexbox justify-spaceBetween align-center">
-            <Button onClick={btnClick} title="Base" />
+            <Button onClick={btnClick} title="Базовая" />
             <br />
             <Button
               onClick={btnClick}
-              title="Base with background"
+              title="Прикладной фон"
               backgroundColor="rgb(229 218 254)"
             />
             <br />
-            <Button onClick={btnClick} title="Base with icon" icon="ti-cup" />
+            <Button onClick={btnClick} title="Базовая с иконкой" icon="ti-cup" />
             <br />
-            <Button onClick={btnClick} type={BUTTONS_TYPE.LINK} title="Link" />
+            <Button onClick={btnClick} type={BUTTONS_TYPE.LINK} title="Ссылка" />
             <br />
             <Button
               onClick={btnClick}
@@ -153,10 +153,10 @@ export default function() {
         }
       />
       <DemoItem
-        title="Lists"
+        title="Списки"
         content={
-          <>
-            <Header title="Base" size={15} />
+          <div className='flexbox'>
+            <Header title="Базовый" size={15} />
             <div style={listStyle}>
               <List
                 items={listItems}
@@ -164,16 +164,16 @@ export default function() {
               />
             </div>
             <br />
-            <Header title="With custom template" size={15} />
+            <Header title="Список с произвольным шаблоном элемента" size={15} />
             <div style={listStyle}>
               <List
                 items={listItems}
                 itemsContainerPadding={itemsContainerPadding}
-                itemTemplate={({ item }) => <span>Custom {item.title}</span>}
+                itemTemplate={({ item }) => <span style={ {color: 'green'} }>Прикладной шаблон</span>}
               />
             </div>
             <br />
-            <Header title="Tree list" />
+            <Header title="Древовидный списко" />
             <br />
             <div style={listStyle}>
               <TreeList
@@ -181,11 +181,11 @@ export default function() {
                 itemsContainerPadding={itemsContainerPadding}
               />
             </div>
-          </>
+          </div>
         }
       />
       <DemoItem
-        title="Selector list"
+        title="Списки с выбором значения"
         content={
           <>
             <SelectorList items={listData} />
@@ -199,7 +199,7 @@ export default function() {
         }
       />
       <DemoItem
-        title="Hint template"
+        title="Компонент заглушка"
         content={
           <div className="flexbox justify-spaceBetween align-center">
             <HintTemplate
