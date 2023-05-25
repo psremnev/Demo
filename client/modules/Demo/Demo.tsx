@@ -178,8 +178,8 @@ export default function() {
       <DemoItem
         title="Списки"
         content={
-          <div className="flexbox justify-spaceBetween">
-            <div className="flexDirectionColumn">
+          <div className="flexbox">
+            <div className="flexDirectionColumn marginRight-xlv">
               <Header title="Базовый" size={16} />
               <div style={listStyle}>
                 <List
@@ -188,7 +188,7 @@ export default function() {
                 />
               </div>
             </div>
-            <div className="flexDirectionColumn">
+            <div className="flexDirectionColumn marginRight-xl">
               <Header
                 title="Список с произвольным шаблоном элемента"
                 size={16}
