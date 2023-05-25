@@ -11,8 +11,9 @@ import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
 import {default as DemoItem} from 'Demo/DemoItem';
 import {listData, treeData} from 'test_data/TestData';
+import './icons/cat.png';
 
-export default function({ preloadData }) {
+export default function() {
   const listStyle = {
     height: '200px',
     width: '100%'
