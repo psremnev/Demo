@@ -175,9 +175,9 @@ export default function() {
       <DemoItem
         title="Списки"
         content={
-          <div className="flexbox">
+          <div className="flexbox justify-spaceBetween">
             <div className="flexDirectionColumn">
-              <Header title="Базовый" size={15} />
+              <Header title="Базовый" size={16} />
               <div style={listStyle}>
                 <List
                   items={listItems}
@@ -188,7 +188,7 @@ export default function() {
             <div className="flexDirectionColumn">
               <Header
                 title="Список с произвольным шаблоном элемента"
-                size={15}
+                size={16}
               />
               <div style={listStyle}>
                 <List
@@ -201,7 +201,7 @@ export default function() {
               </div>
             </div>
             <div className="flexDirectionColumn">
-              <Header title="Древовидный списко" />
+              <Header title="Древовидный список" size={16} />
               <br />
               <div style={listStyle}>
                 <TreeList
