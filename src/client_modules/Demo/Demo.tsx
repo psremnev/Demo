@@ -40,7 +40,10 @@ export default function() {
     });
   };
 
-  const btnClick = () => setBtnResult('You click on btn');
+  const btnClick = (e) =>
+    setBtnResult(
+      `You click on btn ${e.target.className.split(' ')[1].split('-')[1]}`
+    );
 
   const itemsContainerPadding = { top: 6, left: 6, right: 6, bottom: 6 };
   const listItems = [...listData, ...listData, ...listData];
