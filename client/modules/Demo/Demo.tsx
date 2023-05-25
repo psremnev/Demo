@@ -40,9 +40,9 @@ export default function() {
     });
   };
 
-  const btnClick = (e) =>
+  const btnClick = (type) =>
     setBtnResult(
-      `You click on btn ${e.target.className.split(' ')[1].split('-')[1]}`
+      `You click on btn ${type}`
     );
 
   const itemsContainerPadding = { top: 6, left: 6, right: 6, bottom: 6 };
