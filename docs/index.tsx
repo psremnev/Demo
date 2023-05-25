@@ -6,7 +6,7 @@ import './index.scss';
 const DemoPage = () => {
   return (
     <>
-      <div className="demo__header">Demo Page</div>
+      <div className="demo__header">Демо страница</div>
       <Demo />
     </>
   );

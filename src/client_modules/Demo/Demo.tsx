@@ -176,32 +176,39 @@ export default function() {
         title="Списки"
         content={
           <div className="flexbox">
-            <Header title="Базовый" size={15} />
-            <div style={listStyle}>
-              <List
-                items={listItems}
-                itemsContainerPadding={itemsContainerPadding}
-              />
+            <div className="flexDirectionColumn">
+              <Header title="Базовый" size={15} />
+              <div style={listStyle}>
+                <List
+                  items={listItems}
+                  itemsContainerPadding={itemsContainerPadding}
+                />
+              </div>
             </div>
-            <br />
-            <Header title="Список с произвольным шаблоном элемента" size={15} />
-            <div style={listStyle}>
-              <List
-                items={listItems}
-                itemsContainerPadding={itemsContainerPadding}
-                itemTemplate={({ item }) => (
-                  <span style={{ color: 'green' }}>Прикладной шаблон</span>
-                )}
+            <div className="flexDirectionColumn">
+              <Header
+                title="Список с произвольным шаблоном элемента"
+                size={15}
               />
+              <div style={listStyle}>
+                <List
+                  items={listItems}
+                  itemsContainerPadding={itemsContainerPadding}
+                  itemTemplate={({ item }) => (
+                    <span style={{ color: 'green' }}>Прикладной шаблон</span>
+                  )}
+                />
+              </div>
             </div>
-            <br />
-            <Header title="Древовидный списко" />
-            <br />
-            <div style={listStyle}>
-              <TreeList
-                items={treeItems}
-                itemsContainerPadding={itemsContainerPadding}
-              />
+            <div className="flexDirectionColumn">
+              <Header title="Древовидный списко" />
+              <br />
+              <div style={listStyle}>
+                <TreeList
+                  items={treeItems}
+                  itemsContainerPadding={itemsContainerPadding}
+                />
+              </div>
             </div>
           </div>
         }
