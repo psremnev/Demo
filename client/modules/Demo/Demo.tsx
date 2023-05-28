@@ -9,11 +9,11 @@ import { LoadButton, LoadButtonType } from 'loadButton';
 import { Carousel } from 'carousel';
 import { ToggleButton } from 'toggleButton';
 import Search from 'Search/Search';
-import {default as DemoItem} from 'Demo/DemoItem';
-import {listData, treeData} from 'test_data/TestData';
-import {useState} from 'react';
+import { default as DemoItem } from 'Demo/DemoItem';
+import { listData, treeData } from 'test_data/TestData';
+import { useState } from 'react';
 
-export default function() {
+export default function () {
   const [dialogBtnResult, setDialogBtnResult] = useState(
     'Результат выбора в диалоге'
   );
@@ -21,9 +21,10 @@ export default function() {
   const listStyle = {
     height: '200px',
     width: '100%'
-  }
+  };
 
-  const imageLink = 'https://png.pngtree.com/png-clipart/20210128/ourmid/pngtree-cute-cat-cant-png-image_2819172.jpg';
+  const imageLink =
+    'https://png.pngtree.com/png-clipart/20210128/ourmid/pngtree-cute-cat-cant-png-image_2819172.jpg';
 
   const openPopup = (type: string, options?: Partial<IPopup>) => {
     const dialog = new Popup();
@@ -34,16 +35,13 @@ export default function() {
         width: 300,
         content: () => {
           return <div>{`Content from ${type}`}</div>;
-        },
+        }
       },
-      ...options,
+      ...options
     });
   };
 
-  const btnClick = (type) =>
-    setBtnResult(
-      `You click on btn ${type}`
-    );
+  const btnClick = (type) => setBtnResult(`You click on btn ${type}`);
 
   const itemsContainerPadding = { top: 6, left: 6, right: 6, bottom: 6 };
   const listItems = [...listData, ...listData, ...listData];
@@ -74,7 +72,7 @@ export default function() {
         alignItems: 'flex-start',
         width: '100%',
         padding: 6,
-        boxSizing: 'border-box',
+        boxSizing: 'border-box'
       }}
     >
       <DemoItem
@@ -133,8 +131,8 @@ export default function() {
                     confirmationCfg: {
                       type: CONFIRMATION_TYPE.YES_NO_CANCEL,
                       callback: (res) =>
-                        setDialogBtnResult(`You confirmation result ${res}`),
-                    },
+                        setDialogBtnResult(`You confirmation result ${res}`)
+                    }
                   })
                 }
                 title="Открыть диалог с подтверждением"

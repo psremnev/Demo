@@ -1,16 +1,16 @@
 export const THEME = {
   dark: 'Dark',
-  light: 'Light',
+  light: 'Light'
 };
 
 export const LANG = {
   RU: 'Ru',
-  ENG: 'Eng',
+  ENG: 'Eng'
 };
 
 export const THEME_COLOR = {
   dark: 'var(--dark_theme)',
-  light: 'white',
+  light: 'white'
 };
 
 export const ERROR_MODULE_URL = 'Error/Base';
@@ -24,5 +24,5 @@ export const METHOD_TYPE = {
   READ: 'Read',
   CREATE: 'Create',
   UPDATE: 'Update',
-  DELETE: 'Delete',
+  DELETE: 'Delete'
 };

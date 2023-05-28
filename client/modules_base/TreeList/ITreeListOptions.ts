@@ -1,5 +1,5 @@
-import {IList} from 'list';
+import { IList } from 'list';
 
 export interface ITreeListOptions extends IList {
-    expandedCallback?: Function;
+  expandedCallback?: Function;
 }

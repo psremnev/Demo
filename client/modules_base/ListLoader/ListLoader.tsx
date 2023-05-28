@@ -23,7 +23,7 @@ export default function ListLoader({
   showUpBtn,
   showScrollBar,
   showShadow,
-  showNavBtns,
+  showNavBtns
 }: IListLoader) {
   const [isDataLoad, setIsDataLoad] = useState(false);
   const [thisItems, setThisItems] = useState(items || []);

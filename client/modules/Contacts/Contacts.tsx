@@ -9,11 +9,11 @@ import { IContactsOptions } from 'Contacts/IContacts';
 export default function Contacts({
   className = '',
   vk = '',
-  telegram = '',
+  telegram = ''
 }: IContactsOptions) {
   const contacts = [
     { url: 'public/vk.png', link: vk },
-    { url: 'public/telegram.png', link: telegram },
+    { url: 'public/telegram.png', link: telegram }
   ];
 
   return (

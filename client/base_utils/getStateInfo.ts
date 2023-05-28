@@ -1,3 +1,3 @@
 export function getStateInfo(): object {
-    return JSON.parse(globalThis.__STATE__);
+  return JSON.parse(globalThis.__STATE__);
 }

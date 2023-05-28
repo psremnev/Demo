@@ -21,18 +21,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 let database;
 
-const initAsyncModules = async() => {
-    // создаем подключение к базе данных
-    database = new Database('main_service');
-    await database.connect();
-}
+const initAsyncModules = async () => {
+  // создаем подключение к базе данных
+  database = new Database('main_service');
+  await database.connect();
+};
 
 const appUse = () => {
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(bodyParser.json());
   app.use(cookieParser());
   app.use(express.static('build', { extensions: ['js', 'jsx', 'css'] }));
-}
+};
 
 const appQueryProcessing = () => {
   // обработка роутинга
@@ -60,7 +60,6 @@ const appQueryProcessing = () => {
             .reverse();
     };
 
-    
     let result;
     switch (method) {
       case METHOD_TYPE.CREATE:
@@ -100,14 +99,13 @@ const appQueryProcessing = () => {
       res.send(await database.delete(endpoint, params));
     }
   });
-}
-
+};
 
 initAsyncModules().then(() => {
   // для Демо страницы
   setInterval(() => {
     serverChannel.send('eventone', {
-      msg: 'You get data because subscribe on channel',
+      msg: 'You get data because subscribe on channel'
     });
   }, 1000);
 

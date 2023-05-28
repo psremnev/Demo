@@ -1,6 +1,6 @@
-import {IListItem} from 'list';
+import { IListItem } from 'list';
 
 export interface ITreeListItem extends IListItem {
-    parent: string|number;
-    hasChildren: boolean;
+  parent: string | number;
+  hasChildren: boolean;
 }

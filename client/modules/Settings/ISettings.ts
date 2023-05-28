@@ -1,4 +1,4 @@
-import {IButton} from 'button';
+import { IButton } from 'button';
 export interface ISettingsItem {
   title: string;
   selectedKey: string | number;
@@ -9,7 +9,7 @@ export interface ISettingsItem {
   callback: Function;
 }
 
-export interface ISettingsOptions extends IButton{
+export interface ISettingsOptions extends IButton {
   className?: string;
   items: ISettingsItem[];
 }

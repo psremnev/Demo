@@ -37,7 +37,7 @@ export default class Popup {
       ...options,
       closeCallback: this.close.bind(this),
       onOutsideClickCallback: this.onOutsideClick.bind(this),
-      popupIsOpened: this.popupIsOpened,
+      popupIsOpened: this.popupIsOpened
     };
     this.popupIsOpened = true;
     reactRootEl.render(<Element {...popupOptions} />);

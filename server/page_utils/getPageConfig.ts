@@ -11,7 +11,7 @@ export function getPageConfig(cleanPath) {
   if (!pageConfig) {
     return {
       module: ERROR_MODULE_URL,
-      options: ERROR_OPTIONS.NOT_FOUND,
+      options: ERROR_OPTIONS.NOT_FOUND
     };
   }
   return pageConfig;

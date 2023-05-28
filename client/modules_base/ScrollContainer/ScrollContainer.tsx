@@ -19,7 +19,7 @@ export default function ScrollContainer({
   showScrollBar = true,
   showShadow = true,
   showNavBtns = false,
-  direction = DIRECTION.END,
+  direction = DIRECTION.END
 }: IScrollContainer) {
   const [container, setContainer] = useState(null);
   const [hasStartShadow, setHasStartShadow] = useState(false);
@@ -122,11 +122,11 @@ export default function ScrollContainer({
   const style = {
     wrapper: {
       flexDirection:
-        orientation === ORIENTATION_TYPE.VERTICAL ? 'column' : 'row',
+        orientation === ORIENTATION_TYPE.VERTICAL ? 'column' : 'row'
     },
     container: {
-      [`overflow${orientation === 'vertical' ? 'Y' : 'X'}`]: 'scroll',
-    },
+      [`overflow${orientation === 'vertical' ? 'Y' : 'X'}`]: 'scroll'
+    }
   };
 
   /**
@@ -146,7 +146,7 @@ export default function ScrollContainer({
         width: '100%',
         bottom: 0,
         background: 'linear-gradient(to top, #e0dcdc, transparent)'
-      },
+      }
     },
     horizontal: {
       left: {
@@ -160,8 +160,8 @@ export default function ScrollContainer({
         height: '100%',
         right: 0,
         background: 'linear-gradient(to left, #e0dcdc, transparent)'
-      },
-    },
+      }
+    }
   };
 
   /**
@@ -176,7 +176,7 @@ export default function ScrollContainer({
       : container.scrollLeft - scrollElementDistance;
     container.scrollTo({
       left: scrollDistance,
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   };
 

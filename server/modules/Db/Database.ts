@@ -14,17 +14,17 @@ export class Database {
 
   async connect() {
     try {
-        // Подключаемся к серверу
-        await this.client.connect();;
-        // обращаемся к базе данных
-        this.db = await this.client.db(this.endpoint);
-        // выполняем пинг для проверки подключения
-        const result = await this.db.command({ ping: 1 });
-        console.log('Подключение с сервером mongodb успешно установлено');
-        console.log('Ping DataBase: ', result?.ok === 1 ? 'good' : 'bad');
-    }catch(err) {
-        console.log("Возникла ошибка");
-        console.log(err);
+      // Подключаемся к серверу
+      await this.client.connect();
+      // обращаемся к базе данных
+      this.db = await this.client.db(this.endpoint);
+      // выполняем пинг для проверки подключения
+      const result = await this.db.command({ ping: 1 });
+      console.log('Подключение с сервером mongodb успешно установлено');
+      console.log('Ping DataBase: ', result?.ok === 1 ? 'good' : 'bad');
+    } catch (err) {
+      console.log('Возникла ошибка');
+      console.log(err);
     }
   }
 
@@ -86,8 +86,9 @@ export class Database {
   }
 
   query(
-    collectionName: string, params: object | null,
-    navigation: {skip: number, limit: number} = {skip: 0, limit: 30}
+    collectionName: string,
+    params: object | null,
+    navigation: { skip: number; limit: number } = { skip: 0, limit: 30 }
   ) {
     if (!collectionName || !params) {
       return new Error('collection name or params not set');

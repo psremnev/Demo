@@ -5,7 +5,7 @@ export default function CheckBox({
   className = '',
   size = 10,
   checked = false,
-  checkedCallback,
+  checkedCallback
 }) {
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -14,7 +14,7 @@ export default function CheckBox({
    */
   const style = {
     height: size,
-    width: size,
+    width: size
   };
 
   /**

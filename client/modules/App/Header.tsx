@@ -15,14 +15,14 @@ export default function Header({ hasSearch = false }) {
   const langItems = useMemo(
     () => [
       { id: LANG.RU, title: 'Ru' },
-      { id: LANG.ENG, title: 'En' },
+      { id: LANG.ENG, title: 'En' }
     ],
     []
   );
   const themeItems = useMemo(
     () => [
       { id: THEME.light, title: 'Light' },
-      { id: THEME.dark, title: 'Dark' },
+      { id: THEME.dark, title: 'Dark' }
     ],
     []
   );
@@ -31,7 +31,7 @@ export default function Header({ hasSearch = false }) {
 
   const accordion = [
     { title: translate('Статьи'), link: '/articles' },
-    { title: translate('Демо'), link: '/demo' },
+    { title: translate('Демо'), link: '/demo' }
   ];
 
   const paramChanged = (selectedKeys, lang = true) => {
@@ -49,14 +49,14 @@ export default function Header({ hasSearch = false }) {
       title: lang,
       selectedKey: lang,
       items: langItems,
-      callback: (selectedKeys) => paramChanged(selectedKeys),
+      callback: (selectedKeys) => paramChanged(selectedKeys)
     },
     {
       title: theme,
       selectedKey: theme,
       items: themeItems,
-      callback: (selectedKeys) => paramChanged(selectedKeys, false),
-    },
+      callback: (selectedKeys) => paramChanged(selectedKeys, false)
+    }
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function Header({ hasSearch = false }) {
         </section>
         {hasSearch && (
           <section className="app-header__firstRowSearch">
-            <Search expandable={true}/>
+            <Search expandable={true} />
           </section>
         )}
         <section className="app-header__firstRowRight">

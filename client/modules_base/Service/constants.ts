@@ -2,7 +2,7 @@ export const REQUEST_TYPE = {
   GET: 'GET',
   POST: 'POST',
   PUT: 'PUT',
-  DELETE: 'DELETE',
+  DELETE: 'DELETE'
 };
 
 export const METHOD_TYPE = {
@@ -10,5 +10,5 @@ export const METHOD_TYPE = {
   READ: 'Read',
   CREATE: 'Create',
   UPDATE: 'Update',
-  DELETE: 'Delete',
+  DELETE: 'Delete'
 };

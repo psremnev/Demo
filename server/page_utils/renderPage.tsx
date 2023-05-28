@@ -35,14 +35,14 @@ export async function renderPage(req, res) {
         urlInfo,
         cookies,
         options: { ...options, preloadData, urlParams: urlInfo.urlParams },
-        hasSearch,
+        hasSearch
       }}
     />,
     {
       onShellReady() {
         res.setHeader('content-type', 'text/html');
         pipe(res);
-      },
+      }
     }
   );
 }

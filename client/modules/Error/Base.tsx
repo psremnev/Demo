@@ -4,7 +4,7 @@ export default function ({
   className = '',
   message,
   link = '/',
-  linkTitle = 'Перейти на главную',
+  linkTitle = 'Перейти на главную'
 }) {
   return (
     <div className={`app-error ${className}`}>

@@ -6,7 +6,7 @@ export default function Marker({ checked }) {
   const style = {
     borderRadius: '50%',
     height: 10,
-    width: 10,
+    width: 10
   };
   return (
     <div

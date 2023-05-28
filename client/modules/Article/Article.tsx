@@ -1,7 +1,7 @@
-import {HEADER_BASE_COLOR} from 'Article/constants';
+import { HEADER_BASE_COLOR } from 'Article/constants';
 import { Header } from 'header';
 import { getBackgroundColor } from 'Article/getBackgroundColor';
-import {useMemo} from 'react';
+import { useMemo } from 'react';
 import 'Article/Article.scss';
 
 /**
@@ -33,7 +33,7 @@ export default function ({
         style={{
           background: backgroundColor,
           filter: 'contrast(0.7)',
-          backgroundSize: 'cover',
+          backgroundSize: 'cover'
         }}
       >
         <Header title={initItem.title} />

@@ -4,7 +4,7 @@ import { DnDListItemContainer } from 'dndContainer';
 import { ORIENTATION_TYPE } from 'scrollContainer';
 import {
   DEFAULT_CONTAINER_PADDING,
-  DEFAULT_ITEM_PADDING,
+  DEFAULT_ITEM_PADDING
 } from 'List/constants';
 import { useRef } from 'react';
 
@@ -17,12 +17,12 @@ export default function ({
   itemsContainerPadding,
   itemPadding,
   canDrag = false,
-  orientation = ORIENTATION_TYPE.VERTICAL,
+  orientation = ORIENTATION_TYPE.VERTICAL
 }: IListBase) {
   const ItemTemplate = itemTemplate;
   const containerPadding = useRef({
     ...DEFAULT_CONTAINER_PADDING,
-    ...itemsContainerPadding,
+    ...itemsContainerPadding
   });
   const thisItemPadding = useRef({ ...DEFAULT_ITEM_PADDING, ...itemPadding });
 
@@ -34,7 +34,7 @@ export default function ({
     flexDirection: orientation === ORIENTATION_TYPE.VERTICAL ? 'column' : 'row',
     padding: `${containerPadding.current.top}px ${containerPadding.current.right}px
                  ${containerPadding.current.bottom}px ${containerPadding.current.left}px`,
-    width: '100%',
+    width: '100%'
   };
 
   return (
@@ -50,7 +50,7 @@ export default function ({
               style={{
                 cursor: onItemClick ? 'pointer' : 'default',
                 padding: `${thisItemPadding.current.top}px ${thisItemPadding.current.right}px
-                 ${thisItemPadding.current.bottom}px ${thisItemPadding.current.left}px`,
+                 ${thisItemPadding.current.bottom}px ${thisItemPadding.current.left}px`
               }}
               onClick={() => onItemClick && onItemClick(item)}
             >

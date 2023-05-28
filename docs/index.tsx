@@ -10,7 +10,7 @@ const DemoPage = () => {
       <Demo />
     </>
   );
-}
+};
 
 window.addEventListener('DOMContentLoaded', () => {
   const root = createRoot(document.querySelector('.root'));

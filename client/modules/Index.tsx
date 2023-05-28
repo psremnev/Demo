@@ -25,7 +25,7 @@ export default function Index({ contentData }) {
     theme: cookies.theme || THEME.dark,
     lang: cookies.lang || LANG.RU,
     urlInfo,
-    changeAppContext: changeAppParams,
+    changeAppContext: changeAppParams
   });
 
   const setAppParamsInCookie = (newParams) => {
@@ -49,7 +49,7 @@ export default function Index({ contentData }) {
         <script type="module" src="/client.js"></script>
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.__STATE__ = ${JSON.stringify(loadState)}`,
+            __html: `window.__STATE__ = ${JSON.stringify(loadState)}`
           }}
         ></script>
       </head>
@@ -58,7 +58,7 @@ export default function Index({ contentData }) {
           background:
             appParams.theme === THEME.light
               ? THEME_COLOR.light
-              : THEME_COLOR.dark,
+              : THEME_COLOR.dark
         }}
       >
         <AppContext.Provider value={appParams}>

@@ -1,4 +1,4 @@
 export const ClientMsgActionType = {
   SUBSCRIBE: 'subscribe',
-  UNSUBSCRIBE: 'unsubscribe',
+  UNSUBSCRIBE: 'unsubscribe'
 };

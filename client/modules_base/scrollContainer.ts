@@ -4,5 +4,5 @@ export { default as ScrollContainer } from 'ScrollContainer/ScrollContainer';
 export {
   IScrollContainer,
   ORIENTATION,
-  IDirectionValue,
+  IDirectionValue
 } from 'ScrollContainer/IScrollContainer';

@@ -7,7 +7,7 @@ export function getUrlInfo(req?): IUrlInfo {
     protocol: `${req?.protocol}:`,
     host: req?.hostname,
     path: req?.path,
-    port: appConfig.port,
+    port: appConfig.port
   };
 }
 

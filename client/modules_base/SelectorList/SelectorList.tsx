@@ -21,8 +21,8 @@ function SelectorList(props: ISelectorList) {
             checked: selectedKeys.includes(
               itemTemplateProps.item[itemTemplateProps.idProperty]
             ),
-            selectedCallback,
-          },
+            selectedCallback
+          }
         }}
       />
     );
@@ -55,7 +55,7 @@ function SelectorList(props: ISelectorList) {
 
 SelectorList.defaultProps = {
   multiSelect: true,
-  selectedKeys: [],
+  selectedKeys: []
 };
 
 export default SelectorList;

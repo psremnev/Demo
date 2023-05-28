@@ -25,13 +25,13 @@ export default function List({
   showShadow,
   showUpBtn,
   orientation,
-  showNavBtns,
+  showNavBtns
 }: IList) {
   const style = {
     background: backgroundColor,
     borderRadius: borderRadius ? 4 : 0,
     width: '100%',
-    height: '100%',
+    height: '100%'
   };
   /**
    * Обертка над элементом списка

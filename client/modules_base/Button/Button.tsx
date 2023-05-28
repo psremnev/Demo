@@ -15,7 +15,7 @@ export default function Button({
   accentColor = 'var(--dark_grey)',
   mixBlendMode = 'unset',
   title = '',
-  onClick,
+  onClick
 }: IButton) {
   const isOnlyIcon = !title;
   const hasIcon =
@@ -30,6 +30,7 @@ export default function Button({
       filter: 'brightness(1)',
       cursor: 'pointer',
       mixBlendMode,
+      overflow: 'hidden'
     },
     base: {
       padding: isOnlyIcon ? 0 : 6,
@@ -38,11 +39,11 @@ export default function Button({
       margin: isOnlyIcon ? 0 : '4px', // на ширину тени
       background: imageUrl
         ? 'var(--transparent_background_color)'
-        : backgroundColor,
+        : backgroundColor
     },
     link: {
       color: 'var(--link_color)',
-      textDecoration: 'underline',
+      textDecoration: 'underline'
     },
     icon: {
       borderRadius: '50%',
@@ -51,17 +52,18 @@ export default function Button({
       height: 20,
       justifyContent: 'center',
       background: backgroundColor,
+      flexShrink: 0
     },
     image: {
       width: imageSize,
-      height: imageSize,
-    },
+      height: imageSize
+    }
   };
 
   const titleStyle =
     type === BUTTONS_TYPE.LINK
       ? {
-          color: 'var(--link_color)',
+          color: 'var(--link_color)'
         }
       : {};
 
@@ -75,7 +77,11 @@ export default function Button({
     >
       {hasImage && <img src={imageUrl} />}
       {hasIcon && <div style={titleMarginStyle} className={icon}></div>}
-      {title && <span style={titleStyle}>{title}</span>}
+      {title && (
+        <span title={title} style={titleStyle}>
+          {title}
+        </span>
+      )}
     </div>
   );
 }

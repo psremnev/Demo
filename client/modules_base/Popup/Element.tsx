@@ -2,7 +2,7 @@ import { IElement } from 'Popup/IPopup';
 import {
   POPUP_TYPE,
   DEFAULT_TARGET_OFFSET,
-  CONFIRMATION_TITLES,
+  CONFIRMATION_TITLES
 } from 'Popup/constants';
 import { Button, BUTTONS_TYPE } from 'button';
 import { useEffect, useState } from 'react';
@@ -20,7 +20,7 @@ const getStyle = (width, target, targetOffset, type) => {
     background: '#ffffff',
     width,
     padding: 6,
-    zIndex: 10,
+    zIndex: 10
   };
 
   const dialogStyle = {
@@ -28,7 +28,7 @@ const getStyle = (width, target, targetOffset, type) => {
     left,
     transform: target ? 'none' : 'translate(-50%, -50%)',
     borderRadius: 6,
-    boxShadow: '0px 0px 11px #626060',
+    boxShadow: '0px 0px 11px #626060'
   };
 
   const stackStyle = {
@@ -36,7 +36,7 @@ const getStyle = (width, target, targetOffset, type) => {
     right: 0,
     height: '100%',
     borderLeft: '3px solid #eaeaea',
-    boxSizing: 'border-box',
+    boxSizing: 'border-box'
   };
 
   return type === POPUP_TYPE.DIALOG
@@ -52,7 +52,7 @@ const getDialogCoor = (target, targetOffset) => {
       : '50%',
     left: targetCoor?.left
       ? targetCoor.left + (targetOffset?.left || DEFAULT_TARGET_OFFSET.left)
-      : '50%',
+      : '50%'
   };
 };
 
@@ -68,7 +68,7 @@ export default function Element({
   confirmationCfg,
   closeCallback,
   onOutsideClickCallback,
-  popupIsOpened,
+  popupIsOpened
 }: IElement) {
   const Content = content;
   const [isOpened, setIsOpened] = useState(popupIsOpened);

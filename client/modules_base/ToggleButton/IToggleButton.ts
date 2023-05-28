@@ -1,3 +1,3 @@
 export interface IToggleButton {
-    clickCallback?: Function;
+  clickCallback?: Function;
 }

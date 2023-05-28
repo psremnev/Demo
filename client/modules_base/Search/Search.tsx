@@ -11,7 +11,7 @@ export default function Search({
   value = '',
   placeholder = `${translate('Найти')}...`,
   changeCallback,
-  expandable = false,
+  expandable = false
 }: ISearch) {
   const [thisValue, setThisValue] = useState(value);
   const [expand, setExpand] = useState(false);

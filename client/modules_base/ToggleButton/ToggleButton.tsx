@@ -24,9 +24,7 @@ export default function ToggleButton({ clickCallback }: IToggleButton) {
     >
       <div
         className={`toggleButton__circle ${
-          state
-            ? 'toggleButton__circle_forward'
-            : ''
+          state ? 'toggleButton__circle_forward' : ''
         }`}
       />
     </section>

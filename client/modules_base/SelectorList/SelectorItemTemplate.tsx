@@ -9,7 +9,7 @@ export default function ItemTemplate({
   checked = false,
   multiSelect = false,
   itemTemplate,
-  selectedCallback,
+  selectedCallback
 }) {
   const ItemTemplate = itemTemplate;
 

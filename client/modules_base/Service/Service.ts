@@ -31,8 +31,8 @@ export default class Service {
           endpoint: this.endPoint,
           method,
           params,
-          navigation,
-        }),
+          navigation
+        })
       });
       if (response.ok) {
         return await response.json();
@@ -60,7 +60,7 @@ export default class Service {
   }
 
   /* Вызов метода обновления записи на точке входа */
-  update(params: {oldData: object, newData: object}): Promise<any> {
+  update(params: { oldData: object; newData: object }): Promise<any> {
     return this.getData(METHOD_TYPE.UPDATE, params, REQUEST_TYPE.PUT);
   }
 

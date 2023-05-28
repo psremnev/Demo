@@ -26,7 +26,7 @@ export class ServerChannel {
               JSON.stringify({
                 eventName: data.eventName,
                 code: 0,
-                data: `Subscription event name or action not passed: eventName: ${data.eventName}, action: ${data.action}`,
+                data: `Subscription event name or action not passed: eventName: ${data.eventName}, action: ${data.action}`
               })
             );
             return;
@@ -52,7 +52,7 @@ export class ServerChannel {
           if (!hasEvent) {
             this.wsEvents.add({
               name: data.eventName,
-              clients: new Set().add(wsClient),
+              clients: new Set().add(wsClient)
             });
           }
         } catch (e) {

@@ -10,7 +10,7 @@ import { useState } from 'react';
 export default function DndDialogContainer({
   canDrag = true,
   children,
-  style = {},
+  style = {}
 }: IDndDialogContainer) {
   const [isDrag, setIsDrag] = useState(false);
   const [container, setContainer] = useState(null);

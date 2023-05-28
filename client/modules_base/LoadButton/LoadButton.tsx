@@ -14,12 +14,12 @@ export default function LoadButton({
   loadCallback,
   progressCallback,
   extensions,
-  multiSelect = false,
+  multiSelect = false
 }: ILoadButton) {
   const [isDropEnter, setIsDropEnter] = useState(false);
   const fileTypes = {
     img: ['jpg', 'jpeg', 'png', 'gif'],
-    text: ['txt'],
+    text: ['txt']
   };
 
   /**
@@ -41,7 +41,7 @@ export default function LoadButton({
           size: file.size,
           progress: '0%',
           data: null,
-          error: null,
+          error: null
         };
 
         const cleanExt = ext.toLowerCase();
@@ -110,8 +110,8 @@ export default function LoadButton({
         : 'var(--default_background_color)',
       padding: 6,
       justifyContent: 'center',
-      userSelect: 'none',
-    },
+      userSelect: 'none'
+    }
   };
 
   return (

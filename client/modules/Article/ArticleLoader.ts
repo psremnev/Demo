@@ -1,4 +1,4 @@
-import Service from "Service/Service";
+import Service from 'Service/Service';
 
 export default async function (opts, urlParams): Promise<object> {
   const service = new Service({ endpoint: 'articles' });

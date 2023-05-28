@@ -49,7 +49,7 @@ export default function () {
       title: 'Новая статья',
       closeOnOutsideClick: true,
       canDrag: true,
-      content: createDialogContent,
+      content: createDialogContent
     });
   };
 

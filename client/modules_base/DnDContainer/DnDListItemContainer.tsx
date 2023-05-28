@@ -1,6 +1,6 @@
 import {
   IDnDListItemContainer,
-  IDragElement,
+  IDragElement
 } from 'DnDContainer/IDnDListItemContainer';
 import { useState, useMemo } from 'react';
 import { POSITION } from 'DnDContainer/constants';
@@ -16,7 +16,7 @@ export default function DnDListItemContainer({
   dragStartCallback,
   dragMoveCallback,
   dragEndCallback,
-  children,
+  children
 }: IDnDListItemContainer) {
   const [container, setContainer] = useState(null);
   const containerEl = useMemo(() => container && (container as HTMLElement));
@@ -73,9 +73,9 @@ export default function DnDListItemContainer({
         positionEl: {
           after: containerEl.previousSibling,
           before: containerEl.nextSibling,
-          parent: containerEl.parentElement,
+          parent: containerEl.parentElement
         },
-        positionResult: { after: null, before: null },
+        positionResult: { after: null, before: null }
       };
       setDragStyle(true);
     }

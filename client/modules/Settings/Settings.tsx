@@ -1,5 +1,5 @@
-import {DropdownButton} from 'dropdownButton';
-import {ISettingsOptions} from 'Settings/ISettings';
+import { DropdownButton } from 'dropdownButton';
+import { ISettingsOptions } from 'Settings/ISettings';
 /**
  * @link Settings/Settings
  * @description Блок настроек
@@ -19,7 +19,7 @@ export default function Settings({
             multiSelect={false}
             selectedKeys={[item.selectedKey]}
             selectedKeysChanged={item.callback}
-            mixBlendMode='difference'
+            mixBlendMode="difference"
           />
         </div>
       ))}

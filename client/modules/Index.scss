@@ -23,5 +23,8 @@ body span,
 body a {
     color: white;
     mix-blend-mode: difference;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
