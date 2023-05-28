@@ -28,77 +28,80 @@ const initAsyncModules = async () => {
 };
 
 const appUse = () => {
-  //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+  app.use(favicon(path.join('./public', 'favicon.ico')));
   app.use(bodyParser.json());
   app.use(cookieParser());
-  app.use(express.static('build', { extensions: ['js', 'jsx', 'css'] }));
+  app.use(express.static('build'));
 };
 
-const appQueryProcessing = () => {
-  // обработка роутинга
-  app.get(/^\/(?!service|favicon)(\w+)?/, async (req, res) =>
-    renderPage(req, res)
-  );
 
-  app.post(appConfig.service_address, async (req, res) => {
-    const { endpoint, method, params, navigation } = req.body;
-    const getData = () => {
-      const isList = endpoint === 'List';
-      return isList
-        ? listData.reverse()
-        : treeData
-            .filter((item) => {
-              if (!params.parent) {
-                return true;
-              }
-              const parentIsArray = Array.isArray(params.parent);
-              // отдаем корневые узлы !item.parent и узлы из parent иначе узлы из parent
-              return parentIsArray
-                ? params.parent.includes(item.parent) || !item.parent
-                : params.parent === item.parent;
-            })
-            .reverse();
-    };
+// обработка роутинга
+const appRoute = () => {
+  // роут страниц
+  app
+    .route(/^\/(?!service|favicon)(\w+)?/)
+    .get(async (req, res) => renderPage(req, res));
 
-    let result;
-    switch (method) {
-      case METHOD_TYPE.CREATE:
-        result = await database.create(endpoint, params);
-        break;
-      case METHOD_TYPE.READ:
-        result = await database.read(endpoint, params);
-        break;
-      case METHOD_TYPE.QUERY:
-        if (endpoint === 'List' || endpoint === 'TreeList') {
-          result = getData();
-        } else {
-          result = await database.query(endpoint, params, navigation);
+  // роут api
+  app
+    .route(appConfig.service_address)
+    .post(async (req, res) => {
+      const { endpoint, method, params, navigation } = req.body;
+      const getData = () => {
+        const isList = endpoint === 'List';
+        return isList
+          ? listData.reverse()
+          : treeData
+              .filter((item) => {
+                if (!params.parent) {
+                  return true;
+                }
+                const parentIsArray = Array.isArray(params.parent);
+                // отдаем корневые узлы !item.parent и узлы из parent иначе узлы из parent
+                return parentIsArray
+                  ? params.parent.includes(item.parent) || !item.parent
+                  : params.parent === item.parent;
+              })
+              .reverse();
+      };
+
+      let result;
+      switch (method) {
+        case METHOD_TYPE.CREATE:
+          result = await database.create(endpoint, params);
+          break;
+        case METHOD_TYPE.READ:
+          result = await database.read(endpoint, params);
+          break;
+        case METHOD_TYPE.QUERY:
+          if (endpoint === 'List' || endpoint === 'TreeList') {
+            result = getData();
+          } else {
+            result = await database.query(endpoint, params, navigation);
+          }
+          break;
+      }
+      res.send(result);
+    })
+    .put(async (req, res) => {
+      const { endpoint, params, method } = req.body;
+      if (method === METHOD_TYPE.UPDATE) {
+        const { oldData, newData } = params;
+        if (!oldData || !newData) {
+          return new Error('No oldData or newData parameters passed');
         }
-        break;
-    }
-    res.send(result);
-  });
-
-  app.put(appConfig.service_address, async (req, res) => {
-    const { endpoint, params, method } = req.body;
-    if (method === METHOD_TYPE.UPDATE) {
-      const { oldData, newData } = params;
-      if (!oldData || !newData) {
-        return new Error('No oldData or newData parameters passed');
+        res.send(await database.update(endpoint, oldData, newData));
       }
-      res.send(await database.update(endpoint, oldData, newData));
-    }
-  });
-
-  app.delete(appConfig.service_address, async (req, res) => {
-    const { endpoint, params, method } = req.body;
-    if (method === METHOD_TYPE.DELETE) {
-      if (!params) {
-        return new Error('No parameters passed');
+    })
+    .delete(async (req, res) => {
+      const { endpoint, params, method } = req.body;
+      if (method === METHOD_TYPE.DELETE) {
+        if (!params) {
+          return new Error('No parameters passed');
+        }
+        res.send(await database.delete(endpoint, params));
       }
-      res.send(await database.delete(endpoint, params));
-    }
-  });
+    });
 };
 
 initAsyncModules().then(() => {
@@ -110,7 +113,7 @@ initAsyncModules().then(() => {
   }, 1000);
 
   appUse();
-  appQueryProcessing();
+  appRoute();
 
   app.listen(port, () => {
     console.log(`Server is running at port  ${port}`);
