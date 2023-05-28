@@ -68,7 +68,7 @@ export default function Header({ hasSearch = false }) {
         </section>
         {hasSearch && (
           <section className="app-header__firstRowSearch">
-            <Search />
+            <Search expandable={true}/>
           </section>
         )}
         <section className="app-header__firstRowRight">
