@@ -52,7 +52,7 @@ export default function DndDialogContainer({
     const rect = container.getBoundingClientRect();
     const xCursorOffset = e.pageX - rect.x;
     const yCursorOffset = e.pageY - rect.y;
-    // костыль для попап по центру
+    // для попап по центру
     const hasCenterTransform =
       container.style.transform === 'translate(-50%, -50%)';
     const halfWidth = hasCenterTransform ? rect.width / 2 : 0;
