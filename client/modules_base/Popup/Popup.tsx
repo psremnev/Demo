@@ -17,11 +17,25 @@ export default class Popup {
     if (
       this.options.closeOnOutsideClick &&
       this.popupIsOpened &&
-      !(e.target as HTMLElement).className.includes('popup')
+      !(e.target as HTMLElement).className.includes('popup') &&
+      !this.isParentPopup(e)
     ) {
       this.close();
     }
   };
+
+  private isParentPopup(e): boolean {
+    let isPopup = false
+    let el = e.target.parentNode as HTMLElement
+    while (!!el.parentNode) {
+      if (el.className?.includes('popup')) {
+        isPopup = true;
+        break;
+      }
+      el = el.parentNode as HTMLElement;
+    }
+    return isPopup;
+  }
 
   open(options: IPopup): void {
     this.options = options;

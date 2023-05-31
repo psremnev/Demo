@@ -4,15 +4,13 @@
 
     &__header {
         display: flex;
-        flex-direction: column;
         border-top-right-radius: 6px;
         border-top-left-radius: 6px;
-        padding: 6px;
+        align-items: center;
     }
 
     &__content {
         min-height: 20px;
-        box-shadow: 3px 3px 4px rgba(201, 199, 199, 0.4);
         mix-blend-mode: difference;
     }
 }

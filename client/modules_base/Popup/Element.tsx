@@ -63,7 +63,6 @@ export default function Element({
   content,
   target,
   targetOffset,
-  closeOnOutsideClick,
   canDrag,
   confirmationCfg,
   closeCallback,
@@ -119,7 +118,9 @@ export default function Element({
           />
         </header>
       )}
-      <main className="popup-content">{Content && <Content />}</main>
+      <main className="popup-content" onPointerDown={(e) => e.stopPropagation()}>
+        {Content && <Content />}
+      </main>
       {confirmationCfg && <Footer />}
     </DnDDialogContainer>
   );
