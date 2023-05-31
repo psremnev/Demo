@@ -61,7 +61,7 @@ export class Database {
       return new Error('collection name or data not set');
     }
     const collection = this.db.collection(collectionName);
-    return collection.findOne({ _id: new ObjectId(data['id']) });
+    return collection.findOne({ _id: new ObjectId(data['_id']) });
   }
 
   update(collectionName: string, data: object, newData: object[]) {
@@ -69,7 +69,7 @@ export class Database {
       return new Error('collection name or data not set');
     }
     const collection = this.db.collection(collectionName);
-    return collection.updateOne({ _id: new ObjectId(data['id']) }, newData);
+    return collection.updateOne({ _id: new ObjectId(data['_id']) }, newData);
   }
 
   delete(collectionName: string, data: object[]) {
@@ -78,9 +78,9 @@ export class Database {
     }
     const collection = this.db.collection(collectionName);
     const newData = data.map((item) => {
-      return { _id: new ObjectId(item['id']) };
+      return { _id: new ObjectId(item['_id']) };
     });
-    return data.length === 1
+    return newData.length === 1
       ? collection.deleteOne(newData[0])
       : collection.deleteMany(newData);
   }

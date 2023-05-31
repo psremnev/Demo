@@ -5,7 +5,7 @@ import { IListLoader } from 'ListLoader/IListLoader';
 import { DIRECTION, DEFAULT_NAVIGATION } from 'ListLoader/constants';
 import { ORIENTATION_TYPE } from 'ScrollContainer/constants';
 import { useComponentDidMount } from 'App/effects/isMounted';
-
+import { Collection } from 'Collection/Collection';
 /**
  * @link ListLoader/ListLoader
  * @description Обертка ListLoader для списка для загрузки данных списка
@@ -14,6 +14,7 @@ export default function ListLoader({
   source,
   items,
   filter,
+  idProperty,
   navigation,
   children,
   dataLoadCallback,
@@ -26,7 +27,11 @@ export default function ListLoader({
   showNavBtns
 }: IListLoader) {
   const [isDataLoad, setIsDataLoad] = useState(false);
-  const [thisItems, setThisItems] = useState(items || []);
+  const [collection, setCollection] = useState(
+    new Collection(items || [], idProperty)
+  );
+  const [thisItems, setThisItems] = useState(collection.getItems());
+  const collectionSubscribeId = useRef(null);
   const List = children;
   const isMounted = useComponentDidMount();
   const canLoadData = useMemo(() => {
@@ -44,18 +49,17 @@ export default function ListLoader({
     if (source) {
       try {
         setIsDataLoad(true);
-        let newItems;
         const nav = { ...DEFAULT_NAVIGATION, ...navigation, direction };
         const loadItems = await source.query(filter || {}, nav);
+        const oldItems = collection.getItems();
         if (reload) {
-          newItems = loadItems;
+          collection.setItems(loadItems);
         } else if (direction === DIRECTION.END) {
-          newItems = [...thisItems, ...loadItems];
+          collection.setItems([...oldItems, ...loadItems]);
         } else {
-          newItems = [...loadItems, ...thisItems];
+          collection.setItems([...loadItems, ...oldItems]);
         }
-        setThisItems(newItems);
-        dataLoadCallback && dataLoadCallback(newItems);
+        dataLoadCallback && dataLoadCallback(collection);
       } catch (e) {
         console.error(e);
       } finally {
@@ -65,12 +69,45 @@ export default function ListLoader({
   };
 
   /**
+   * Перезагрузка списка, сброс коллекции
+   */
+  const resetData = () => {
+    loadData(DIRECTION.END, true);
+  };
+
+  /**
+   * Коллбек на изменение коллекции
+   */
+  const collectionChange = (newItems) => {
+    setThisItems(newItems);
+  };
+
+  /**
+   * Подписка на изменение коллекции
+   */
+  useEffect(() => {
+    collectionSubscribeId.current = collection.subscribeCollectionChange(collectionChange);
+    return () =>
+      collection.unsubscribeCollectionChange(collectionSubscribeId.current);
+  }, [collection]);
+
+  /**
    * Перезагрузка списка при изменении опций source, filter, navigation
    */
   useEffect(() => {
     if (canLoadData && isMounted) {
       // перезагружаем список
-      loadData(DIRECTION.END, true);
+      resetData();
+    }
+  }, [source, filter, navigation]);
+
+  /**
+   * Перезагрузка списка при изменении опций source, filter, navigation
+   */
+  useEffect(() => {
+    if (canLoadData && isMounted) {
+      // перезагружаем список
+      resetData();
     }
   }, [source, filter, navigation]);
 

@@ -9,7 +9,7 @@ import {
 import { useRef } from 'react';
 
 export default function ({
-  items = [],
+  items,
   idProperty = 'id',
   displayProperty = 'title',
   itemTemplate,

@@ -73,7 +73,10 @@ export default function Button({
     <div
       className={`btn type-${type}`}
       style={{ ...style.general, ...style[type] }}
-      onClick={() => onClick && onClick()}
+      onClick={(e) => {
+        e.stopPropagation();
+        onClick && onClick()
+      }}
     >
       {hasImage && <img src={imageUrl} />}
       {hasIcon && <div style={titleMarginStyle} className={icon}></div>}

@@ -1,9 +1,11 @@
 import { ReactNode } from 'react';
 import { IScrollContainer } from 'scrollContainer';
 import { DIRECTION } from 'ListLoader/constants';
+import type { Collection } from 'Collection/Collection';
 
 export interface IListLoader extends IScrollContainer {
   source?;
+  idProperty: string;
   items?: object[];
   filter?: IFilter;
   navigation?: INavigation;

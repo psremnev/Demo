@@ -55,6 +55,7 @@ export default function List({
   return (
     <section className="list" style={style}>
       <ListLoader
+        idProperty={idProperty}
         source={source}
         filter={filter}
         navigation={navigation}

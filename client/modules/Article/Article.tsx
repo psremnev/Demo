@@ -14,7 +14,8 @@ export default function ({
   mode = urlParams?.mode || 'view',
   page = urlParams?.page,
   preloadData = null,
-  item = null
+  item = null,
+  menuClickCallback
 }) {
   const initItem = item || preloadData;
   const backgroundColor = useMemo(() => {
@@ -40,13 +41,6 @@ export default function ({
       }}
     >
       <header className="article__header">
-        <section
-          style={{
-            alignItems: 'center',
-            display: 'flex',
-            marginRight: 6
-          }}
-        >
           {initItem.authorPhoto && (
             <img
               src={initItem.authorPhoto}
@@ -58,19 +52,35 @@ export default function ({
               }}
             />
           )}
-          {initItem.author && <Header title={initItem.author} size={16} />}
-        </section>
+          {initItem.author && (
+            <div style={{ marginRight: 6 }}>
+              <Header title={initItem.author} size={16} />
+            </div>
+          )}
         <Header title={initItem.title} />
       </header>
       <section
         className="article__content"
-        style={{ maxHeight: page ? '100%' : '100px', minHeight: '15px', overflow: 'hidden' }}
+        style={{
+          maxHeight: page ? '100%' : '100px',
+          minHeight: '15px',
+          overflow: 'hidden'
+        }}
       >
-        <span style={{whiteSpace: 'unset'}}>{initItem.content}</span>
+        <span style={{ whiteSpace: 'unset' }}>{initItem.content}</span>
       </section>
       {!page && (
-        <div style={{ paddingLeft: 8 }}>
-          <Button title="Показать еще" type={BUTTONS_TYPE.LINK} />
+        <Button title="Показать еще" type={BUTTONS_TYPE.LINK} />
+      )}
+      {!page && (
+        <div style={{ position: 'absolute', top: 4, right: 8 }}>
+          <Button
+            onClick={() =>
+              menuClickCallback && menuClickCallback('delete', initItem)
+            }
+            icon="ti-trash"
+            type={BUTTONS_TYPE.ICON}
+          />
         </div>
       )}
     </section>

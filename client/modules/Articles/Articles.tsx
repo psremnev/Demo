@@ -6,19 +6,21 @@ import { Popup, POPUP_TYPE } from 'popup';
 import { useMemo } from 'react';
 import { Header } from 'header';
 import Article from 'Article/Article';
+import { useRef } from 'react';
 
 /**
  * @link Articles/Articles
  * @description Список Статей
  */
 export default function () {
+  const collection = useRef(null);
   const service = new Service({ endpoint: 'articles' });
   const popup = useMemo(() => new Popup(), []);
 
   /**
-   * Контент диалога создания статьи
+   * Диалог создания статьи
    */
-  const createDialogContent = () => {
+  const CreateDialog = () => {
     const rowStyle = {
       display: 'flex',
       justifyContent: 'space-between',
@@ -81,9 +83,19 @@ export default function () {
       title: 'Новая статья',
       closeOnOutsideClick: true,
       canDrag: true,
-      content: createDialogContent
+      content: CreateDialog
     });
   };
+
+  const menuClickCallback = (command, data) => {
+    switch (command) {
+      case 'delete':
+        service.delete([data]).then((res) => {
+          popup.close();
+          collection.current.delete(data);
+        });
+    }
+  }
 
   /**
    * Сохранить статью на БЛ
@@ -98,46 +110,52 @@ export default function () {
     const content = (
       document.querySelector('.articlesAdd__content') as HTMLInputElement
     ).value;
+    const data = {
+      title,
+      author,
+      authorPhoto: author
+        ? 'https://avatars.dzeninfra.ru/get-zen_doc/4460346/pub_6085d3c1e2c7114111efc2a2_6085e4803b735b52f85124ce/scale_1200'
+        : null,
+      content
+    };
     if (title) {
       service
-        .create([
-          {
-            title,
-            author,
-            authorPhoto: author
-              ? 'https://avatars.dzeninfra.ru/get-zen_doc/4460346/pub_6085d3c1e2c7114111efc2a2_6085e4803b735b52f85124ce/scale_1200'
-              : null,
-            content
-          }
-        ])
-
+        .create([data])
         .then((res) => {
           popup.close();
+          collection.current.add(data, 0);
         });
     } else {
       alert('Не задано имя');
     }
   };
 
+  const dataLoadCallback = (newCollection) =>
+    (collection.current = newCollection);
+
   return (
     <div className="flexbox flexDirectionColumn fullWidth">
       <header
         className="flexbox marginLeft-pre-m marginBottom-pre-m"
-        style={{ marginBottom: 6 }}
+        style={{ marginBottom: 6, position: 'sticky', top: 0 }}
       >
         <Button icon="ti-plus" onClick={openArticleAddDialog} />
       </header>
       <List
+        idProperty='_id'
         source={service}
         onItemClick={(item) =>
           openLink(`/article?id=${item._id}&mode=view&page=true`, true)
         }
-        itemTemplate={Article}
+        itemTemplate={(props) => (
+          <Article {...{ ...props, menuClickCallback }} />
+        )}
         backgroundColor="transparent"
         itemsContainerPadding={{ left: 6, right: 6 }}
         itemPadding={{ bottom: 15 }}
         showShadow={false}
         showScrollBar={false}
+        dataLoadCallback={dataLoadCallback}
       />
     </div>
   );

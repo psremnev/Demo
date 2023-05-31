@@ -1,6 +1,6 @@
 import { ORIENTATION, IScrollContainer } from 'scrollContainer';
 import { IListLoader } from 'listLoader';
-import { IListItem, TId } from 'List/IListItem';
+import type { Collection } from 'Collection/Collection';
 
 export interface IList extends IListBase, IScrollContainer, IListLoader {
   backgroundColor?: string;
