@@ -62,6 +62,7 @@ export default function ListLoader({
         const loadItems = await source.query(filter || {}, navigation);
         if (!loadItems.length) {
           hasMore.current[direction] = false;
+          return;
         }
         const oldItems = collection.getItems();
         if (reload) {
