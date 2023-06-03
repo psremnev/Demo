@@ -1,4 +1,4 @@
-import page from 'page.config.json';
+import page from 'configs/page.config.json';
 import { ERROR_MODULE_URL } from 'types';
 import { ERROR_OPTIONS } from 'error';
 

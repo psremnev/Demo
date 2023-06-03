@@ -1,7 +1,7 @@
 import { ClientMsgActionType } from 'Channel/constants';
 import { ISubscription } from 'Channel/IChannel';
 import { STATUS } from 'Channel/constants';
-import appConfig from 'app.config.json';
+import appConfig from 'configs/app.config.json';
 
 /**
  * @class Channel/Channel

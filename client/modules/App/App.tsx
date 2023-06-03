@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import Header from 'App/Header';
 import LeftSide from 'App/LeftSide';
 import RightSide from 'App/RightSide';
-import app from 'app.config.json';
+import app from 'configs/app.config.json';
 import { Loader } from 'loader';
 import { ScrollContainer } from 'scrollContainer';
 import 'App/App.scss';
@@ -19,13 +19,7 @@ export default function App({ contentData }) {
       <main className="app-main">
         {app.leftSide && <LeftSide />}
         <Suspense fallback={<Loader />}>
-          <ScrollContainer
-            showUpBtn={true}
-            showShadow={false}
-            showScrollBar={false}
-          >
-            <ContentNode {...options} />
-          </ScrollContainer>
+          <ContentNode {...options} />
         </Suspense>
         {app.rightSide && <RightSide />}
       </main>

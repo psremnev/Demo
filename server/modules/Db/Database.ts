@@ -1,4 +1,4 @@
-import appConfig from 'app.config.json';
+import appConfig from 'configs/app.config.json';
 import { MongoClient, ObjectId } from 'mongodb';
 
 export class Database {

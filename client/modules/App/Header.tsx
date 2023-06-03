@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import app from 'app.config.json';
+import app from 'configs/app.config.json';
 import { LANG, THEME } from 'types';
 import { getAppContext } from 'base_utils/getAppContext';
 import { Button } from 'button';

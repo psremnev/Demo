@@ -35,7 +35,7 @@ export default function ListLoader({
   const List = children;
   const isMounted = useComponentDidMount();
   const canLoadData = useMemo(() => {
-    return !isDataLoad && source;
+    return !isDataLoad && !!source;
   }, [isDataLoad]);
   const loadDirection = useRef(DIRECTION.END);
 

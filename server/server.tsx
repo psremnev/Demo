@@ -9,7 +9,7 @@ import { listData, treeData } from 'test_data/TestData';
 import { ServerChannel } from 'ServerChannel/ServerChannel';
 import { renderPage } from 'page_utils/renderPage';
 import * as cookieParser from 'cookie-parser';
-import appConfig from 'app.config.json';
+import appConfig from 'configs/app.config.json';
 import * as favicon from 'serve-favicon';
 import { Database } from 'Db/Database';
 import { METHOD_TYPE } from 'types';

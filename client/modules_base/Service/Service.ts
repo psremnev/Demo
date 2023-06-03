@@ -1,5 +1,5 @@
 import { REQUEST_TYPE, METHOD_TYPE } from 'Service/constants';
-import appConfig from 'app.config.json';
+import appConfig from 'configs/app.config.json';
 
 /**
  * @class Service/Service

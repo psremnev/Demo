@@ -1,7 +1,7 @@
 import { WebSocketServer, WebSocket } from 'ws';
 import { IClientMsg, IEvent } from 'ServerChannel/IServerChannel';
 import { ClientMsgActionType } from 'ServerChannel/constants';
-import appConfig from 'app.config.json';
+import appConfig from 'configs/app.config.json';
 
 /**
  * @class ServerChannel/ServerChannel

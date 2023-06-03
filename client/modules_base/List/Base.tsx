@@ -34,7 +34,8 @@ export default function ({
     flexDirection: orientation === ORIENTATION_TYPE.VERTICAL ? 'column' : 'row',
     padding: `${containerPadding.current.top}px ${containerPadding.current.right}px
                  ${containerPadding.current.bottom}px ${containerPadding.current.left}px`,
-    width: '100%'
+    width: '100%',
+    boxSizing: 'border-box'
   };
 
   return (
