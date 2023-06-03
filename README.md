@@ -22,6 +22,14 @@
      "options": {
         "anyOption": 'anyValue'
      }
+
+   ## Настройка нового API сервиса:
+    - Создать сервис в папке server -> service, наследуя класс server -> Database -> Database
+      Для создания кастомных методов нужно просто создать методы в классе, затем с интерфейса
+      звать call у экземпляра Service с названием этого метода
+    - Создать новый роутер для сервиса server -> routes -> api через функцию server -> routes -> createApiRouter
+    - добавить роутер в server -> server -> appRoutes - app.use(Router);
+
 ## Демо страница
 https://psremnev.github.io/Demo/
 

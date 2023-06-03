@@ -11,9 +11,9 @@ import { renderPage } from 'server/utils/renderPage';
 import * as cookieParser from 'cookie-parser';
 import appConfig from 'configs/app.config.json';
 import * as favicon from 'serve-favicon';
-import { Database } from 'Db/Database';
+import { Database } from 'server/modules/Database/Database';
 import { METHOD_TYPE } from 'types';
-import { PageRouter, ArticlesRouter} from './routes/routes';
+import { PageRouter, ArticlesRouter } from './routes/routes';
 
 const serverChannel = new ServerChannel(); // создаем WebSocket подключение
 const app = express();
@@ -34,8 +34,6 @@ const appUse = () => {
   // роуты
   appUseRoutes();
 };
-
-
 
 // для Демо страницы
 setInterval(() => {

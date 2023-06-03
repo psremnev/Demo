@@ -16,7 +16,9 @@ export default function () {
   const collection = useRef(null);
   const service = new Service({ endpoint: 'articles' });
   const popup = useMemo(() => new Popup(), []);
-
+  service.call('find', {}).then((res) => {
+    const d = res;
+  })
   /**
    * Диалог создания статьи
    */

@@ -1,7 +1,7 @@
-import { Database } from 'Db/Database';
+import { Database } from 'server/modules/Database/Database';
 
 export class Articles extends Database {
-   constructor() {
+  constructor() {
     super('articles');
-   }
+  }
 }

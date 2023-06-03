@@ -102,7 +102,7 @@ export class Database {
       : collection.deleteMany(newData);
   }
 
-  async query(
+  query(
     collectionName: string,
     params: object | null,
     navigation: { skip: number; limit: number } = { skip: 0, limit: 30 }

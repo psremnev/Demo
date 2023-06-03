@@ -35,7 +35,8 @@ export default class Service {
         })
       });
       if (response.ok) {
-        return await response.json();
+        const res = await response.json();
+        return await res;
       } else {
         console.error(`Ошибка при выполнении метода ${method}: ${response.statusText}`);
       }
