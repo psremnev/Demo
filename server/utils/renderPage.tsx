@@ -1,10 +1,10 @@
 import Index from 'Index';
 import { getUrlInfo } from 'base_utils/getUrlInfo';
 import { ADMIN_URL, AUTH_URL } from 'types';
-import { getCleanPath } from 'page_utils/getCleanPath';
-import { getPageConfig } from 'page_utils/getPageConfig';
-import { getPreloadData } from 'page_utils/getPreloadData';
-import { isAuth } from 'page_utils/isAuth';
+import { getCleanPath } from 'server/utils/getCleanPath';
+import { getPageConfig } from 'server/utils/getPageConfig';
+import { getPreloadData } from 'server/utils/getPreloadData';
+import { isAuth } from 'server/utils/isAuth';
 
 /**
  * Рендер страницы по роуту

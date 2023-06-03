@@ -2,8 +2,8 @@
   "compilerOptions": {
     "allowJs": true,
     "jsx": "react-jsx",
-    "target": "es6",
-    "module": "es2022",
+    "target": "es2017",
+    "module": "esnext",
     "moduleResolution": "node",
     "sourceMap": false,
     "pretty": true,

@@ -37,8 +37,9 @@ export class Collection {
   }
 
   add(element, position) {
-    this.items[position] = element;
-    this.items = this.items.slice();
+    const newItems = this.items.slice();
+    newItems.splice(position, 0, element);
+    this.items = newItems;
     this.collectionChange();
   }
 

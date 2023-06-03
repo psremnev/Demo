@@ -13,8 +13,8 @@ export default class Service {
   private headers = { 'Content-Type': 'application/json' };
 
   constructor(params) {
-    this.url = `${appConfig.protocol}://${appConfig.host}:${appConfig.port}${appConfig.service_address}`;
     this.endPoint = params.endpoint;
+    this.url = `${appConfig.protocol}://${appConfig.host}:${appConfig.port}${appConfig.service_address}/${this.endPoint}`;
   }
 
   private async getData(
@@ -37,7 +37,7 @@ export default class Service {
       if (response.ok) {
         return await response.json();
       } else {
-        console.error(`Ошибка при выполнении метода ${method}`);
+        console.error(`Ошибка при выполнении метода ${method}: ${response.statusText}`);
       }
     } catch (e) {
       console.error(e);

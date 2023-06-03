@@ -3,4 +3,4 @@ export const DIRECTION = {
   END: 'end'
 };
 
-export const DEFAULT_NAVIGATION = { limit: 20 };
+export const DEFAULT_NAVIGATION = { limit: 20, direction: DIRECTION.END };

@@ -1,10 +1,11 @@
 import appConfig from 'configs/app.config.json';
 import { MongoClient, ObjectId } from 'mongodb';
-
+import {ERRORS} from './constants';
 export class Database {
-  client = null;
-  db = null;
-  endpoint = null;
+  private client = null;
+  private db = null;
+  private endpoint = null;
+
   constructor(endpoint: string) {
     this.endpoint = endpoint;
     this.client = new MongoClient(
@@ -28,45 +29,61 @@ export class Database {
     }
   }
 
+  getEndpoint() {
+    return this.endpoint;
+  }
+
   close() {
     this.client.close();
   }
 
   createCollection(name: string) {
     if (!name) {
-      return new Error('collection name not set');
+      return ERRORS.NO_COLLECTION;
     }
     return this.db.collection(name);
   }
 
   deleteCollection(name: string) {
     if (!name) {
-      return new Error('collection name not set');
+      return ERRORS.NO_COLLECTION;
     }
     return this.db.collection(name).drop();
   }
 
   create(collectionName: string, data: object[]) {
     if (!collectionName || !data) {
-      return new Error('collection name or data not set');
+      return ERRORS.NO_COLLECTION;
     }
     const collection = this.db.collection(collectionName);
+    const callback = (error, response) => {
+      if(error) {
+          return error;
+      } else {
+        return response;
+      }
+    }
     return data.length === 1
-      ? collection.insertOne(data[0])
-      : collection.insertMany(data);
+      ? collection.insertOne(data[0], callback)
+      : collection.insertMany(data, callback);
   }
 
   async read(collectionName: string, data: object) {
     if (!collectionName || !data) {
-      return new Error('collection name or data not set');
+      return ERRORS.NO_COLLECTION;
     }
     const collection = this.db.collection(collectionName);
-    return collection.findOne({ _id: new ObjectId(data['_id']) });
+    const res = await collection.findOne({ _id: new ObjectId(data['_id']) });
+    if (res) {
+      return res;
+    } else {
+      return ERRORS.NOT_FOUND;
+    }
   }
 
   update(collectionName: string, data: object, newData: object[]) {
     if (!collectionName || !data) {
-      return new Error('collection name or data not set');
+      return ERRORS.NO_COLLECTION;
     }
     const collection = this.db.collection(collectionName);
     return collection.updateOne({ _id: new ObjectId(data['_id']) }, newData);
@@ -74,7 +91,7 @@ export class Database {
 
   delete(collectionName: string, data: object[]) {
     if (!collectionName || !data) {
-      return new Error('collection name or data not set');
+      return ERRORS.NO_COLLECTION;
     }
     const collection = this.db.collection(collectionName);
     const newData = data.map((item) => {
@@ -85,13 +102,13 @@ export class Database {
       : collection.deleteMany(newData);
   }
 
-  query(
+  async query(
     collectionName: string,
     params: object | null,
     navigation: { skip: number; limit: number } = { skip: 0, limit: 30 }
   ) {
     if (!collectionName || !params) {
-      return new Error('collection name or params not set');
+      return ERRORS.NO_COLLECTION;
     }
     const collection = this.db.collection(collectionName);
     return collection.find(params, navigation).toArray();

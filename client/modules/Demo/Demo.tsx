@@ -15,6 +15,9 @@ import { ScrollContainer } from 'scrollContainer';
 
 import { useState } from 'react';
 
+/**
+ * Демо страница для компонентов приложения
+ */
 export default function () {
   const [dialogBtnResult, setDialogBtnResult] = useState(
     'Результат выбора в диалоге'

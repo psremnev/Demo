@@ -4,6 +4,7 @@ import { getBackgroundColor } from 'Article/getBackgroundColor';
 import { useMemo } from 'react';
 import { Button, BUTTONS_TYPE } from 'button';
 import 'Article/Article.scss';
+import { openLink } from 'base_utils/openLink';
 
 /**
  * @link Article/Article
@@ -41,22 +42,22 @@ export default function ({
       }}
     >
       <header className="article__header">
-          {initItem.authorPhoto && (
-            <img
-              src={initItem.authorPhoto}
-              style={{
-                height: 45,
-                width: 45,
-                borderRadius: '50%',
-                marginRight: 6
-              }}
-            />
-          )}
-          {initItem.author && (
-            <div style={{ marginRight: 6 }}>
-              <Header title={initItem.author} size={16} />
-            </div>
-          )}
+        {initItem.authorPhoto && (
+          <img
+            src={initItem.authorPhoto}
+            style={{
+              height: 45,
+              width: 45,
+              borderRadius: '50%',
+              marginRight: 6
+            }}
+          />
+        )}
+        {initItem.author && (
+          <div style={{ marginRight: 6 }}>
+            <Header title={initItem.author} size={16} />
+          </div>
+        )}
         <Header title={initItem.title} />
       </header>
       <section
@@ -70,7 +71,13 @@ export default function ({
         <span style={{ whiteSpace: 'unset' }}>{initItem.content}</span>
       </section>
       {!page && (
-        <Button title="Показать еще" type={BUTTONS_TYPE.LINK} />
+        <Button
+          onClick={() =>
+            openLink(`/article?id=${initItem._id}&mode=view&page=true`, true)
+          }
+          title="Показать еще"
+          type={BUTTONS_TYPE.LINK}
+        />
       )}
       {!page && (
         <div style={{ position: 'absolute', top: 4, right: 8 }}>

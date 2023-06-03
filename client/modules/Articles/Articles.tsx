@@ -121,9 +121,10 @@ export default function () {
     if (title) {
       service
         .create([data])
-        .then((res) => {
+        .then(async(res) => {
           popup.close();
-          collection.current.add(data, 0);
+          const newArticle = await service.read({ _id: res.insertedId });
+          collection.current.add(newArticle, 0);
         });
     } else {
       alert('Не задано имя');

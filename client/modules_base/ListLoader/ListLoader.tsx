@@ -31,6 +31,11 @@ export default function ListLoader({
     new Collection(items || [], idProperty)
   );
   const [thisItems, setThisItems] = useState(collection.getItems());
+  const thisNavigation = useMemo(() => {
+    return  {...DEFAULT_NAVIGATION, ...navigation}
+  }, [navigation]);
+  const navStep = thisNavigation.limit;
+  const lastNavPosition = useRef(items?.length || 0);
   const collectionSubscribeId = useRef(null);
   const List = children;
   const isMounted = useComponentDidMount();
@@ -38,6 +43,10 @@ export default function ListLoader({
     return !isDataLoad && !!source;
   }, [isDataLoad]);
   const loadDirection = useRef(DIRECTION.END);
+  const hasMore = useRef({
+    [DIRECTION.START]: true,
+    [DIRECTION.END]: true
+  });
 
   /**
    * Загрузка данных
@@ -49,8 +58,11 @@ export default function ListLoader({
     if (source) {
       try {
         setIsDataLoad(true);
-        const nav = { ...DEFAULT_NAVIGATION, ...navigation, direction };
-        const loadItems = await source.query(filter || {}, nav);
+        const navigation = { skip: lastNavPosition.current, limit: thisNavigation.limit };
+        const loadItems = await source.query(filter || {}, navigation);
+        if (!loadItems.length) {
+          hasMore.current[direction] = false;
+        }
         const oldItems = collection.getItems();
         if (reload) {
           collection.setItems(loadItems);
@@ -60,6 +72,7 @@ export default function ListLoader({
           collection.setItems([...loadItems, ...oldItems]);
         }
         dataLoadCallback && dataLoadCallback(collection);
+        lastNavPosition.current = lastNavPosition.current + navStep;
       } catch (e) {
         console.error(e);
       } finally {
@@ -114,7 +127,7 @@ export default function ListLoader({
   /**
    * Нужно ли догрузить данные если размер контенера больше чем размер элементов в нем
    */
-  const needLoadData = (container: HTMLElement) => {
+  const needLoadDataByContainer = (container: HTMLElement) => {
     if (container) {
       let childrenSize = 0;
       const isVerticalOrientation = orientation === ORIENTATION_TYPE.VERTICAL;
@@ -138,7 +151,7 @@ export default function ListLoader({
    */
   const setContainer = (container: HTMLElement) => {
     if (container) {
-      if (canLoadData && needLoadData(container)) {
+      if (canLoadData && needLoadDataByContainer(container) && hasMore.current[DIRECTION.END]) {
         // догружаем записи если размер элементов меньше размера скролконтейнера
         loadData(DIRECTION.END);
       }
