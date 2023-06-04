@@ -42,9 +42,9 @@ export default function ({
       }}
     >
       <header className="article__header">
-        {initItem.authorPhoto && (
+        {initItem.photo && (
           <img
-            src={initItem.authorPhoto}
+            src={initItem.photo}
             style={{
               height: 45,
               width: 45,

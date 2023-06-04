@@ -67,7 +67,8 @@ export default function Element({
   confirmationCfg,
   closeCallback,
   onOutsideClickCallback,
-  popupIsOpened
+  popupIsOpened,
+  eventHandlers
 }: IElement) {
   const Content = content;
   const [isOpened, setIsOpened] = useState(popupIsOpened);
@@ -118,8 +119,11 @@ export default function Element({
           />
         </header>
       )}
-      <main className="popup-content" onPointerDown={(e) => e.stopPropagation()}>
-        {Content && <Content />}
+      <main
+        className="popup-content"
+        onPointerDown={(e) => e.stopPropagation()}
+      >
+        {Content && <Content eventHandlers={eventHandlers} />}
       </main>
       {confirmationCfg && <Footer />}
     </DnDDialogContainer>

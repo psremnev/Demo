@@ -11,6 +11,7 @@ export default function Button({
   icon = '',
   imageUrl = '',
   imageSize = 20,
+  iconSize = 20,
   backgroundColor = 'var(--default_background_color)',
   accentColor = 'var(--dark_grey)',
   mixBlendMode = 'unset',
@@ -48,8 +49,8 @@ export default function Button({
     icon: {
       borderRadius: '50%',
       border: '1px solid var(--dark_grey)',
-      width: 20,
-      height: 20,
+      width: iconSize,
+      height: iconSize,
       justifyContent: 'center',
       background: backgroundColor,
       flexShrink: 0

@@ -45,9 +45,9 @@ export default function LoadButton({
         };
 
         const cleanExt = ext.toLowerCase();
-        if (false && fileTypes.img.includes(cleanExt)) {
+        if (fileTypes.img.includes(cleanExt)) {
           reader.readAsDataURL(file);
-        } else if (false && fileTypes.text.includes(cleanExt)) {
+        } else if (fileTypes.text.includes(cleanExt)) {
           reader.readAsText(file);
           reader.addEventListener;
         } else {

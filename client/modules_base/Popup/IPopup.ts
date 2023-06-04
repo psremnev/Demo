@@ -11,6 +11,9 @@ export interface IPopup {
   closeOnOutsideClick?: boolean;
   canDrag?: boolean;
   confirmationCfg?: IConfirmationCfg;
+  eventHandlers?: {
+    onResult?: (result) => void
+  }
 }
 
 interface IConfirmationCfg {
