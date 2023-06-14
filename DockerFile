@@ -1,3 +1,4 @@
+// Тут пока не доделано
 FROM node
 COPY package.json .
 COPY . .
