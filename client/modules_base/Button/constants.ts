@@ -4,3 +4,5 @@ export const BUTTONS_TYPE = {
   IMAGE: 'img',
   ICON: 'icon'
 };
+
+export const KEY_CODE_ENTER = 13;

@@ -37,3 +37,5 @@ export const CONFIRMATION_TITLES = {
     { title: 'Отмена', result: false, accentColor: 'var(--danger_color)' }
   ]
 };
+
+export const KEY_CODE_ESCAPE = 27;

@@ -1,4 +1,4 @@
-import { BUTTONS_TYPE } from 'Button/constants';
+import { BUTTONS_TYPE, KEY_CODE_ENTER } from 'Button/constants';
 import { IButton } from 'Button/IButton';
 import 'Button/Button.scss';
 
@@ -70,14 +70,24 @@ export default function Button({
 
   const titleMarginStyle = { marginRight: title ? 6 : 0, padding: 4 };
 
+  const onClickEvent = (e) => {
+    e.stopPropagation();
+    onClick && onClick();
+  }
+
+  const onKeyDown = (e) => {
+    if (e.keyCode === KEY_CODE_ENTER) {
+      onClickEvent(e)
+    }
+  }
+
   return (
     <div
+      tabIndex={0}
       className={`btn type-${type}`}
       style={{ ...style.general, ...style[type] }}
-      onClick={(e) => {
-        e.stopPropagation();
-        onClick && onClick()
-      }}
+      onClick={onClickEvent}
+      onKeyDown={onKeyDown}
     >
       {hasImage && <img src={imageUrl} />}
       {hasIcon && <div style={titleMarginStyle} className={icon}></div>}

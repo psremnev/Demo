@@ -2,7 +2,8 @@ import { IElement } from 'Popup/IPopup';
 import {
   POPUP_TYPE,
   DEFAULT_TARGET_OFFSET,
-  CONFIRMATION_TITLES
+  CONFIRMATION_TITLES,
+  KEY_CODE_ESCAPE
 } from 'Popup/constants';
 import { Button, BUTTONS_TYPE } from 'button';
 import { useEffect, useState } from 'react';
@@ -67,12 +68,9 @@ export default function Element({
   confirmationCfg,
   closeCallback,
   onOutsideClickCallback,
-  popupIsOpened,
   eventHandlers
 }: IElement) {
   const Content = content;
-  const [isOpened, setIsOpened] = useState(popupIsOpened);
-  const isMounted = useComponentDidMount();
 
   const confirmationBtnClick = (res) => {
     closeCallback && closeCallback();
@@ -104,28 +102,40 @@ export default function Element({
     );
   }, []);
 
+  const onKeyDown = (e) => {
+    if (e.keyCode === KEY_CODE_ESCAPE) {
+      closeCallback && closeCallback();
+    }
+  };
+  
+  const setContainer = (element) => {
+    element.focus();
+  }
+
   return (
     <DnDDialogContainer
       style={getStyle(width, target, targetOffset, type)}
       canDrag={canDrag && type !== POPUP_TYPE.STACK}
     >
-      {title && (
-        <header className="popup-header">
-          <span className="popup-header__title">{title}</span>
-          <Button
-            onClick={closeCallback}
-            icon="ti-close"
-            type={BUTTONS_TYPE.ICON}
-          />
-        </header>
-      )}
-      <main
-        className="popup-content"
-        onPointerDown={(e) => e.stopPropagation()}
-      >
-        {Content && <Content eventHandlers={eventHandlers} />}
-      </main>
-      {confirmationCfg && <Footer />}
+      <section ref={setContainer} tabIndex={-1} onKeyDown={onKeyDown}>
+        {title && (
+          <header className="popup-header">
+            <span className="popup-header__title">{title}</span>
+            <Button
+              onClick={closeCallback}
+              icon="ti-close"
+              type={BUTTONS_TYPE.ICON}
+            />
+          </header>
+        )}
+        <main
+          className="popup-content"
+          onPointerDown={(e) => e.stopPropagation()}
+        >
+          {Content && <Content eventHandlers={eventHandlers} />}
+        </main>
+        {confirmationCfg && <Footer />}
+      </section>
     </DnDDialogContainer>
   );
 }

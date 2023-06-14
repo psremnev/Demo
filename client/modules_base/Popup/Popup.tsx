@@ -47,7 +47,6 @@ export default class Popup {
   }
 
   open(options: IPopup): void {
-    options.modal = true;
     this.options = options;
     if (this.popupIsOpened) {
       this.close();
