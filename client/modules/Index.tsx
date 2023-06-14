@@ -43,7 +43,10 @@ export default function Index({ contentData }) {
     <html>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width,initial-scale=0" />
+        <meta content="true" name="HandheldFriendly" />
+        <meta content="width" name="MobileOptimized" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
         <title>{app.title}</title>
         <link rel="stylesheet" href="/style.css"></link>
         <script type="module" src="/client.js"></script>

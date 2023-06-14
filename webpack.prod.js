@@ -5,7 +5,7 @@ const config = {
   mode: 'production',
   watch: false,
   externals: {
-    express: 'express',
+    express: 'express'
   },
   optimization: {
     minimize: true,

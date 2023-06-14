@@ -1,5 +1,4 @@
 html {
-    // margin
     --offset_xs: 2px;
     --offset_s: 4px;
     --offset_pre_m: 6px;
@@ -7,7 +6,6 @@ html {
     --offset_l: 10px;
     --offset_xl: 12px;
 
-    //color
     --default_color: #ffffff;
     --danger_color: #b93e3e;
     --success_color: #81e35c;
@@ -17,12 +15,10 @@ html {
     --link_color: #6c6cd6;
     --dark_grey: #b1acac;
 
-    //background
     --transparent_background_color: #ffffff00;
     --default_background_color: #ffffff;
     --light_grey_background_color: #bebebe70;
 
-    //theme
     --dark_theme: #1a1a1a;
     --first_color: rgb(255, 255, 255);
     --second_color: #ede7fa;

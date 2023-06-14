@@ -8,7 +8,7 @@ import {
   scssRule,
   fontsRule,
   imgRule,
-  webpack5esmInteropRule,
+  webpack5esmInteropRule
 } from './webpackRules.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,34 +17,34 @@ const resolveCfg = {
   extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss'],
   // TsconfigPathsPlugin - чтобы работали пути импорта из tsconfig
   plugins: [
-    new TsconfigPathsPlugin({ configFile: `${__dirname}/tsconfig.json` }),
-  ],
+    new TsconfigPathsPlugin({ configFile: `${__dirname}/tsconfig.json` })
+  ]
 };
 
 export default {
   mode: 'development',
   watch: true,
   watchOptions: {
-    ignored: ['**/node_modules/', '**/build'],
+    ignored: ['**/node_modules/', '**/build']
   },
   entry: {
     server: './server/server.tsx',
-    client: './client/client.tsx',
+    client: './client/client.tsx'
   },
   output: {
     path: `${__dirname}/build`,
     filename: '[name].js',
     chunkFormat: 'module',
     clean: true,
-    pathinfo: false,
+    pathinfo: false
   },
   experiments: {
     outputModule: true,
-    topLevelAwait: true,
+    topLevelAwait: true
   },
   target: 'node',
   module: {
-    rules: [webpack5esmInteropRule, tsRule, scssRule, imgRule, fontsRule],
+    rules: [webpack5esmInteropRule, tsRule, scssRule, imgRule, fontsRule]
   },
   resolve: resolveCfg,
   plugins: [
@@ -54,21 +54,21 @@ export default {
           // копируем шрифты
           from: 'fonts',
           globOptions: {
-            ignore: ['**/*.scss'],
-          },
+            ignore: ['**/*.scss']
+          }
         },
         {
           // копируем ассеты
           from: 'public',
           to: 'public',
           globOptions: {
-            ignore: ['**/*.scss'],
-          },
-        },
-      ],
+            ignore: ['**/*.scss']
+          }
+        }
+      ]
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: 'style.css'
     })
   ]
 };

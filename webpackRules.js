@@ -3,17 +3,17 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 export const webpack5esmInteropRule = {
   test: /\.m?js/,
   resolve: {
-    fullySpecified: false,
-  },
+    fullySpecified: false
+  }
 };
 
 export const tsRule = {
   test: /\.(ts|tsx|js)$/,
   use: {
     loader: 'ts-loader',
-    options: { transpileOnly: true }, // отключает проверку типов, заменить на ForkTsCheckerWebpackPlugin
+    options: { transpileOnly: true } // отключает проверку типов, заменить на ForkTsCheckerWebpackPlugin
   },
-  exclude: /node_modules/,
+  exclude: /node_modules/
 };
 
 export const babelRule = {
@@ -22,14 +22,14 @@ export const babelRule = {
   use: {
     loader: 'babel-loader',
     options: {
-      presets: ['@babel/preset-env', '@babel/preset-typescript'],
-    },
-  },
+      presets: ['@babel/preset-env', '@babel/preset-typescript']
+    }
+  }
 };
 
 export const fontsRule = {
   test: /\.(woff(2)?|ttf|eot|svg)$/,
-  loader: 'file-loader',
+  loader: 'file-loader'
 };
 
 export const scssRule = {
@@ -38,13 +38,14 @@ export const scssRule = {
     { loader: MiniCssExtractPlugin.loader },
     { loader: 'css-loader', options: { url: false } }, // важно, чтобы в css не хешировались url
     { loader: 'sass-loader' },
-  ],
+    { loader: 'postcss-loader' }
+  ]
 };
 
 export const imgRule = {
   test: /\.(png|jpg|gif)$/,
   loader: 'file-loader',
   options: {
-    name: 'images/[name].[ext]',
-  },
+    name: 'images/[name].[ext]'
+  }
 };

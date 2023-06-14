@@ -36,7 +36,6 @@
 }
 
 .scrollContainer {
-    // FireFox
     scrollbar-width: thin;
     scrollbar-color: #dadada;
 
@@ -76,7 +75,6 @@
     }
 }
 
-// Chrome, Edge и Safari
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
