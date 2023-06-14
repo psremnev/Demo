@@ -1,5 +1,5 @@
 import { IDndDialogContainer } from 'DnDContainer/IDndDialogContainer';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 /**
  * @link DnDContainer/DndDialogContainer
@@ -12,43 +12,59 @@ export default function DndDialogContainer({
   children,
   style = {}
 }: IDndDialogContainer) {
-  const [isDrag, setIsDrag] = useState(false);
+  const [abortEventController, setAbortEventController] = useState(null);
   const [container, setContainer] = useState(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+  /**
+   * Эффект добавления подписки
+   * @param e
+   */
+  useEffect(() => {
+    if (abortEventController) {
+      addMoveListener();
+    }
+  }, [abortEventController]);
 
   /**
    * Переместить элемент к курсору мыши
    * @param pageX
    * @param pageY
    */
-  function moveAt(pageX, pageY, offset) {
+  const moveAt = (pageX, pageY, offset) => {
     container.style.left = `${pageX - offset.x}px`;
     container.style.top = `${pageY - offset.y}px`;
-  }
+  };
 
   /**
    * Начало перемещения
    * @param e
    */
-  const onPointerDown = async (e: DragEvent) => {
+  const onPointerDown = (e: PointerEvent) => {
     if (canDrag) {
       const offset = getOffset(e);
-      setIsDrag(true);
+      setAbortEventController(new AbortController());
       setOffset(offset);
       moveAt(e.pageX, e.pageY, offset);
       container.style.userSelect = 'none';
       // чтобы работало на мобильном устройстве https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event
       container.style.touchAction = 'none';
-      container.style.position = 'absolute';
-      container.style.zIndex = 1000;
     }
+  };
+
+  /**
+   * Перемещение
+   * @param e
+   */
+  const onPointerMove = (e: PointerEvent) => {
+    moveAt(e.pageX, e.pageY, offset);
   };
 
   /**
    * Получить смещение
    * @param e
    */
-  const getOffset = (e: DragEvent) => {
+  const getOffset = (e: PointerEvent) => {
     const rect = container.getBoundingClientRect();
     const xCursorOffset = e.pageX - rect.x;
     const yCursorOffset = e.pageY - rect.y;
@@ -61,13 +77,12 @@ export default function DndDialogContainer({
   };
 
   /**
-   * Перемещение
+   * Добавить подписку нa document на событие перемещения курсора
    * @param e
    */
-  const onPointerMove = (e: DragEvent) => {
-    if (canDrag && isDrag) {
-      moveAt(e.pageX, e.pageY, offset);
-    }
+  const addMoveListener = () => {
+    const { signal } = abortEventController;
+    document.addEventListener('pointermove', onPointerMove, { signal });
   };
 
   /**
@@ -77,7 +92,8 @@ export default function DndDialogContainer({
     if (canDrag) {
       container.style.userSelect = 'auto';
       container.style.touchAction = 'auto';
-      setIsDrag(false);
+      abortEventController.abort();
+      setAbortEventController(null);
     }
   };
 
@@ -87,7 +103,6 @@ export default function DndDialogContainer({
       style={style}
       ref={setContainer}
       onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
     >
       {children}
