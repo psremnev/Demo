@@ -34,6 +34,7 @@ export default function Button({
       overflow: 'hidden'
     },
     base: {
+      border: '1px solid transparent',
       padding: isOnlyIcon ? 0 : 6,
       borderRadius: 12,
       boxShadow: isOnlyIcon ? 'none' : `${accentColor} 0px 0px 4px`,
@@ -43,6 +44,8 @@ export default function Button({
         : backgroundColor
     },
     link: {
+      border: '1px solid transparent',
+      padding: '2px',
       color: 'var(--link_color)',
       textDecoration: 'underline'
     },
@@ -73,18 +76,18 @@ export default function Button({
   const onClickEvent = (e) => {
     e.stopPropagation();
     onClick && onClick();
-  }
+  };
 
   const onKeyDown = (e) => {
     if (e.keyCode === KEY_CODE_ENTER) {
-      onClickEvent(e)
+      onClickEvent(e);
     }
-  }
+  };
 
   return (
     <div
       tabIndex={0}
-      className={`btn type-${type}`}
+      className={`btn btnType-${type}`}
       style={{ ...style.general, ...style[type] }}
       onClick={onClickEvent}
       onKeyDown={onKeyDown}

@@ -1,3 +1,20 @@
 .btn:hover {
     filter: brightness(.9) !important;
 }
+
+.btnType-base:focus-visible {
+    border: 1px solid rgb(255, 203, 83) !important;
+    outline: none;
+}
+
+.btnType-link:focus-visible {
+    background: #d0dbff;
+    border-radius: 6px;
+    padding: 2px;
+    outline: none;
+}
+
+.btnType-icon:focus-visible {
+    background: rgb(86 140 192 / 75%) !important;
+    outline: none;
+}
