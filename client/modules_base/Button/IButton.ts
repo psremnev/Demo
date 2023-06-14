@@ -1,6 +1,7 @@
 import { BUTTONS_TYPE } from 'Button/constants';
 
 export interface IButton {
+  readOnly?: boolean;
   title?: string;
   className?: string;
   type?: (typeof BUTTONS_TYPE)[keyof typeof BUTTONS_TYPE];

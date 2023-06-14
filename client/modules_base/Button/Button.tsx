@@ -7,6 +7,7 @@ import 'Button/Button.scss';
  * @description Кнопка
  */
 export default function Button({
+  readOnly = true,
   type = BUTTONS_TYPE.BASE,
   icon = '',
   imageUrl = '',
@@ -31,7 +32,10 @@ export default function Button({
       filter: 'brightness(1)',
       cursor: 'pointer',
       mixBlendMode,
-      overflow: 'hidden'
+      overflow: 'hidden',
+      background: 'transparent',
+      outline: 'none',
+      border: 'none'
     },
     base: {
       border: '1px solid transparent',
@@ -61,17 +65,15 @@ export default function Button({
     image: {
       width: imageSize,
       height: imageSize
-    }
+    },
+    titleStyle:
+      type === BUTTONS_TYPE.LINK
+        ? {
+            color: 'var(--link_color)'
+          }
+        : {},
+    titleMarginStyle: { marginRight: title ? 6 : 0, padding: 4 }
   };
-
-  const titleStyle =
-    type === BUTTONS_TYPE.LINK
-      ? {
-          color: 'var(--link_color)'
-        }
-      : {};
-
-  const titleMarginStyle = { marginRight: title ? 6 : 0, padding: 4 };
 
   const onClickEvent = (e) => {
     e.stopPropagation();
@@ -85,20 +87,21 @@ export default function Button({
   };
 
   return (
-    <div
+    <button
+      className={`btn btnType-${type} ${readOnly ? 'btn_readOnly' : ''}`}
+      disabled={readOnly}
       tabIndex={0}
-      className={`btn btnType-${type}`}
       style={{ ...style.general, ...style[type] }}
       onClick={onClickEvent}
       onKeyDown={onKeyDown}
     >
       {hasImage && <img src={imageUrl} />}
-      {hasIcon && <div style={titleMarginStyle} className={icon}></div>}
+      {hasIcon && <div style={style.titleMarginStyle} className={icon}></div>}
       {title && (
-        <span title={title} style={titleStyle}>
+        <span title={title} style={style.titleStyle}>
           {title}
         </span>
       )}
-    </div>
+    </button>
   );
 }

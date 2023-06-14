@@ -18,3 +18,11 @@
     background: rgb(86 140 192 / 75%) !important;
     outline: none;
 }
+
+.btn_readOnly {
+    opacity: .3;
+}
+
+.btn_readOnly:hover {
+    filter: brightness(1) !important;
+}
