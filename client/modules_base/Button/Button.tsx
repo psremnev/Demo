@@ -7,7 +7,7 @@ import 'Button/Button.scss';
  * @description Кнопка
  */
 export default function Button({
-  readOnly = true,
+  readOnly = false,
   type = BUTTONS_TYPE.BASE,
   icon = '',
   imageUrl = '',
