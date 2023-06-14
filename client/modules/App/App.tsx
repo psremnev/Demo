@@ -14,7 +14,16 @@ export default function App({ contentData }) {
   const ContentNode = lazy(() => import(`modules/${module}`));
 
   return (
-    <>
+    <section style={{
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0 20px',
+      boxSizing: 'border-box',
+      minWidth: '400px',
+      maxWidth: '70%',
+      height: '100%',
+      margin: 'auto'
+    }}>
       <Header hasSearch={hasSearch} />
       <main className="app-main">
         {app.leftSide && <LeftSide />}
@@ -23,6 +32,6 @@ export default function App({ contentData }) {
         </Suspense>
         {app.rightSide && <RightSide />}
       </main>
-    </>
+    </section>
   );
 }

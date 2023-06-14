@@ -4,6 +4,15 @@ import { DEFAULT_OPTIONS } from 'Popup/constants';
 import { default as Element } from 'Popup/Element';
 import 'Popup/Popup.scss';
 
+const modalStyle = `
+  width: 100%;
+  height: 100%;
+  background: #2d2c2c47;
+  position: fixed;
+  z-index: 2;
+  box-sizing: border-box;
+`
+
 /**
  * @class Popup/Popup
  * @description Всплывающее окно диалога или стек панели с произвольным контентом
@@ -25,8 +34,8 @@ export default class Popup {
   };
 
   private isParentPopup(e): boolean {
-    let isPopup = false
-    let el = e.target.parentNode as HTMLElement
+    let isPopup = false;
+    let el = e.target.parentNode as HTMLElement;
     while (!!el.parentNode) {
       if (el.className?.includes('popup')) {
         isPopup = true;
@@ -38,12 +47,16 @@ export default class Popup {
   }
 
   open(options: IPopup): void {
+    options.modal = true;
     this.options = options;
     if (this.popupIsOpened) {
       this.close();
     }
     const rootEl = document.createElement('div');
     rootEl.className = 'popup';
+    if (options.modal) {
+      rootEl.style.cssText = modalStyle;
+    }
     this.popupElLink = document.body.appendChild(rootEl);
     const reactRootEl = ReactDOM.createRoot(rootEl);
     const popupOptions = {

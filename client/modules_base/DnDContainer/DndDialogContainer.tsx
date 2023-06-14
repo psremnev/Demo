@@ -92,7 +92,7 @@ export default function DndDialogContainer({
     if (canDrag) {
       container.style.userSelect = 'auto';
       container.style.touchAction = 'auto';
-      abortEventController.abort();
+      abortEventController?.abort();
       setAbortEventController(null);
     }
   };
