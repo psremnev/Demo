@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import {tsRule, scssRule} from '../webpackRules.js';
+import { tsRule, scssRule } from '../webpackUtils/webpackRules.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,30 +11,30 @@ export default {
   mode: 'production',
   watch: true,
   watchOptions: {
-    ignored: ['**/node_modules/', '**/build'],
+    ignored: ['**/node_modules/', '**/build']
   },
   entry: {
-    demo: './docs/index.tsx',
+    demo: './docs/index.tsx'
   },
   output: {
     path: `${__dirname}`,
     filename: '[name].js',
-    chunkFormat: 'module',
+    chunkFormat: 'module'
   },
   experiments: {
     outputModule: true,
-    topLevelAwait: true,
+    topLevelAwait: true
   },
   module: {
-    rules: [tsRule, scssRule],
+    rules: [tsRule, scssRule]
   },
   target: 'node',
   resolve: {
     extensions: ['.ts', '.tsx'],
     // TsconfigPathsPlugin - чтобы работали пути импорта из tsconfig
     plugins: [
-      new TsconfigPathsPlugin({ configFile: `${__dirname}/../tsconfig.json` }),
-    ],
+      new TsconfigPathsPlugin({ configFile: `${__dirname}/../tsconfig.json` })
+    ]
   },
   plugins: [
     new MiniCssExtractPlugin({

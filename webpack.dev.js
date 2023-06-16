@@ -1,15 +1,19 @@
 import * as path from 'path';
 import { fileURLToPath } from 'url';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CopyPlugin from 'copy-webpack-plugin';
+
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import {
   tsRule,
-  scssRule,
+  scssRuleWithExtractPlugin,
   fontsRule,
   imgRule,
-  webpack5esmInteropRule
-} from './webpackRules.js';
+  webpack5esmInteropRule,
+  babelRule
+} from './webpackUtils/webpackRules.js';
+import {
+  copyPlugin,
+  cssExtractPlugin
+} from './webpackUtils/webpackPlugins.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,54 +25,49 @@ const resolveCfg = {
   ]
 };
 
-export default {
-  mode: 'development',
-  watch: true,
-  watchOptions: {
-    ignored: ['**/node_modules/', '**/build']
-  },
-  entry: {
-    server: './server/server.tsx',
-    client: './client/client.tsx'
-  },
-  output: {
-    path: `${__dirname}/build`,
-    filename: '[name].js',
-    chunkFormat: 'module',
-    clean: true,
-    pathinfo: false
-  },
-  experiments: {
-    outputModule: true,
-    topLevelAwait: true
-  },
-  target: 'node',
-  module: {
-    rules: [webpack5esmInteropRule, tsRule, scssRule, imgRule, fontsRule]
-  },
-  resolve: resolveCfg,
-  plugins: [
-    new CopyPlugin({
-      patterns: [
-        {
-          // копируем шрифты
-          from: 'fonts',
-          globOptions: {
-            ignore: ['**/*.scss']
-          }
-        },
-        {
-          // копируем ассеты
-          from: 'public',
-          to: 'public',
-          globOptions: {
-            ignore: ['**/*.scss']
-          }
-        }
+const getConfig = ({
+  entry,
+  client = true,
+  outputName = '[name]',
+  mode = 'development'
+}) => {
+  return {
+    mode,
+    watch: true,
+    watchOptions: {
+      ignored: ['**/node_modules/', '**/build']
+    },
+    entry,
+    output: {
+      path: `${__dirname}/build`,
+      filename: `${outputName}.js`,
+      chunkFormat: 'module'
+    },
+    experiments: {
+      outputModule: true,
+      topLevelAwait: true
+    },
+    target: client ? 'web' : 'async-node',
+    module: {
+      rules: [
+        webpack5esmInteropRule,
+        tsRule,
+        scssRuleWithExtractPlugin,
+        imgRule,
+        fontsRule,
+        babelRule
       ]
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'style.css'
-    })
-  ]
+    },
+    resolve: resolveCfg,
+    plugins: client ? [] : [copyPlugin, cssExtractPlugin]
+  };
 };
+
+export default [
+  getConfig({ entry: './client/endpoint.tsx', outputName: 'client' }),
+  getConfig({
+    entry: './server/endpoint.tsx',
+    client: false,
+    outputName: 'server'
+  })
+];

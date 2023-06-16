@@ -1,6 +1,6 @@
 import eng from 'lang/eng.json';
 import { LANG } from 'types';
-import { getAppContext } from 'base_utils/getAppContext';
+import { getAppContext } from 'utils/getAppContext';
 
 export function translate(value: string) {
   const { lang } = getAppContext();

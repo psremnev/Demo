@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 import app from 'configs/app.config.json';
 import { LANG, THEME } from 'types';
-import { getAppContext } from 'base_utils/getAppContext';
+import { getAppContext } from 'utils/getAppContext';
 import { Button } from 'button';
 import { Contacts } from 'contacts';
 import { Settings } from 'settings';
-import { openLink } from 'base_utils/openLink';
-import { translate } from 'base_utils/translate';
+import { openLink } from 'utils/openLink';
+import { translate } from 'utils/translate';
 import { Search } from 'search';
 import 'App/Header.scss';
 

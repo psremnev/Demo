@@ -3,7 +3,7 @@ import { LoadButtonType } from 'LoadButton/constants';
 import { useState } from 'react';
 import { selectFiles } from 'LoadButton/selectFiles';
 import { Button } from 'button';
-import { translate } from 'base_utils/translate';
+import { translate } from 'utils/translate';
 
 /**
  * @link LoadButton/LoadButton

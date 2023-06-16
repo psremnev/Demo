@@ -231,7 +231,7 @@ export default function ScrollContainer({
         showUpBtn &&
         orientation === ORIENTATION_TYPE.VERTICAL &&
         !showScrollBar && (
-          <div style={{ position: 'absolute', bottom: 4, right: 0 }}>
+          <div style={{ position: 'absolute', bottom: 15, right: 0 }}>
             <Button
               className="scrollContainer__scrollTopBtn"
               icon="ti-arrow-up"

@@ -21,7 +21,8 @@ const getStyle = (width, target, targetOffset, type) => {
     background: '#ffffff',
     width,
     padding: 6,
-    zIndex: 10
+    zIndex: 10,
+    maxWidth: '100%'
   };
 
   const dialogStyle = {

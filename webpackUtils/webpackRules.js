@@ -32,10 +32,20 @@ export const fontsRule = {
   loader: 'file-loader'
 };
 
-export const scssRule = {
+export const scssRuleWithExtractPlugin = {
   test: /\.(sa|sc|c)ss$/,
   use: [
     { loader: MiniCssExtractPlugin.loader },
+    { loader: 'css-loader', options: { url: false } }, // важно, чтобы в css не хешировались url
+    { loader: 'sass-loader' },
+    { loader: 'postcss-loader' }
+  ]
+};
+
+export const scssRule = {
+  test: /\.(sa|sc|c)ss$/,
+  use: [
+    { loader: 'style-loader' },
     { loader: 'css-loader', options: { url: false } }, // важно, чтобы в css не хешировались url
     { loader: 'sass-loader' },
     { loader: 'postcss-loader' }

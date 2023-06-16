@@ -1,6 +1,6 @@
 import Service from 'Service/Service';
 import List from 'List/List';
-import { openLink } from 'base_utils/openLink';
+import { openLink } from 'utils/openLink';
 import { Button } from 'button';
 import { Popup, POPUP_TYPE } from 'popup';
 import { useMemo } from 'react';

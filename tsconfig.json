@@ -16,7 +16,7 @@
         "*",
         "client/*",
         "client/modules/*",
-        "client/modules_base/*",
+        "libs/BaseUI/*",
         "server/*",
         "server/modules/*"
       ]
@@ -27,6 +27,6 @@
     "node_modules",
     "webpack.dev.js",
     "webpack.prod.js",
-    "webpackRules.js"
+    "webpackUtils/webpackRules.js"
   ]
 }

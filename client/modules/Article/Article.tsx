@@ -3,8 +3,8 @@ import { Header } from 'header';
 import { getBackgroundColor } from 'Article/getBackgroundColor';
 import { useMemo } from 'react';
 import { Button, BUTTONS_TYPE } from 'button';
+import { openLink } from 'utils/openLink';
 import 'Article/Article.scss';
-import { openLink } from 'base_utils/openLink';
 
 /**
  * @link Article/Article

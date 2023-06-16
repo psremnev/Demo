@@ -4,7 +4,6 @@ import LeftSide from 'App/LeftSide';
 import RightSide from 'App/RightSide';
 import app from 'configs/app.config.json';
 import { Loader } from 'loader';
-import { ScrollContainer } from 'scrollContainer';
 import 'App/App.scss';
 
 export default function App({ contentData }) {
@@ -22,7 +21,8 @@ export default function App({ contentData }) {
       minWidth: '400px',
       maxWidth: '70%',
       height: '100%',
-      margin: 'auto'
+      margin: 'auto',
+      width: '100%'
     }}>
       <Header hasSearch={hasSearch} />
       <main className="app-main">
