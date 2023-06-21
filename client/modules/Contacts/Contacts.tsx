@@ -12,8 +12,8 @@ export default function Contacts({
   telegram = ''
 }: IContactsOptions) {
   const contacts = [
-    { url: 'public/vk.png', link: vk },
-    { url: 'public/telegram.png', link: telegram }
+    { url: 'public/img/vk.png', link: vk },
+    { url: 'public/img/telegram.png', link: telegram }
   ];
 
   return (

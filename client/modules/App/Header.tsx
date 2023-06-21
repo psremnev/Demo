@@ -64,7 +64,7 @@ export default function Header({ hasSearch = false }) {
       <section className="app-header__firstRow">
         <section className="app-header__firstRowTitle">
           <a href="/">{app.title}</a>
-          <img src="public/code.png" />
+          <img src="public/img/code.png" />
         </section>
         {hasSearch && (
           <section className="app-header__firstRowSearch">

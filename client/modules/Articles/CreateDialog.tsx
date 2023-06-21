@@ -6,7 +6,7 @@ import { LoadButton } from 'loadButton';
  * Диалог создания статьи
  */
 export const CreateDialog = ({ eventHandlers }) => {
-  const defaultPhoto = 'public/default_profile_photo.jpg';
+  const defaultPhoto = 'public/img/default_profile_photo.jpg';
   const [photo, setPhoto] = useState(defaultPhoto);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');

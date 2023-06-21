@@ -14,6 +14,7 @@ import { listData, treeData } from 'test_data/TestData';
 import { ScrollContainer } from 'scrollContainer';
 
 import { useState } from 'react';
+import { AudioPlayer } from 'libs/BaseUI/audioPlayer';
 
 /**
  * Демо страница для компонентов приложения
@@ -81,6 +82,14 @@ export default function () {
           boxSizing: 'border-box'
         }}
       >
+        <DemoItem
+          title="Аудио плеер"
+          content={
+            <div style={{ display: 'flex' }}>
+              <AudioPlayer source={['public/1.mp3', 'public/2.mp3']} />
+            </div>
+          }
+        />
         <DemoItem
           title="Поиск"
           content={

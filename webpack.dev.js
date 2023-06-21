@@ -59,7 +59,7 @@ const getConfig = ({
       ]
     },
     resolve: resolveCfg,
-    plugins: client ? [] : [copyPlugin, cssExtractPlugin]
+    plugins: [copyPlugin, cssExtractPlugin]
   };
 };
 
