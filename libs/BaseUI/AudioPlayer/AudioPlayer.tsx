@@ -27,7 +27,11 @@ const getDuration = (timeInSec) => {
 export default function AudioPlayer({
   source = [],
   sourcePositionStart = 0,
-  volume = 30
+  volume = 30,
+  sliderColor = '#fee7b1',
+  backgroundColor = '#ffffff',
+  borderColor = '#dedede',
+  borderRadius = 6
 }) {
   const [audio, setAudio] = useState(null);
   const [isPlay, setIsPlay] = useState(false);
@@ -101,7 +105,14 @@ export default function AudioPlayer({
   };
 
   return (
-    <div className="audioPlayer">
+    <div
+      className="audioPlayer"
+      style={{
+        background: backgroundColor,
+        border: `1px solid  ${borderColor}`,
+        borderRadius
+      }}
+    >
       <span className="audioPlayer__duration">{duration}</span>
       <div
         className={`audioPlayer__prevBtn ${
@@ -125,7 +136,7 @@ export default function AudioPlayer({
       <input
         className="audioPlayer__slider"
         style={{
-          background: `linear-gradient(to right, #956aff 0%, #956aff ${procentProgress}%, #fff ${procentProgress}%, white 100%)`
+          background: `linear-gradient(to right, ${sliderColor} ${procentProgress}%, #e9e9e9 ${procentProgress}%)`
         }}
         type="range"
         value={progress}
