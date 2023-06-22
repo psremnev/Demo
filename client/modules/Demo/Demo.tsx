@@ -86,7 +86,20 @@ export default function () {
           title="Аудио плеер"
           content={
             <div style={{ display: 'flex' }}>
-              <AudioPlayer source={['public/1.mp3', 'public/2.mp3']} />
+              <AudioPlayer
+                idProperty="id"
+                titleProperty="title"
+                linkProperty="link"
+                source={[
+                  {
+                    id: 1,
+                    title: '1',
+                    link: 'public/1.mp3',
+                    duration: '03:50'
+                  },
+                  { id: 2, title: '2', link: 'public/2.mp3', duration: '02:14' }
+                ]}
+              />
             </div>
           }
         />
