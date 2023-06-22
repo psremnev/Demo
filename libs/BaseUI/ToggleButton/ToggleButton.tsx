@@ -19,7 +19,7 @@ export default function ToggleButton({ clickCallback }: IToggleButton) {
   return (
     <section
       className="toggleButton"
-      style={{ background: state ? '#d7dbef' : 'transparent' }}
+      style={{ background: state ? '#e0efd7' : '#ffdddd' }}
       onClick={onClick}
     >
       <div
