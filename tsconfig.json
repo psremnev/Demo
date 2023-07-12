@@ -24,6 +24,7 @@
   },
   "exclude": [
     "build",
+    "docs",
     "node_modules",
     "webpack.dev.js",
     "webpack.prod.js",

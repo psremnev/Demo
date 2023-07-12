@@ -16,7 +16,8 @@ function AudioPlayer(props: IAudioPlayer) {
         display: 'flex',
         flexDirection: 'column',
         border: `1px solid  ${props.borderColor}`,
-        borderRadius: props.borderRadius
+        borderRadius: props.borderRadius,
+        background: props.backgroundColor
       }}
     >
       <div
@@ -50,6 +51,7 @@ function AudioPlayer(props: IAudioPlayer) {
           idProperty={props.idProperty}
           titleProperty={props.titleProperty}
           source={props.source}
+          backgroundColor={props.backgroundColor}
         />
       ) : null}
     </div>

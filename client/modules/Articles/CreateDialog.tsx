@@ -38,7 +38,7 @@ export const CreateDialog = ({ eventHandlers }) => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minWidth: 450 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minWidth: 450, height: '100%'}}>
       <div
         style={{
           display: 'flex',
@@ -79,7 +79,7 @@ export const CreateDialog = ({ eventHandlers }) => {
       <Header title="Контент" size={16} />
       <textarea
         className="articlesAdd__content"
-        style={{ ...inputStyle, height: 400, width: '100%' }}
+        style={{ ...inputStyle, width: '100%', flex: 1 }}
         placeholder="Введите контент статьи"
         onChange={contentChanged}
       />

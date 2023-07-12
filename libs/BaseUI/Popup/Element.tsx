@@ -108,17 +108,22 @@ export default function Element({
       closeCallback && closeCallback();
     }
   };
-  
+
   const setContainer = (element) => {
     element.focus();
-  }
+  };
 
   return (
     <DnDDialogContainer
       style={getStyle(width, target, targetOffset, type)}
       canDrag={canDrag && type !== POPUP_TYPE.STACK}
     >
-      <section ref={setContainer} tabIndex={-1} onKeyDown={onKeyDown}>
+      <section
+        ref={setContainer}
+        tabIndex={-1}
+        onKeyDown={onKeyDown}
+        style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+      >
         {title && (
           <header className="popup-header">
             <span className="popup-header__title">{title}</span>
@@ -131,6 +136,7 @@ export default function Element({
         )}
         <main
           className="popup-content"
+          style={{ height: '100%' }}
           onPointerDown={(e) => e.stopPropagation()}
         >
           {Content && <Content eventHandlers={eventHandlers} />}

@@ -33,7 +33,8 @@ export default function Playlist({
   idProperty,
   titleProperty,
   activeId,
-  onItemClick
+  onItemClick,
+  backgroundColor
 }) {
   return (
     <div
@@ -42,7 +43,8 @@ export default function Playlist({
         width: '100%',
         flexDirection: 'column',
         padding: 20,
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        background: backgroundColor
       }}
     >
       <div
