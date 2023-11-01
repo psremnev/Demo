@@ -15,9 +15,25 @@ body {
 
 body span,
 body a {
-    color: white;
-    mix-blend-mode: difference;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: inherit;
+    &:visited {
+            color: inherit;
+        }
+
+    &:active {
+        color: inherit;
+    }
+}
+
+.theme_light {
+    color: var(--default_text_color);
+    background: white;
+}
+
+.theme_dark {
+    color: white;
+    background: var(--dark_theme);
 }

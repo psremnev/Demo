@@ -2,7 +2,7 @@ import app from 'configs/app.config.json';
 import { App } from 'app';
 import { useState, useEffect } from 'react';
 import AppContext from 'App/context/app';
-import { THEME, THEME_COLOR, LANG } from 'types';
+import { THEME, LANG } from 'types';
 import 'Index.scss';
 
 export default function Index({ contentData }) {
@@ -57,12 +57,9 @@ export default function Index({ contentData }) {
         ></script>
       </head>
       <body
-        style={{
-          background:
-            appParams.theme === THEME.light
-              ? THEME_COLOR.light
-              : THEME_COLOR.dark
-        }}
+        className={
+          appParams.theme === THEME.light ? 'theme_light' : 'theme_dark'
+        }
       >
         <AppContext.Provider value={appParams}>
           <App contentData={{ options, module, hasSearch }} />

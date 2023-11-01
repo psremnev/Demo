@@ -35,7 +35,8 @@ export default function ({
     padding: `${containerPadding.current.top}px ${containerPadding.current.right}px
                  ${containerPadding.current.bottom}px ${containerPadding.current.left}px`,
     width: '100%',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    color: 'var(--default_text_color)'
   };
 
   return (

@@ -191,7 +191,7 @@ export default function Player({
           </div>
         ) : null}
       </div>
-      <div className="audioPlayer__download" style={{ position: 'relative' }}>
+      <div className="audioPlayer__download" style={{ position: 'relative', color: 'var(--default_text_color)' }}>
         <div className="audioPlayer__downloadIcon" />
         <a href={source} download />
       </div>

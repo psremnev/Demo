@@ -6,7 +6,7 @@ import { ISettingsOptions } from 'Settings/ISettings';
  */
 export default function Settings({
   items = [],
-  backgroundColor = 'transparent'
+  backgroundColor = 'var(--default_background_color)'
 }: ISettingsOptions) {
   return (
     <section className="settings flexbox">
@@ -19,7 +19,6 @@ export default function Settings({
             multiSelect={false}
             selectedKeys={[item.selectedKey]}
             selectedKeysChanged={item.callback}
-            mixBlendMode="difference"
           />
         </div>
       ))}

@@ -77,6 +77,7 @@ export default function ({
           }
           title="Показать еще"
           type={BUTTONS_TYPE.LINK}
+          backgroundColor="transparent"
         />
       )}
       {!page && (

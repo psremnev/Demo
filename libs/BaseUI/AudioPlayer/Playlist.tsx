@@ -14,7 +14,8 @@ const Item = ({ item, activeId, idProperty, titleProperty }) => {
         padding: 6,
         boxSizing: 'border-box',
         borderRadius: 6,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        color: 'var(--default_text_color)'
       }}
     >
       <div>{item[titleProperty]}</div>
@@ -51,7 +52,8 @@ export default function Playlist({
         style={{
           display: 'flex',
           width: '100%',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          color: 'var(--default_text_color)'
         }}
       >
         <div>Name</div>

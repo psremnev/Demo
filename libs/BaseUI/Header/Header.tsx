@@ -8,13 +8,12 @@ import { IHeader } from 'Header/IHeader';
 export default function Header({
   title,
   size = 20,
-  color = 'var(--default_color)'
+  color = 'inherit'
 }: IHeader) {
   return (
     <span
       style={{
         fontSize: size,
-        color,
         fontFamily: 'monospace',
         fontWeight: 'bold'
       }}

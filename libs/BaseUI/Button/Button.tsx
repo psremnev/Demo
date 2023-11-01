@@ -15,7 +15,6 @@ export default function Button({
   iconSize = 20,
   backgroundColor = 'var(--default_background_color)',
   accentColor = 'var(--dark_grey)',
-  mixBlendMode = 'unset',
   title = '',
   onClick
 }: IButton) {
@@ -31,9 +30,8 @@ export default function Button({
       alignItems: 'center',
       filter: 'brightness(1)',
       cursor: 'pointer',
-      mixBlendMode,
       overflow: 'hidden',
-      background: 'transparent',
+      background: 'inherit',
       outline: 'none',
       border: 'none'
     },
@@ -51,7 +49,8 @@ export default function Button({
       border: '1px solid transparent',
       padding: '2px',
       color: 'var(--link_color)',
-      textDecoration: 'underline'
+      textDecoration: 'underline',
+      background: backgroundColor
     },
     icon: {
       borderRadius: '50%',

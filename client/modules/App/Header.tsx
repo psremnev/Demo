@@ -86,9 +86,7 @@ export default function Header({ hasSearch = false }) {
             className="app-header__accordionBtn marginRight-pre-m"
           >
             <Button
-              backgroundColor="transparent"
               title={item.title}
-              mixBlendMode="difference"
               onClick={() => openLink(item.link)}
             />
           </div>

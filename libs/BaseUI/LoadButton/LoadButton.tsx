@@ -107,7 +107,7 @@ export default function LoadButton({
       alignItems: 'center',
       background: isDropEnter
         ? 'var(--light_grey_background_color)'
-        : 'var(--default_background_color)',
+        : 'inherit',
       padding: 6,
       justifyContent: 'center',
       userSelect: 'none'

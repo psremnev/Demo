@@ -11,6 +11,5 @@ export interface IButton {
   iconSize?: number; // размер иконки
   backgroundColor?: string; // любой css цвет
   accentColor?: string;
-  mixBlendMode?: string; // css mixBlendMode
   onClick?: Function;
 }
