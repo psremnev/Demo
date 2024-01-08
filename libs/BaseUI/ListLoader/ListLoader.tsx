@@ -32,7 +32,7 @@ export default function ListLoader({
   );
   const [thisItems, setThisItems] = useState(collection.getItems());
   const thisNavigation = useMemo(() => {
-    return  {...DEFAULT_NAVIGATION, ...navigation}
+    return { ...DEFAULT_NAVIGATION, ...navigation };
   }, [navigation]);
   const navStep = thisNavigation.limit;
   const lastNavPosition = useRef(items?.length || 0);
@@ -58,10 +58,14 @@ export default function ListLoader({
     if (source) {
       try {
         setIsDataLoad(true);
-        const navigation = { skip: lastNavPosition.current, limit: thisNavigation.limit };
+        const navigation = {
+          skip: lastNavPosition.current,
+          limit: thisNavigation.limit
+        };
         const loadItems = await source.query(filter || {}, navigation);
         if (!loadItems.length) {
           hasMore.current[direction] = false;
+          dataLoadCallback && dataLoadCallback(collection);
           return;
         }
         const oldItems = collection.getItems();
@@ -100,7 +104,8 @@ export default function ListLoader({
    * Подписка на изменение коллекции
    */
   useEffect(() => {
-    collectionSubscribeId.current = collection.subscribeCollectionChange(collectionChange);
+    collectionSubscribeId.current =
+      collection.subscribeCollectionChange(collectionChange);
     return () =>
       collection.unsubscribeCollectionChange(collectionSubscribeId.current);
   }, [collection]);
@@ -152,7 +157,11 @@ export default function ListLoader({
    */
   const setContainer = (container: HTMLElement) => {
     if (container) {
-      if (canLoadData && needLoadDataByContainer(container) && hasMore.current[DIRECTION.END]) {
+      if (
+        canLoadData &&
+        needLoadDataByContainer(container) &&
+        hasMore.current[DIRECTION.END]
+      ) {
         // догружаем записи если размер элементов меньше размера скролконтейнера
         loadData(DIRECTION.END);
       }

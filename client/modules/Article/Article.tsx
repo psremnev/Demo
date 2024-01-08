@@ -23,9 +23,7 @@ export default function ({
     if (initItem.image) {
       return `url(${item.image}})`;
     } else {
-      return initItem._id
-        ? getBackgroundColor(initItem._id)
-        : HEADER_BASE_COLOR;
+      return HEADER_BASE_COLOR;
     }
   }, []);
 
@@ -73,7 +71,7 @@ export default function ({
       {!page && (
         <Button
           onClick={() =>
-            openLink(`/article?id=${initItem._id}&mode=view&page=true`, true)
+            openLink(`/article?id=${initItem.id}&mode=view&page=true`, true)
           }
           title="Показать еще"
           type={BUTTONS_TYPE.LINK}

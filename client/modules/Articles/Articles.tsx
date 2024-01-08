@@ -6,7 +6,7 @@ import { Popup, POPUP_TYPE } from 'popup';
 import { useMemo } from 'react';
 import Article from 'Article/Article';
 import { useRef } from 'react';
-import {CreateDialog} from './CreateDialog';
+import { CreateDialog } from './CreateDialog';
 
 /**
  * @link Articles/Articles
@@ -16,9 +16,6 @@ export default function () {
   const collection = useRef(null);
   const service = new Service({ endpoint: 'articles' });
   const popup = useMemo(() => new Popup(), []);
-  service.call('find', {}).then((res) => {
-    const d = res;
-  });
 
   /**
    * Открыть диалог создания статьи
@@ -57,8 +54,7 @@ export default function () {
     if (title) {
       service.create([{ title, author, photo, content }]).then(async (res) => {
         popup.close();
-        const newArticle = await service.read({ _id: res.insertedId });
-        collection.current.add(newArticle, 0);
+        collection.current.add(res, 0);
       });
     } else {
       alert('Не задано имя');
@@ -77,10 +73,10 @@ export default function () {
         <Button icon="ti-plus" onClick={openArticleAddDialog} />
       </header>
       <List
-        idProperty="_id"
+        idProperty="id"
         source={service}
         onItemClick={(item) =>
-          openLink(`/article?id=${item._id}&mode=view&page=true`, true)
+          openLink(`/article?id=${item.id}&mode=view&page=true`, true)
         }
         itemTemplate={(props) => (
           <Article {...{ ...props, menuClickCallback }} />

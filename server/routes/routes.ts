@@ -1,2 +1,2 @@
 export { PageRouter, PageAddress } from './pageRouter';
-export { ArticlesRouter } from './api/articlesRouter';
+export { ArticlesRouter } from './articlesRouter';
